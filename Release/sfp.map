@@ -1,0 +1,457 @@
+
+Map of Release\sfp.sm8 from link file Release\sfp.lkf - Thu Sep 14 02:14:21 2017
+
+
+                               --------
+                               Segments
+                               --------
+
+start 00008080 end 000080d0 length    80 segment .const
+start 000080d3 end 0000835d length   650 segment .text
+start 00004000 end 00004000 length     0 segment .eeprom
+start 00000000 end 00000000 length     0 segment .bsct
+start 00000000 end 00000006 length     6 segment .ubsct
+start 00000006 end 00000006 length     0 segment .bit
+start 00000006 end 00000006 length     0 segment .share
+start 00000100 end 00000100 length     0 segment .data
+start 00000100 end 00000100 length     0 segment .bss
+start 00000000 end 000003e5 length   997 segment .info.
+start 00008000 end 00008080 length   128 segment .const
+start 000080d0 end 000080d3 length     3 segment .init
+
+
+                               -------
+                               Modules
+                               -------
+
+C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8:
+start 000080d3 end 00008123 length    80 section .text
+start 00000100 end 00000100 length     0 section .bss
+start 00000000 end 00000000 length     0 section .ubsct
+start 00000000 end 00000034 length    52 section .info.
+
+Release\stm8s_gpio.o:
+start 00000034 end 000000d3 length   159 section .info.
+start ******** end ******** length     0 section .text *** removed ***
+start 00008123 end 000081c2 length   159 section .text
+start ******** end ******** length     0 section .text *** removed ***
+start 000081c2 end 000081c7 length     5 section .text
+start 000081c7 end 000081cd length     6 section .text
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start 00008080 end 000080a8 length    40 section .const
+
+Release\stm8s_tim1.o:
+start 000000d3 end 00000172 length   159 section .info.
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .const *** removed ***
+
+Release\stm8s_tim2.o:
+start 00000172 end 00000211 length   159 section .info.
+start 000081cd end 00008226 length    89 section .text
+start 00008226 end 00008234 length    14 section .text
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start 00008234 end 00008259 length    37 section .text
+start 00008259 end 00008296 length    61 section .text
+start 00008296 end 000082bb length    37 section .text
+start 000082bb end 000082e0 length    37 section .text
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start 000080a8 end 000080d0 length    40 section .const
+
+Release\main.o:
+start 00000211 end 000002aa length   153 section .info.
+start 000082e0 end 0000832e length    78 section .text
+start 0000832e end 0000834f length    33 section .text
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start 0000834f end 0000835a length    11 section .text
+start 0000835a end 0000835c length     2 section .text
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)xreg.o:
+start 00000000 end 00000003 length     3 section .ubsct
+start 000002aa end 000002d9 length    47 section .info.
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)yreg.o:
+start 00000003 end 00000006 length     3 section .ubsct
+start 000002d9 end 00000308 length    47 section .info.
+
+Release\stm8_interrupt_vector.o:
+start 00000308 end 000003b2 length   170 section .info.
+start 0000835c end 0000835d length     1 section .text
+start 00008000 end 00008080 length   128 section .const
+
+
+                             -----------
+                             Stack usage
+                             -----------
+
+Release\main.o:
+L5_TIM2_wakeup_setup           12   (2)
+_Delay                          4   (4)
+_assert_failed                  6   (6)
+_main                      >   15   (3)
+
+Release\stm8_interrupt_vector.o:
+f_NonHandledInterrupt      >    6   (6)
+
+Release\stm8s_gpio.o:
+_GPIO_Init                     12   (6)
+_GPIO_WriteHigh                 5   (5)
+_GPIO_WriteLow                  5   (5)
+
+Release\stm8s_tim2.o:
+_TIM2_Cmd                       9   (3)
+_TIM2_DeInit                    2   (2)
+_TIM2_ITConfig                 10   (4)
+_TIM2_TimeBaseInit              5   (5)
+_TIM2_UpdateDisableConfig       9   (3)
+_TIM2_UpdateRequestConfig       9   (3)
+
+Stack size: 21
+
+
+                              ---------
+                              Call tree
+                              ---------
+   1 > __stext: (0)
+
+   2 > _main: (3)
+   3      + L5_TIM2_wakeup_setup: (2)
+   4      |    + _TIM2_Cmd: (3)
+   5      |    |    + _assert_failed: (6)
+          |    | 
+   6      |    + _TIM2_DeInit: (2)
+   7      |    + _TIM2_ITConfig: (4)
+   8      |    |    + _assert_failed --> 5
+          |    | 
+   9      |    + _TIM2_TimeBaseInit: (5)
+  10      |    + _TIM2_UpdateDisableConfig: (3)
+  11      |    |    + _assert_failed --> 5
+          |    | 
+  12      |    + _TIM2_UpdateRequestConfig: (3)
+  13      |    |    + _assert_failed --> 5
+          |    | 
+          | 
+  14      + _Delay: (4)
+  15      + _GPIO_Init: (6)
+  16      |    + _assert_failed --> 5
+          | 
+  17      + _GPIO_WriteHigh: (5)
+  18      + _GPIO_WriteLow: (5)
+       
+  19 > f_NonHandledInterrupt: (6)
+
+  20   L5_TIM2_wakeup_setup --> 3
+
+  21   _Delay --> 14
+
+  22   _GPIO_Init --> 15
+
+  23   _GPIO_WriteHigh --> 17
+
+  24   _GPIO_WriteLow --> 18
+
+  25   _TIM2_Cmd --> 4
+
+  26   _TIM2_DeInit --> 6
+
+  27   _TIM2_ITConfig --> 7
+
+  28   _TIM2_TimeBaseInit --> 9
+
+  29   _TIM2_UpdateDisableConfig --> 10
+
+  30   _TIM2_UpdateRequestConfig --> 12
+
+  31   _assert_failed --> 5
+
+
+
+                               -------
+                               Symbols
+                               -------
+
+_Delay                         0000834f   defined in Release\main.o section .text
+_GPIO_DeInit                   ********   *** removed from Release\stm8s_gpio.o ***
+_GPIO_ExternalPullUpConfig     ********   *** removed from Release\stm8s_gpio.o ***
+_GPIO_Init                     00008123   defined in Release\stm8s_gpio.o section .text
+                                          used in Release\main.o
+_GPIO_ReadInputData            ********   *** removed from Release\stm8s_gpio.o ***
+_GPIO_ReadInputPin             ********   *** removed from Release\stm8s_gpio.o ***
+_GPIO_ReadOutputData           ********   *** removed from Release\stm8s_gpio.o ***
+_GPIO_Write                    ********   *** removed from Release\stm8s_gpio.o ***
+_GPIO_WriteHigh                000081c2   defined in Release\stm8s_gpio.o section .text
+                                          used in Release\main.o
+_GPIO_WriteLow                 000081c7   defined in Release\stm8s_gpio.o section .text
+                                          used in Release\main.o
+_GPIO_WriteReverse             ********   *** removed from Release\stm8s_gpio.o ***
+_Sleep                         ********   *** removed from Release\main.o ***
+_TIM1_ARRPreloadConfig         ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_BDTRConfig               ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_CCPreloadControl         ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_CCxCmd                   ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_CCxNCmd                  ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ClearFlag                ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ClearITPendingBit        ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_Cmd                      ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_CounterModeConfig        ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_CtrlPWMOutputs           ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_DeInit                   ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ETRClockMode1Config      ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ETRClockMode2Config      ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ETRConfig                ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_EncoderInterfaceConfig   ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ForcedOC1Config          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ForcedOC2Config          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ForcedOC3Config          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ForcedOC4Config          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GenerateEvent            ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GetCapture1              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GetCapture2              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GetCapture3              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GetCapture4              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GetCounter               ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GetFlagStatus            ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GetITStatus              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_GetPrescaler             ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ICInit                   ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_ITConfig                 ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_InternalClockConfig      ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC1FastConfig            ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC1Init                  ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC1NPolarityConfig       ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC1PolarityConfig        ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC1PreloadConfig         ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC2FastConfig            ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC2Init                  ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC2NPolarityConfig       ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC2PolarityConfig        ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC2PreloadConfig         ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC3FastConfig            ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC3Init                  ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC3NPolarityConfig       ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC3PolarityConfig        ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC3PreloadConfig         ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC4FastConfig            ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC4Init                  ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC4PolarityConfig        ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_OC4PreloadConfig         ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_PWMIConfig               ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_PrescalerConfig          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SelectCOM                ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SelectHallSensor         ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SelectInputTrigger       ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SelectMasterSlaveMode    ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SelectOCxM               ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SelectOnePulseMode       ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SelectOutputTrigger      ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SelectSlaveMode          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetAutoreload            ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetCompare1              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetCompare2              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetCompare3              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetCompare4              ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetCounter               ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetIC1Prescaler          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetIC2Prescaler          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetIC3Prescaler          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_SetIC4Prescaler          ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_TIxExternalClockConfig   ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_TimeBaseInit             ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_UpdateDisableConfig      ********   *** removed from Release\stm8s_tim1.o ***
+_TIM1_UpdateRequestConfig      ********   *** removed from Release\stm8s_tim1.o ***
+_TIM2_ARRPreloadConfig         ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_CCxCmd                   ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_ClearFlag                ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_ClearITPendingBit        ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_Cmd                      00008234   defined in Release\stm8s_tim2.o section .text
+                                          used in Release\main.o
+_TIM2_DeInit                   000081cd   defined in Release\stm8s_tim2.o section .text
+                                          used in Release\main.o
+_TIM2_ForcedOC1Config          ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_ForcedOC2Config          ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_ForcedOC3Config          ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_GenerateEvent            ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_GetCapture1              ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_GetCapture2              ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_GetCapture3              ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_GetCounter               ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_GetFlagStatus            ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_GetITStatus              ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_GetPrescaler             ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_ICInit                   ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_ITConfig                 00008259   defined in Release\stm8s_tim2.o section .text
+                                          used in Release\main.o
+_TIM2_OC1Init                  ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_OC1PolarityConfig        ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_OC1PreloadConfig         ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_OC2Init                  ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_OC2PolarityConfig        ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_OC2PreloadConfig         ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_OC3Init                  ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_OC3PolarityConfig        ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_OC3PreloadConfig         ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_PWMIConfig               ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_PrescalerConfig          ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SelectOCxM               ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SelectOnePulseMode       ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SetAutoreload            ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SetCompare1              ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SetCompare2              ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SetCompare3              ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SetCounter               ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SetIC1Prescaler          ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SetIC2Prescaler          ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_SetIC3Prescaler          ********   *** removed from Release\stm8s_tim2.o ***
+_TIM2_TimeBaseInit             00008226   defined in Release\stm8s_tim2.o section .text
+                                          used in Release\main.o
+_TIM2_UpdateDisableConfig      00008296   defined in Release\stm8s_tim2.o section .text
+                                          used in Release\main.o
+_TIM2_UpdateRequestConfig      000082bb   defined in Release\stm8s_tim2.o section .text
+                                          used in Release\main.o
+__endmem                       000001ff   defined in command file
+                                          *** not used ***
+__endzp                        00000006   defined in command file section .ubsct
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
+__idesc__                      000080d0   defined in linker section .init
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
+__memory                       00000100   defined in command file section .bss
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
+__stack                        000003ff   defined in command file
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
+__startmem                     00000100   defined in command file section .bss
+                                          *** not used ***
+__stext                        000080d3   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8 section .text
+                                          used in Release\stm8_interrupt_vector.o
+__vectab                       00008000   defined in Release\stm8_interrupt_vector.o section .const
+                                          *** not used ***
+_assert_failed                 0000835a   defined in Release\main.o section .text
+                                          used in Release\stm8s_gpio.o
+                                                  Release\stm8s_tim1.o
+                                                  Release\stm8s_tim2.o
+_exit                          00008121   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8 section .text
+_main                          000082e0   defined in Release\main.o section .text
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
+c_x                            00000000   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)xreg.o section .ubsct
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
+c_y                            00000003   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)yreg.o section .ubsct
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
+f_NonHandledInterrupt          0000835c   defined in Release\stm8_interrupt_vector.o section .text
