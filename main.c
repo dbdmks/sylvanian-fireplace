@@ -13,25 +13,16 @@ void Sleep(void);
 main()
 {
 	CLK_DeInit();
-  CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
-
+  CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);	
 	
-	//GPIO_Init(GPIOB,GPIO_PIN_5,GPIO_MODE_OUT_OD_LOW_SLOW);	
 	GPIO_Init(GPIOB,GPIO_PIN_5,GPIO_MODE_OUT_OD_HIZ_SLOW);	
 	
-	//TIM1_pwm_setup();
+	TIM1_pwm_setup();
 	TIM2_wakeup_setup();
 	
 	while (1) {
 		
 		uint8_t i = 3;
-		
-	//	GPIO_WriteLow(GPIOB,GPIO_PIN_5);		
-	//	Delay(0xFFFF);		
-	//	GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
-	//	GPIO_WriteLow(GPIOB,GPIO_PIN_5);		
-	//	Delay(0xFFFF);		Delay(0xFFFF);		Delay(0xFFFF);		
-	//	GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
 		
 		wfi();
 
@@ -45,7 +36,7 @@ main()
 
 static void TIM2_wakeup_setup(void) {
 	TIM2_DeInit();
-	TIM2_TimeBaseInit(TIM2_PRESCALER_64, 1032);
+	TIM2_TimeBaseInit(TIM2_PRESCALER_2048, 235); //~30ms
 	TIM2_UpdateRequestConfig(TIM2_UPDATESOURCE_GLOBAL);
 	TIM2_UpdateDisableConfig(DISABLE);
 	TIM2_ITConfig(TIM2_IT_UPDATE, ENABLE);

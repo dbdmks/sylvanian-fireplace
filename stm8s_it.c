@@ -274,8 +274,14 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
+	static uint16_t counter = 300;
 	GPIO_WriteReverse(GPIOB,GPIO_PIN_5);
 	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);
+	if(!counter--) {
+		GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
+		halt();
+	}
+	
 	return;
 }
 
