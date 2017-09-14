@@ -12,6 +12,9 @@ void Sleep(void);
  
 main()
 {
+	CLK_DeInit();
+  CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
+
 	
 	//GPIO_Init(GPIOB,GPIO_PIN_5,GPIO_MODE_OUT_OD_LOW_SLOW);	
 	GPIO_Init(GPIOB,GPIO_PIN_5,GPIO_MODE_OUT_OD_HIZ_SLOW);	
@@ -23,9 +26,9 @@ main()
 		
 		uint8_t i = 3;
 		
-		GPIO_WriteLow(GPIOB,GPIO_PIN_5);		
-		Delay(0xFFFF);		
-		GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
+	//	GPIO_WriteLow(GPIOB,GPIO_PIN_5);		
+	//	Delay(0xFFFF);		
+	//	GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
 	//	GPIO_WriteLow(GPIOB,GPIO_PIN_5);		
 	//	Delay(0xFFFF);		Delay(0xFFFF);		Delay(0xFFFF);		
 	//	GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
@@ -34,10 +37,7 @@ main()
 
 		while (i) {
 			i--;
-		GPIO_WriteLow(GPIOB,GPIO_PIN_5);		
-		Delay(0xFFFF);		
-		GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
-	}
+		}
 		
 		//Sleep();
 		}
