@@ -1,222 +1,2228 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
    2                     ; Parser V4.11.9 - 08 Feb 2017
    3                     ; Generator (Limited) V4.4.6 - 08 Feb 2017
-  45                     ; 51 INTERRUPT_HANDLER(NonHandledInterrupt, 25)
-  45                     ; 52 {
-  46                     .text:	section	.text,new
-  47  0000               f_NonHandledInterrupt:
-  51                     ; 56 }
-  54  0000 80            	iret
-  76                     ; 64 INTERRUPT_HANDLER_TRAP(TRAP_IRQHandler)
-  76                     ; 65 {
-  77                     .text:	section	.text,new
-  78  0000               f_TRAP_IRQHandler:
-  82                     ; 69 }
-  85  0000 80            	iret
- 107                     ; 75 INTERRUPT_HANDLER(TLI_IRQHandler, 0)
- 107                     ; 76 {
- 108                     .text:	section	.text,new
- 109  0000               f_TLI_IRQHandler:
- 113                     ; 80 }
- 116  0000 80            	iret
- 138                     ; 87 INTERRUPT_HANDLER(AWU_IRQHandler, 1)
- 138                     ; 88 {
- 139                     .text:	section	.text,new
- 140  0000               f_AWU_IRQHandler:
- 144                     ; 92 }
- 147  0000 80            	iret
- 169                     ; 99 INTERRUPT_HANDLER(CLK_IRQHandler, 2)
- 169                     ; 100 {
- 170                     .text:	section	.text,new
- 171  0000               f_CLK_IRQHandler:
- 175                     ; 104 }
- 178  0000 80            	iret
- 201                     ; 111 INTERRUPT_HANDLER(EXTI_PORTA_IRQHandler, 3)
- 201                     ; 112 {
- 202                     .text:	section	.text,new
- 203  0000               f_EXTI_PORTA_IRQHandler:
- 207                     ; 116 }
- 210  0000 80            	iret
- 233                     ; 123 INTERRUPT_HANDLER(EXTI_PORTB_IRQHandler, 4)
- 233                     ; 124 {
- 234                     .text:	section	.text,new
- 235  0000               f_EXTI_PORTB_IRQHandler:
- 239                     ; 128 }
- 242  0000 80            	iret
- 278                     ; 135 INTERRUPT_HANDLER(EXTI_PORTC_IRQHandler, 5)
- 278                     ; 136 {
- 279                     .text:	section	.text,new
- 280  0000               f_EXTI_PORTC_IRQHandler:
- 282  0000 8a            	push	cc
- 283  0001 84            	pop	a
- 284  0002 a4bf          	and	a,#191
- 285  0004 88            	push	a
- 286  0005 86            	pop	cc
- 287       00000002      OFST:	set	2
- 288  0006 3b0002        	push	c_x+2
- 289  0009 be00          	ldw	x,c_x
- 290  000b 89            	pushw	x
- 291  000c 3b0002        	push	c_y+2
- 292  000f be00          	ldw	x,c_y
- 293  0011 89            	pushw	x
- 294  0012 89            	pushw	x
- 297                     ; 139     Jump_Function = (Function_Pointer) 0x9FFF;
- 299                     ; 140     Jump_Function();
- 301  0013 cd9fff        	call	40959
- 303                     ; 141 }
- 306  0016 5b02          	addw	sp,#2
- 307  0018 85            	popw	x
- 308  0019 bf00          	ldw	c_y,x
- 309  001b 320002        	pop	c_y+2
- 310  001e 85            	popw	x
- 311  001f bf00          	ldw	c_x,x
- 312  0021 320002        	pop	c_x+2
- 313  0024 80            	iret
- 336                     ; 148 INTERRUPT_HANDLER(EXTI_PORTD_IRQHandler, 6)
- 336                     ; 149 {
- 337                     .text:	section	.text,new
- 338  0000               f_EXTI_PORTD_IRQHandler:
- 342                     ; 153 }
- 345  0000 80            	iret
- 368                     ; 160 INTERRUPT_HANDLER(EXTI_PORTE_IRQHandler, 7)
- 368                     ; 161 {
- 369                     .text:	section	.text,new
- 370  0000               f_EXTI_PORTE_IRQHandler:
- 374                     ; 165 }
- 377  0000 80            	iret
- 399                     ; 211 INTERRUPT_HANDLER(SPI_IRQHandler, 10)
- 399                     ; 212 {
- 400                     .text:	section	.text,new
- 401  0000               f_SPI_IRQHandler:
- 405                     ; 216 }
- 408  0000 80            	iret
- 431                     ; 223 INTERRUPT_HANDLER(TIM1_UPD_OVF_TRG_BRK_IRQHandler, 11)
- 431                     ; 224 {
- 432                     .text:	section	.text,new
- 433  0000               f_TIM1_UPD_OVF_TRG_BRK_IRQHandler:
- 437                     ; 228 }
- 440  0000 80            	iret
- 463                     ; 235 INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
- 463                     ; 236 {
- 464                     .text:	section	.text,new
- 465  0000               f_TIM1_CAP_COM_IRQHandler:
- 469                     ; 240 }
- 472  0000 80            	iret
- 474                     	bsct
- 475  0000               L761_counter:
- 476  0000 012c          	dc.w	300
- 513                     ; 272  INTERRUPT_HANDLER(TIM2_UPD_OVF_BRK_IRQHandler, 13)
- 513                     ; 273 {
- 514                     .text:	section	.text,new
- 515  0000               f_TIM2_UPD_OVF_BRK_IRQHandler:
- 517  0000 8a            	push	cc
- 518  0001 84            	pop	a
- 519  0002 a4bf          	and	a,#191
- 520  0004 88            	push	a
- 521  0005 86            	pop	cc
- 522  0006 3b0002        	push	c_x+2
- 523  0009 be00          	ldw	x,c_x
- 524  000b 89            	pushw	x
- 525  000c 3b0002        	push	c_y+2
- 526  000f be00          	ldw	x,c_y
- 527  0011 89            	pushw	x
- 530                     ; 278 	GPIO_WriteReverse(GPIOB,GPIO_PIN_5);
- 532  0012 4b20          	push	#32
- 533  0014 ae5005        	ldw	x,#20485
- 534  0017 cd0000        	call	_GPIO_WriteReverse
- 536  001a 84            	pop	a
- 537                     ; 279 	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);
- 539  001b a601          	ld	a,#1
- 540  001d cd0000        	call	_TIM2_ClearITPendingBit
- 542                     ; 280 	if(!counter--) {
- 544  0020 be00          	ldw	x,L761_counter
- 545  0022 1d0001        	subw	x,#1
- 546  0025 bf00          	ldw	L761_counter,x
- 547  0027 1c0001        	addw	x,#1
- 548  002a a30000        	cpw	x,#0
- 549  002d 260a          	jrne	L702
- 550                     ; 281 		GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
- 552  002f 4b20          	push	#32
- 553  0031 ae5005        	ldw	x,#20485
- 554  0034 cd0000        	call	_GPIO_WriteHigh
- 556  0037 84            	pop	a
- 557                     ; 282 		halt();
- 560  0038 8e            halt
- 563  0039               L702:
- 564                     ; 285 	return;
- 567  0039 85            	popw	x
- 568  003a bf00          	ldw	c_y,x
- 569  003c 320002        	pop	c_y+2
- 570  003f 85            	popw	x
- 571  0040 bf00          	ldw	c_x,x
- 572  0042 320002        	pop	c_x+2
- 573  0045 80            	iret
- 596                     ; 293  INTERRUPT_HANDLER(TIM2_CAP_COM_IRQHandler, 14)
- 596                     ; 294 {
- 597                     .text:	section	.text,new
- 598  0000               f_TIM2_CAP_COM_IRQHandler:
- 602                     ; 298 }
- 605  0000 80            	iret
- 628                     ; 335  INTERRUPT_HANDLER(UART1_TX_IRQHandler, 17)
- 628                     ; 336 {
- 629                     .text:	section	.text,new
- 630  0000               f_UART1_TX_IRQHandler:
- 634                     ; 340 }
- 637  0000 80            	iret
- 660                     ; 347  INTERRUPT_HANDLER(UART1_RX_IRQHandler, 18)
- 660                     ; 348 {
- 661                     .text:	section	.text,new
- 662  0000               f_UART1_RX_IRQHandler:
- 666                     ; 352 }
- 669  0000 80            	iret
- 691                     ; 360 INTERRUPT_HANDLER(I2C_IRQHandler, 19)
- 691                     ; 361 {
- 692                     .text:	section	.text,new
- 693  0000               f_I2C_IRQHandler:
- 697                     ; 365 }
- 700  0000 80            	iret
- 722                     ; 438  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
- 722                     ; 439 {
- 723                     .text:	section	.text,new
- 724  0000               f_ADC1_IRQHandler:
- 728                     ; 444 }
- 731  0000 80            	iret
- 754                     ; 465  INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
- 754                     ; 466 {
- 755                     .text:	section	.text,new
- 756  0000               f_TIM4_UPD_OVF_IRQHandler:
- 760                     ; 470 }
- 763  0000 80            	iret
- 786                     ; 478 INTERRUPT_HANDLER(EEPROM_EEC_IRQHandler, 24)
- 786                     ; 479 {
- 787                     .text:	section	.text,new
- 788  0000               f_EEPROM_EEC_IRQHandler:
- 792                     ; 483 }
- 795  0000 80            	iret
- 807                     	xdef	f_EEPROM_EEC_IRQHandler
- 808                     	xdef	f_TIM4_UPD_OVF_IRQHandler
- 809                     	xdef	f_ADC1_IRQHandler
- 810                     	xdef	f_I2C_IRQHandler
- 811                     	xdef	f_UART1_RX_IRQHandler
- 812                     	xdef	f_UART1_TX_IRQHandler
- 813                     	xdef	f_TIM2_CAP_COM_IRQHandler
- 814                     	xdef	f_TIM2_UPD_OVF_BRK_IRQHandler
- 815                     	xdef	f_TIM1_UPD_OVF_TRG_BRK_IRQHandler
- 816                     	xdef	f_TIM1_CAP_COM_IRQHandler
- 817                     	xdef	f_SPI_IRQHandler
- 818                     	xdef	f_EXTI_PORTE_IRQHandler
- 819                     	xdef	f_EXTI_PORTD_IRQHandler
- 820                     	xdef	f_EXTI_PORTC_IRQHandler
- 821                     	xdef	f_EXTI_PORTB_IRQHandler
- 822                     	xdef	f_EXTI_PORTA_IRQHandler
- 823                     	xdef	f_CLK_IRQHandler
- 824                     	xdef	f_AWU_IRQHandler
- 825                     	xdef	f_TLI_IRQHandler
- 826                     	xdef	f_TRAP_IRQHandler
- 827                     	xdef	f_NonHandledInterrupt
- 828                     	xref	_TIM2_ClearITPendingBit
- 829                     	xref	_GPIO_WriteReverse
- 830                     	xref	_GPIO_WriteHigh
- 831                     	xref.b	c_x
- 832                     	xref.b	c_y
- 851                     	end
+  16                     .const:	section	.text
+  17  0000               _wave_side_size:
+  18  0000 07d0          	dc.w	2000
+  19  0002               _wave_side:
+  20  0002 1e            	dc.b	30
+  21  0003 1e            	dc.b	30
+  22  0004 1e            	dc.b	30
+  23  0005 1e            	dc.b	30
+  24  0006 1e            	dc.b	30
+  25  0007 1e            	dc.b	30
+  26  0008 1e            	dc.b	30
+  27  0009 1e            	dc.b	30
+  28  000a 1e            	dc.b	30
+  29  000b 1e            	dc.b	30
+  30  000c 1e            	dc.b	30
+  31  000d 1e            	dc.b	30
+  32  000e 1e            	dc.b	30
+  33  000f 1e            	dc.b	30
+  34  0010 1e            	dc.b	30
+  35  0011 1e            	dc.b	30
+  36  0012 1e            	dc.b	30
+  37  0013 1e            	dc.b	30
+  38  0014 1e            	dc.b	30
+  39  0015 1e            	dc.b	30
+  40  0016 1e            	dc.b	30
+  41  0017 1e            	dc.b	30
+  42  0018 1e            	dc.b	30
+  43  0019 1e            	dc.b	30
+  44  001a 1e            	dc.b	30
+  45  001b 1e            	dc.b	30
+  46  001c 1e            	dc.b	30
+  47  001d 1e            	dc.b	30
+  48  001e 1e            	dc.b	30
+  49  001f 1e            	dc.b	30
+  50  0020 1e            	dc.b	30
+  51  0021 1e            	dc.b	30
+  52  0022 1e            	dc.b	30
+  53  0023 1e            	dc.b	30
+  54  0024 1e            	dc.b	30
+  55  0025 1e            	dc.b	30
+  56  0026 1e            	dc.b	30
+  57  0027 1e            	dc.b	30
+  58  0028 1e            	dc.b	30
+  59  0029 1e            	dc.b	30
+  60  002a 1e            	dc.b	30
+  61  002b 1e            	dc.b	30
+  62  002c 1e            	dc.b	30
+  63  002d 1e            	dc.b	30
+  64  002e 1e            	dc.b	30
+  65  002f 1e            	dc.b	30
+  66  0030 1e            	dc.b	30
+  67  0031 1e            	dc.b	30
+  68  0032 1e            	dc.b	30
+  69  0033 1e            	dc.b	30
+  70  0034 1e            	dc.b	30
+  71  0035 1e            	dc.b	30
+  72  0036 1e            	dc.b	30
+  73  0037 1e            	dc.b	30
+  74  0038 1e            	dc.b	30
+  75  0039 1e            	dc.b	30
+  76  003a 1e            	dc.b	30
+  77  003b 1e            	dc.b	30
+  78  003c 1e            	dc.b	30
+  79  003d 1e            	dc.b	30
+  80  003e 1e            	dc.b	30
+  81  003f 1e            	dc.b	30
+  82  0040 1e            	dc.b	30
+  83  0041 1e            	dc.b	30
+  84  0042 1d            	dc.b	29
+  85  0043 1d            	dc.b	29
+  86  0044 1d            	dc.b	29
+  87  0045 1c            	dc.b	28
+  88  0046 1c            	dc.b	28
+  89  0047 1b            	dc.b	27
+  90  0048 1b            	dc.b	27
+  91  0049 1a            	dc.b	26
+  92  004a 1a            	dc.b	26
+  93  004b 19            	dc.b	25
+  94  004c 19            	dc.b	25
+  95  004d 19            	dc.b	25
+  96  004e 18            	dc.b	24
+  97  004f 18            	dc.b	24
+  98  0050 17            	dc.b	23
+  99  0051 17            	dc.b	23
+ 100  0052 16            	dc.b	22
+ 101  0053 16            	dc.b	22
+ 102  0054 15            	dc.b	21
+ 103  0055 15            	dc.b	21
+ 104  0056 15            	dc.b	21
+ 105  0057 14            	dc.b	20
+ 106  0058 14            	dc.b	20
+ 107  0059 14            	dc.b	20
+ 108  005a 14            	dc.b	20
+ 109  005b 14            	dc.b	20
+ 110  005c 14            	dc.b	20
+ 111  005d 14            	dc.b	20
+ 112  005e 14            	dc.b	20
+ 113  005f 14            	dc.b	20
+ 114  0060 14            	dc.b	20
+ 115  0061 15            	dc.b	21
+ 116  0062 15            	dc.b	21
+ 117  0063 15            	dc.b	21
+ 118  0064 15            	dc.b	21
+ 119  0065 15            	dc.b	21
+ 120  0066 16            	dc.b	22
+ 121  0067 16            	dc.b	22
+ 122  0068 16            	dc.b	22
+ 123  0069 17            	dc.b	23
+ 124  006a 17            	dc.b	23
+ 125  006b 17            	dc.b	23
+ 126  006c 18            	dc.b	24
+ 127  006d 18            	dc.b	24
+ 128  006e 19            	dc.b	25
+ 129  006f 19            	dc.b	25
+ 130  0070 19            	dc.b	25
+ 131  0071 1a            	dc.b	26
+ 132  0072 1a            	dc.b	26
+ 133  0073 1b            	dc.b	27
+ 134  0074 1b            	dc.b	27
+ 135  0075 1c            	dc.b	28
+ 136  0076 1c            	dc.b	28
+ 137  0077 1d            	dc.b	29
+ 138  0078 1d            	dc.b	29
+ 139  0079 1e            	dc.b	30
+ 140  007a 1f            	dc.b	31
+ 141  007b 20            	dc.b	32
+ 142  007c 21            	dc.b	33
+ 143  007d 22            	dc.b	34
+ 144  007e 24            	dc.b	36
+ 145  007f 25            	dc.b	37
+ 146  0080 26            	dc.b	38
+ 147  0081 27            	dc.b	39
+ 148  0082 28            	dc.b	40
+ 149  0083 28            	dc.b	40
+ 150  0084 28            	dc.b	40
+ 151  0085 27            	dc.b	39
+ 152  0086 26            	dc.b	38
+ 153  0087 24            	dc.b	36
+ 154  0088 23            	dc.b	35
+ 155  0089 22            	dc.b	34
+ 156  008a 20            	dc.b	32
+ 157  008b 1f            	dc.b	31
+ 158  008c 1e            	dc.b	30
+ 159  008d 1e            	dc.b	30
+ 160  008e 1e            	dc.b	30
+ 161  008f 1e            	dc.b	30
+ 162  0090 1e            	dc.b	30
+ 163  0091 1e            	dc.b	30
+ 164  0092 1e            	dc.b	30
+ 165  0093 1e            	dc.b	30
+ 166  0094 1e            	dc.b	30
+ 167  0095 1e            	dc.b	30
+ 168  0096 1e            	dc.b	30
+ 169  0097 1e            	dc.b	30
+ 170  0098 1e            	dc.b	30
+ 171  0099 1e            	dc.b	30
+ 172  009a 1e            	dc.b	30
+ 173  009b 1e            	dc.b	30
+ 174  009c 1e            	dc.b	30
+ 175  009d 1e            	dc.b	30
+ 176  009e 1e            	dc.b	30
+ 177  009f 1e            	dc.b	30
+ 178  00a0 1e            	dc.b	30
+ 179  00a1 1e            	dc.b	30
+ 180  00a2 1e            	dc.b	30
+ 181  00a3 1e            	dc.b	30
+ 182  00a4 1e            	dc.b	30
+ 183  00a5 1e            	dc.b	30
+ 184  00a6 1d            	dc.b	29
+ 185  00a7 1d            	dc.b	29
+ 186  00a8 1d            	dc.b	29
+ 187  00a9 1c            	dc.b	28
+ 188  00aa 1c            	dc.b	28
+ 189  00ab 1b            	dc.b	27
+ 190  00ac 1b            	dc.b	27
+ 191  00ad 1a            	dc.b	26
+ 192  00ae 1a            	dc.b	26
+ 193  00af 19            	dc.b	25
+ 194  00b0 19            	dc.b	25
+ 195  00b1 19            	dc.b	25
+ 196  00b2 18            	dc.b	24
+ 197  00b3 18            	dc.b	24
+ 198  00b4 17            	dc.b	23
+ 199  00b5 17            	dc.b	23
+ 200  00b6 16            	dc.b	22
+ 201  00b7 16            	dc.b	22
+ 202  00b8 15            	dc.b	21
+ 203  00b9 15            	dc.b	21
+ 204  00ba 15            	dc.b	21
+ 205  00bb 14            	dc.b	20
+ 206  00bc 14            	dc.b	20
+ 207  00bd 14            	dc.b	20
+ 208  00be 14            	dc.b	20
+ 209  00bf 14            	dc.b	20
+ 210  00c0 14            	dc.b	20
+ 211  00c1 14            	dc.b	20
+ 212  00c2 14            	dc.b	20
+ 213  00c3 14            	dc.b	20
+ 214  00c4 15            	dc.b	21
+ 215  00c5 15            	dc.b	21
+ 216  00c6 15            	dc.b	21
+ 217  00c7 16            	dc.b	22
+ 218  00c8 16            	dc.b	22
+ 219  00c9 17            	dc.b	23
+ 220  00ca 17            	dc.b	23
+ 221  00cb 18            	dc.b	24
+ 222  00cc 18            	dc.b	24
+ 223  00cd 19            	dc.b	25
+ 224  00ce 19            	dc.b	25
+ 225  00cf 19            	dc.b	25
+ 226  00d0 1a            	dc.b	26
+ 227  00d1 1a            	dc.b	26
+ 228  00d2 1b            	dc.b	27
+ 229  00d3 1b            	dc.b	27
+ 230  00d4 1c            	dc.b	28
+ 231  00d5 1c            	dc.b	28
+ 232  00d6 1d            	dc.b	29
+ 233  00d7 1d            	dc.b	29
+ 234  00d8 1d            	dc.b	29
+ 235  00d9 1e            	dc.b	30
+ 236  00da 1e            	dc.b	30
+ 237  00db 1e            	dc.b	30
+ 238  00dc 1e            	dc.b	30
+ 239  00dd 1e            	dc.b	30
+ 240  00de 1e            	dc.b	30
+ 241  00df 1e            	dc.b	30
+ 242  00e0 1e            	dc.b	30
+ 243  00e1 1e            	dc.b	30
+ 244  00e2 1d            	dc.b	29
+ 245  00e3 1d            	dc.b	29
+ 246  00e4 1d            	dc.b	29
+ 247  00e5 1c            	dc.b	28
+ 248  00e6 1c            	dc.b	28
+ 249  00e7 1b            	dc.b	27
+ 250  00e8 1b            	dc.b	27
+ 251  00e9 1a            	dc.b	26
+ 252  00ea 1a            	dc.b	26
+ 253  00eb 19            	dc.b	25
+ 254  00ec 19            	dc.b	25
+ 255  00ed 19            	dc.b	25
+ 256  00ee 18            	dc.b	24
+ 257  00ef 18            	dc.b	24
+ 258  00f0 17            	dc.b	23
+ 259  00f1 17            	dc.b	23
+ 260  00f2 16            	dc.b	22
+ 261  00f3 16            	dc.b	22
+ 262  00f4 15            	dc.b	21
+ 263  00f5 15            	dc.b	21
+ 264  00f6 15            	dc.b	21
+ 265  00f7 14            	dc.b	20
+ 266  00f8 14            	dc.b	20
+ 267  00f9 14            	dc.b	20
+ 268  00fa 14            	dc.b	20
+ 269  00fb 14            	dc.b	20
+ 270  00fc 14            	dc.b	20
+ 271  00fd 14            	dc.b	20
+ 272  00fe 14            	dc.b	20
+ 273  00ff 14            	dc.b	20
+ 274  0100 15            	dc.b	21
+ 275  0101 15            	dc.b	21
+ 276  0102 15            	dc.b	21
+ 277  0103 16            	dc.b	22
+ 278  0104 16            	dc.b	22
+ 279  0105 17            	dc.b	23
+ 280  0106 17            	dc.b	23
+ 281  0107 18            	dc.b	24
+ 282  0108 18            	dc.b	24
+ 283  0109 19            	dc.b	25
+ 284  010a 19            	dc.b	25
+ 285  010b 19            	dc.b	25
+ 286  010c 1a            	dc.b	26
+ 287  010d 1a            	dc.b	26
+ 288  010e 1b            	dc.b	27
+ 289  010f 1b            	dc.b	27
+ 290  0110 1c            	dc.b	28
+ 291  0111 1c            	dc.b	28
+ 292  0112 1d            	dc.b	29
+ 293  0113 1d            	dc.b	29
+ 294  0114 1d            	dc.b	29
+ 295  0115 1e            	dc.b	30
+ 296  0116 1e            	dc.b	30
+ 297  0117 1e            	dc.b	30
+ 298  0118 1e            	dc.b	30
+ 299  0119 1e            	dc.b	30
+ 300  011a 1e            	dc.b	30
+ 301  011b 1e            	dc.b	30
+ 302  011c 1e            	dc.b	30
+ 303  011d 1e            	dc.b	30
+ 304  011e 1e            	dc.b	30
+ 305  011f 1d            	dc.b	29
+ 306  0120 1d            	dc.b	29
+ 307  0121 1d            	dc.b	29
+ 308  0122 1d            	dc.b	29
+ 309  0123 1d            	dc.b	29
+ 310  0124 1c            	dc.b	28
+ 311  0125 1c            	dc.b	28
+ 312  0126 1c            	dc.b	28
+ 313  0127 1c            	dc.b	28
+ 314  0128 1c            	dc.b	28
+ 315  0129 1b            	dc.b	27
+ 316  012a 1b            	dc.b	27
+ 317  012b 1b            	dc.b	27
+ 318  012c 1b            	dc.b	27
+ 319  012d 1a            	dc.b	26
+ 320  012e 1a            	dc.b	26
+ 321  012f 1a            	dc.b	26
+ 322  0130 1a            	dc.b	26
+ 323  0131 1a            	dc.b	26
+ 324  0132 19            	dc.b	25
+ 325  0133 19            	dc.b	25
+ 326  0134 19            	dc.b	25
+ 327  0135 19            	dc.b	25
+ 328  0136 19            	dc.b	25
+ 329  0137 19            	dc.b	25
+ 330  0138 19            	dc.b	25
+ 331  0139 19            	dc.b	25
+ 332  013a 19            	dc.b	25
+ 333  013b 19            	dc.b	25
+ 334  013c 1a            	dc.b	26
+ 335  013d 1a            	dc.b	26
+ 336  013e 1a            	dc.b	26
+ 337  013f 1a            	dc.b	26
+ 338  0140 1b            	dc.b	27
+ 339  0141 1b            	dc.b	27
+ 340  0142 1b            	dc.b	27
+ 341  0143 1c            	dc.b	28
+ 342  0144 1c            	dc.b	28
+ 343  0145 1c            	dc.b	28
+ 344  0146 1d            	dc.b	29
+ 345  0147 1d            	dc.b	29
+ 346  0148 1d            	dc.b	29
+ 347  0149 1e            	dc.b	30
+ 348  014a 1e            	dc.b	30
+ 349  014b 1e            	dc.b	30
+ 350  014c 1e            	dc.b	30
+ 351  014d 1e            	dc.b	30
+ 352  014e 1f            	dc.b	31
+ 353  014f 1f            	dc.b	31
+ 354  0150 1f            	dc.b	31
+ 355  0151 1f            	dc.b	31
+ 356  0152 20            	dc.b	32
+ 357  0153 20            	dc.b	32
+ 358  0154 20            	dc.b	32
+ 359  0155 20            	dc.b	32
+ 360  0156 20            	dc.b	32
+ 361  0157 21            	dc.b	33
+ 362  0158 21            	dc.b	33
+ 363  0159 21            	dc.b	33
+ 364  015a 21            	dc.b	33
+ 365  015b 21            	dc.b	33
+ 366  015c 22            	dc.b	34
+ 367  015d 22            	dc.b	34
+ 368  015e 22            	dc.b	34
+ 369  015f 22            	dc.b	34
+ 370  0160 22            	dc.b	34
+ 371  0161 22            	dc.b	34
+ 372  0162 23            	dc.b	35
+ 373  0163 23            	dc.b	35
+ 374  0164 23            	dc.b	35
+ 375  0165 23            	dc.b	35
+ 376  0166 23            	dc.b	35
+ 377  0167 23            	dc.b	35
+ 378  0168 23            	dc.b	35
+ 379  0169 23            	dc.b	35
+ 380  016a 23            	dc.b	35
+ 381  016b 23            	dc.b	35
+ 382  016c 23            	dc.b	35
+ 383  016d 23            	dc.b	35
+ 384  016e 23            	dc.b	35
+ 385  016f 23            	dc.b	35
+ 386  0170 23            	dc.b	35
+ 387  0171 23            	dc.b	35
+ 388  0172 23            	dc.b	35
+ 389  0173 23            	dc.b	35
+ 390  0174 23            	dc.b	35
+ 391  0175 23            	dc.b	35
+ 392  0176 23            	dc.b	35
+ 393  0177 23            	dc.b	35
+ 394  0178 23            	dc.b	35
+ 395  0179 23            	dc.b	35
+ 396  017a 23            	dc.b	35
+ 397  017b 23            	dc.b	35
+ 398  017c 23            	dc.b	35
+ 399  017d 23            	dc.b	35
+ 400  017e 23            	dc.b	35
+ 401  017f 23            	dc.b	35
+ 402  0180 23            	dc.b	35
+ 403  0181 23            	dc.b	35
+ 404  0182 23            	dc.b	35
+ 405  0183 23            	dc.b	35
+ 406  0184 23            	dc.b	35
+ 407  0185 23            	dc.b	35
+ 408  0186 23            	dc.b	35
+ 409  0187 23            	dc.b	35
+ 410  0188 23            	dc.b	35
+ 411  0189 23            	dc.b	35
+ 412  018a 23            	dc.b	35
+ 413  018b 23            	dc.b	35
+ 414  018c 23            	dc.b	35
+ 415  018d 22            	dc.b	34
+ 416  018e 22            	dc.b	34
+ 417  018f 22            	dc.b	34
+ 418  0190 22            	dc.b	34
+ 419  0191 22            	dc.b	34
+ 420  0192 21            	dc.b	33
+ 421  0193 21            	dc.b	33
+ 422  0194 21            	dc.b	33
+ 423  0195 21            	dc.b	33
+ 424  0196 21            	dc.b	33
+ 425  0197 20            	dc.b	32
+ 426  0198 20            	dc.b	32
+ 427  0199 20            	dc.b	32
+ 428  019a 20            	dc.b	32
+ 429  019b 1f            	dc.b	31
+ 430  019c 1f            	dc.b	31
+ 431  019d 1f            	dc.b	31
+ 432  019e 1f            	dc.b	31
+ 433  019f 1f            	dc.b	31
+ 434  01a0 1e            	dc.b	30
+ 435  01a1 1e            	dc.b	30
+ 436  01a2 1e            	dc.b	30
+ 437  01a3 1e            	dc.b	30
+ 438  01a4 1e            	dc.b	30
+ 439  01a5 1e            	dc.b	30
+ 440  01a6 1e            	dc.b	30
+ 441  01a7 1e            	dc.b	30
+ 442  01a8 1e            	dc.b	30
+ 443  01a9 1e            	dc.b	30
+ 444  01aa 1f            	dc.b	31
+ 445  01ab 1f            	dc.b	31
+ 446  01ac 1f            	dc.b	31
+ 447  01ad 20            	dc.b	32
+ 448  01ae 20            	dc.b	32
+ 449  01af 21            	dc.b	33
+ 450  01b0 21            	dc.b	33
+ 451  01b1 22            	dc.b	34
+ 452  01b2 22            	dc.b	34
+ 453  01b3 23            	dc.b	35
+ 454  01b4 23            	dc.b	35
+ 455  01b5 23            	dc.b	35
+ 456  01b6 24            	dc.b	36
+ 457  01b7 24            	dc.b	36
+ 458  01b8 25            	dc.b	37
+ 459  01b9 25            	dc.b	37
+ 460  01ba 26            	dc.b	38
+ 461  01bb 26            	dc.b	38
+ 462  01bc 27            	dc.b	39
+ 463  01bd 27            	dc.b	39
+ 464  01be 27            	dc.b	39
+ 465  01bf 28            	dc.b	40
+ 466  01c0 28            	dc.b	40
+ 467  01c1 28            	dc.b	40
+ 468  01c2 28            	dc.b	40
+ 469  01c3 28            	dc.b	40
+ 470  01c4 28            	dc.b	40
+ 471  01c5 28            	dc.b	40
+ 472  01c6 27            	dc.b	39
+ 473  01c7 27            	dc.b	39
+ 474  01c8 27            	dc.b	39
+ 475  01c9 26            	dc.b	38
+ 476  01ca 25            	dc.b	37
+ 477  01cb 24            	dc.b	36
+ 478  01cc 24            	dc.b	36
+ 479  01cd 23            	dc.b	35
+ 480  01ce 22            	dc.b	34
+ 481  01cf 21            	dc.b	33
+ 482  01d0 20            	dc.b	32
+ 483  01d1 1f            	dc.b	31
+ 484  01d2 1e            	dc.b	30
+ 485  01d3 1d            	dc.b	29
+ 486  01d4 1c            	dc.b	28
+ 487  01d5 1b            	dc.b	27
+ 488  01d6 1a            	dc.b	26
+ 489  01d7 19            	dc.b	25
+ 490  01d8 18            	dc.b	24
+ 491  01d9 18            	dc.b	24
+ 492  01da 17            	dc.b	23
+ 493  01db 16            	dc.b	22
+ 494  01dc 15            	dc.b	21
+ 495  01dd 15            	dc.b	21
+ 496  01de 15            	dc.b	21
+ 497  01df 14            	dc.b	20
+ 498  01e0 14            	dc.b	20
+ 499  01e1 14            	dc.b	20
+ 500  01e2 14            	dc.b	20
+ 501  01e3 14            	dc.b	20
+ 502  01e4 15            	dc.b	21
+ 503  01e5 15            	dc.b	21
+ 504  01e6 15            	dc.b	21
+ 505  01e7 16            	dc.b	22
+ 506  01e8 17            	dc.b	23
+ 507  01e9 18            	dc.b	24
+ 508  01ea 18            	dc.b	24
+ 509  01eb 19            	dc.b	25
+ 510  01ec 1a            	dc.b	26
+ 511  01ed 1b            	dc.b	27
+ 512  01ee 1c            	dc.b	28
+ 513  01ef 1d            	dc.b	29
+ 514  01f0 1e            	dc.b	30
+ 515  01f1 1f            	dc.b	31
+ 516  01f2 20            	dc.b	32
+ 517  01f3 21            	dc.b	33
+ 518  01f4 22            	dc.b	34
+ 519  01f5 23            	dc.b	35
+ 520  01f6 24            	dc.b	36
+ 521  01f7 24            	dc.b	36
+ 522  01f8 25            	dc.b	37
+ 523  01f9 26            	dc.b	38
+ 524  01fa 27            	dc.b	39
+ 525  01fb 27            	dc.b	39
+ 526  01fc 27            	dc.b	39
+ 527  01fd 28            	dc.b	40
+ 528  01fe 28            	dc.b	40
+ 529  01ff 28            	dc.b	40
+ 530  0200 28            	dc.b	40
+ 531  0201 28            	dc.b	40
+ 532  0202 28            	dc.b	40
+ 533  0203 28            	dc.b	40
+ 534  0204 27            	dc.b	39
+ 535  0205 27            	dc.b	39
+ 536  0206 27            	dc.b	39
+ 537  0207 27            	dc.b	39
+ 538  0208 26            	dc.b	38
+ 539  0209 26            	dc.b	38
+ 540  020a 26            	dc.b	38
+ 541  020b 25            	dc.b	37
+ 542  020c 25            	dc.b	37
+ 543  020d 25            	dc.b	37
+ 544  020e 24            	dc.b	36
+ 545  020f 24            	dc.b	36
+ 546  0210 23            	dc.b	35
+ 547  0211 23            	dc.b	35
+ 548  0212 23            	dc.b	35
+ 549  0213 22            	dc.b	34
+ 550  0214 22            	dc.b	34
+ 551  0215 21            	dc.b	33
+ 552  0216 21            	dc.b	33
+ 553  0217 20            	dc.b	32
+ 554  0218 20            	dc.b	32
+ 555  0219 1f            	dc.b	31
+ 556  021a 1f            	dc.b	31
+ 557  021b 1f            	dc.b	31
+ 558  021c 1e            	dc.b	30
+ 559  021d 1e            	dc.b	30
+ 560  021e 1e            	dc.b	30
+ 561  021f 1d            	dc.b	29
+ 562  0220 1d            	dc.b	29
+ 563  0221 1d            	dc.b	29
+ 564  0222 1c            	dc.b	28
+ 565  0223 1c            	dc.b	28
+ 566  0224 1b            	dc.b	27
+ 567  0225 1b            	dc.b	27
+ 568  0226 1a            	dc.b	26
+ 569  0227 1a            	dc.b	26
+ 570  0228 19            	dc.b	25
+ 571  0229 19            	dc.b	25
+ 572  022a 19            	dc.b	25
+ 573  022b 18            	dc.b	24
+ 574  022c 18            	dc.b	24
+ 575  022d 17            	dc.b	23
+ 576  022e 17            	dc.b	23
+ 577  022f 17            	dc.b	23
+ 578  0230 16            	dc.b	22
+ 579  0231 16            	dc.b	22
+ 580  0232 16            	dc.b	22
+ 581  0233 15            	dc.b	21
+ 582  0234 15            	dc.b	21
+ 583  0235 15            	dc.b	21
+ 584  0236 15            	dc.b	21
+ 585  0237 14            	dc.b	20
+ 586  0238 14            	dc.b	20
+ 587  0239 14            	dc.b	20
+ 588  023a 14            	dc.b	20
+ 589  023b 14            	dc.b	20
+ 590  023c 14            	dc.b	20
+ 591  023d 14            	dc.b	20
+ 592  023e 14            	dc.b	20
+ 593  023f 14            	dc.b	20
+ 594  0240 14            	dc.b	20
+ 595  0241 15            	dc.b	21
+ 596  0242 15            	dc.b	21
+ 597  0243 15            	dc.b	21
+ 598  0244 15            	dc.b	21
+ 599  0245 15            	dc.b	21
+ 600  0246 16            	dc.b	22
+ 601  0247 16            	dc.b	22
+ 602  0248 16            	dc.b	22
+ 603  0249 17            	dc.b	23
+ 604  024a 17            	dc.b	23
+ 605  024b 18            	dc.b	24
+ 606  024c 18            	dc.b	24
+ 607  024d 18            	dc.b	24
+ 608  024e 19            	dc.b	25
+ 609  024f 19            	dc.b	25
+ 610  0250 1a            	dc.b	26
+ 611  0251 1a            	dc.b	26
+ 612  0252 1b            	dc.b	27
+ 613  0253 1b            	dc.b	27
+ 614  0254 1c            	dc.b	28
+ 615  0255 1c            	dc.b	28
+ 616  0256 1d            	dc.b	29
+ 617  0257 1d            	dc.b	29
+ 618  0258 1e            	dc.b	30
+ 619  0259 1e            	dc.b	30
+ 620  025a 1e            	dc.b	30
+ 621  025b 1f            	dc.b	31
+ 622  025c 1f            	dc.b	31
+ 623  025d 20            	dc.b	32
+ 624  025e 20            	dc.b	32
+ 625  025f 21            	dc.b	33
+ 626  0260 21            	dc.b	33
+ 627  0261 22            	dc.b	34
+ 628  0262 22            	dc.b	34
+ 629  0263 23            	dc.b	35
+ 630  0264 23            	dc.b	35
+ 631  0265 24            	dc.b	36
+ 632  0266 24            	dc.b	36
+ 633  0267 24            	dc.b	36
+ 634  0268 25            	dc.b	37
+ 635  0269 25            	dc.b	37
+ 636  026a 26            	dc.b	38
+ 637  026b 26            	dc.b	38
+ 638  026c 26            	dc.b	38
+ 639  026d 27            	dc.b	39
+ 640  026e 27            	dc.b	39
+ 641  026f 27            	dc.b	39
+ 642  0270 27            	dc.b	39
+ 643  0271 27            	dc.b	39
+ 644  0272 28            	dc.b	40
+ 645  0273 28            	dc.b	40
+ 646  0274 28            	dc.b	40
+ 647  0275 28            	dc.b	40
+ 648  0276 28            	dc.b	40
+ 649  0277 28            	dc.b	40
+ 650  0278 28            	dc.b	40
+ 651  0279 28            	dc.b	40
+ 652  027a 28            	dc.b	40
+ 653  027b 28            	dc.b	40
+ 654  027c 28            	dc.b	40
+ 655  027d 28            	dc.b	40
+ 656  027e 28            	dc.b	40
+ 657  027f 28            	dc.b	40
+ 658  0280 28            	dc.b	40
+ 659  0281 28            	dc.b	40
+ 660  0282 28            	dc.b	40
+ 661  0283 27            	dc.b	39
+ 662  0284 27            	dc.b	39
+ 663  0285 27            	dc.b	39
+ 664  0286 27            	dc.b	39
+ 665  0287 27            	dc.b	39
+ 666  0288 27            	dc.b	39
+ 667  0289 27            	dc.b	39
+ 668  028a 27            	dc.b	39
+ 669  028b 27            	dc.b	39
+ 670  028c 27            	dc.b	39
+ 671  028d 26            	dc.b	38
+ 672  028e 26            	dc.b	38
+ 673  028f 26            	dc.b	38
+ 674  0290 26            	dc.b	38
+ 675  0291 26            	dc.b	38
+ 676  0292 26            	dc.b	38
+ 677  0293 26            	dc.b	38
+ 678  0294 26            	dc.b	38
+ 679  0295 26            	dc.b	38
+ 680  0296 25            	dc.b	37
+ 681  0297 25            	dc.b	37
+ 682  0298 25            	dc.b	37
+ 683  0299 25            	dc.b	37
+ 684  029a 25            	dc.b	37
+ 685  029b 25            	dc.b	37
+ 686  029c 25            	dc.b	37
+ 687  029d 25            	dc.b	37
+ 688  029e 24            	dc.b	36
+ 689  029f 24            	dc.b	36
+ 690  02a0 24            	dc.b	36
+ 691  02a1 24            	dc.b	36
+ 692  02a2 24            	dc.b	36
+ 693  02a3 24            	dc.b	36
+ 694  02a4 24            	dc.b	36
+ 695  02a5 24            	dc.b	36
+ 696  02a6 24            	dc.b	36
+ 697  02a7 24            	dc.b	36
+ 698  02a8 23            	dc.b	35
+ 699  02a9 23            	dc.b	35
+ 700  02aa 23            	dc.b	35
+ 701  02ab 23            	dc.b	35
+ 702  02ac 23            	dc.b	35
+ 703  02ad 23            	dc.b	35
+ 704  02ae 23            	dc.b	35
+ 705  02af 23            	dc.b	35
+ 706  02b0 23            	dc.b	35
+ 707  02b1 23            	dc.b	35
+ 708  02b2 23            	dc.b	35
+ 709  02b3 23            	dc.b	35
+ 710  02b4 23            	dc.b	35
+ 711  02b5 23            	dc.b	35
+ 712  02b6 23            	dc.b	35
+ 713  02b7 23            	dc.b	35
+ 714  02b8 23            	dc.b	35
+ 715  02b9 23            	dc.b	35
+ 716  02ba 23            	dc.b	35
+ 717  02bb 23            	dc.b	35
+ 718  02bc 23            	dc.b	35
+ 719  02bd 23            	dc.b	35
+ 720  02be 23            	dc.b	35
+ 721  02bf 23            	dc.b	35
+ 722  02c0 23            	dc.b	35
+ 723  02c1 23            	dc.b	35
+ 724  02c2 23            	dc.b	35
+ 725  02c3 23            	dc.b	35
+ 726  02c4 23            	dc.b	35
+ 727  02c5 23            	dc.b	35
+ 728  02c6 23            	dc.b	35
+ 729  02c7 23            	dc.b	35
+ 730  02c8 23            	dc.b	35
+ 731  02c9 23            	dc.b	35
+ 732  02ca 23            	dc.b	35
+ 733  02cb 23            	dc.b	35
+ 734  02cc 23            	dc.b	35
+ 735  02cd 23            	dc.b	35
+ 736  02ce 23            	dc.b	35
+ 737  02cf 23            	dc.b	35
+ 738  02d0 23            	dc.b	35
+ 739  02d1 23            	dc.b	35
+ 740  02d2 23            	dc.b	35
+ 741  02d3 23            	dc.b	35
+ 742  02d4 23            	dc.b	35
+ 743  02d5 23            	dc.b	35
+ 744  02d6 23            	dc.b	35
+ 745  02d7 22            	dc.b	34
+ 746  02d8 22            	dc.b	34
+ 747  02d9 22            	dc.b	34
+ 748  02da 22            	dc.b	34
+ 749  02db 22            	dc.b	34
+ 750  02dc 21            	dc.b	33
+ 751  02dd 21            	dc.b	33
+ 752  02de 21            	dc.b	33
+ 753  02df 21            	dc.b	33
+ 754  02e0 21            	dc.b	33
+ 755  02e1 20            	dc.b	32
+ 756  02e2 20            	dc.b	32
+ 757  02e3 20            	dc.b	32
+ 758  02e4 20            	dc.b	32
+ 759  02e5 1f            	dc.b	31
+ 760  02e6 1f            	dc.b	31
+ 761  02e7 1f            	dc.b	31
+ 762  02e8 1f            	dc.b	31
+ 763  02e9 1f            	dc.b	31
+ 764  02ea 1e            	dc.b	30
+ 765  02eb 1e            	dc.b	30
+ 766  02ec 1e            	dc.b	30
+ 767  02ed 1e            	dc.b	30
+ 768  02ee 1e            	dc.b	30
+ 769  02ef 1e            	dc.b	30
+ 770  02f0 1e            	dc.b	30
+ 771  02f1 1e            	dc.b	30
+ 772  02f2 1e            	dc.b	30
+ 773  02f3 1e            	dc.b	30
+ 774  02f4 1e            	dc.b	30
+ 775  02f5 1e            	dc.b	30
+ 776  02f6 1e            	dc.b	30
+ 777  02f7 1e            	dc.b	30
+ 778  02f8 1e            	dc.b	30
+ 779  02f9 1e            	dc.b	30
+ 780  02fa 1e            	dc.b	30
+ 781  02fb 1e            	dc.b	30
+ 782  02fc 1e            	dc.b	30
+ 783  02fd 1e            	dc.b	30
+ 784  02fe 1e            	dc.b	30
+ 785  02ff 1e            	dc.b	30
+ 786  0300 1e            	dc.b	30
+ 787  0301 1e            	dc.b	30
+ 788  0302 1e            	dc.b	30
+ 789  0303 1e            	dc.b	30
+ 790  0304 1e            	dc.b	30
+ 791  0305 1e            	dc.b	30
+ 792  0306 1e            	dc.b	30
+ 793  0307 1e            	dc.b	30
+ 794  0308 1e            	dc.b	30
+ 795  0309 1e            	dc.b	30
+ 796  030a 1e            	dc.b	30
+ 797  030b 1e            	dc.b	30
+ 798  030c 1e            	dc.b	30
+ 799  030d 1e            	dc.b	30
+ 800  030e 1e            	dc.b	30
+ 801  030f 1e            	dc.b	30
+ 802  0310 1e            	dc.b	30
+ 803  0311 1e            	dc.b	30
+ 804  0312 1e            	dc.b	30
+ 805  0313 1e            	dc.b	30
+ 806  0314 1e            	dc.b	30
+ 807  0315 1e            	dc.b	30
+ 808  0316 1e            	dc.b	30
+ 809  0317 1e            	dc.b	30
+ 810  0318 1e            	dc.b	30
+ 811  0319 1d            	dc.b	29
+ 812  031a 1c            	dc.b	28
+ 813  031b 1a            	dc.b	26
+ 814  031c 19            	dc.b	25
+ 815  031d 18            	dc.b	24
+ 816  031e 16            	dc.b	22
+ 817  031f 15            	dc.b	21
+ 818  0320 14            	dc.b	20
+ 819  0321 14            	dc.b	20
+ 820  0322 14            	dc.b	20
+ 821  0323 14            	dc.b	20
+ 822  0324 14            	dc.b	20
+ 823  0325 14            	dc.b	20
+ 824  0326 14            	dc.b	20
+ 825  0327 14            	dc.b	20
+ 826  0328 14            	dc.b	20
+ 827  0329 14            	dc.b	20
+ 828  032a 14            	dc.b	20
+ 829  032b 14            	dc.b	20
+ 830  032c 14            	dc.b	20
+ 831  032d 14            	dc.b	20
+ 832  032e 14            	dc.b	20
+ 833  032f 14            	dc.b	20
+ 834  0330 14            	dc.b	20
+ 835  0331 14            	dc.b	20
+ 836  0332 14            	dc.b	20
+ 837  0333 15            	dc.b	21
+ 838  0334 15            	dc.b	21
+ 839  0335 15            	dc.b	21
+ 840  0336 15            	dc.b	21
+ 841  0337 15            	dc.b	21
+ 842  0338 15            	dc.b	21
+ 843  0339 15            	dc.b	21
+ 844  033a 15            	dc.b	21
+ 845  033b 15            	dc.b	21
+ 846  033c 15            	dc.b	21
+ 847  033d 15            	dc.b	21
+ 848  033e 15            	dc.b	21
+ 849  033f 15            	dc.b	21
+ 850  0340 15            	dc.b	21
+ 851  0341 16            	dc.b	22
+ 852  0342 16            	dc.b	22
+ 853  0343 16            	dc.b	22
+ 854  0344 16            	dc.b	22
+ 855  0345 16            	dc.b	22
+ 856  0346 16            	dc.b	22
+ 857  0347 16            	dc.b	22
+ 858  0348 16            	dc.b	22
+ 859  0349 16            	dc.b	22
+ 860  034a 16            	dc.b	22
+ 861  034b 16            	dc.b	22
+ 862  034c 17            	dc.b	23
+ 863  034d 17            	dc.b	23
+ 864  034e 17            	dc.b	23
+ 865  034f 17            	dc.b	23
+ 866  0350 17            	dc.b	23
+ 867  0351 17            	dc.b	23
+ 868  0352 17            	dc.b	23
+ 869  0353 17            	dc.b	23
+ 870  0354 17            	dc.b	23
+ 871  0355 18            	dc.b	24
+ 872  0356 18            	dc.b	24
+ 873  0357 18            	dc.b	24
+ 874  0358 18            	dc.b	24
+ 875  0359 18            	dc.b	24
+ 876  035a 18            	dc.b	24
+ 877  035b 18            	dc.b	24
+ 878  035c 18            	dc.b	24
+ 879  035d 18            	dc.b	24
+ 880  035e 19            	dc.b	25
+ 881  035f 19            	dc.b	25
+ 882  0360 19            	dc.b	25
+ 883  0361 19            	dc.b	25
+ 884  0362 19            	dc.b	25
+ 885  0363 19            	dc.b	25
+ 886  0364 19            	dc.b	25
+ 887  0365 19            	dc.b	25
+ 888  0366 19            	dc.b	25
+ 889  0367 1a            	dc.b	26
+ 890  0368 1a            	dc.b	26
+ 891  0369 1a            	dc.b	26
+ 892  036a 1a            	dc.b	26
+ 893  036b 1a            	dc.b	26
+ 894  036c 1a            	dc.b	26
+ 895  036d 1a            	dc.b	26
+ 896  036e 1a            	dc.b	26
+ 897  036f 1a            	dc.b	26
+ 898  0370 1b            	dc.b	27
+ 899  0371 1b            	dc.b	27
+ 900  0372 1b            	dc.b	27
+ 901  0373 1b            	dc.b	27
+ 902  0374 1b            	dc.b	27
+ 903  0375 1b            	dc.b	27
+ 904  0376 1b            	dc.b	27
+ 905  0377 1b            	dc.b	27
+ 906  0378 1b            	dc.b	27
+ 907  0379 1c            	dc.b	28
+ 908  037a 1c            	dc.b	28
+ 909  037b 1c            	dc.b	28
+ 910  037c 1c            	dc.b	28
+ 911  037d 1c            	dc.b	28
+ 912  037e 1c            	dc.b	28
+ 913  037f 1c            	dc.b	28
+ 914  0380 1c            	dc.b	28
+ 915  0381 1c            	dc.b	28
+ 916  0382 1c            	dc.b	28
+ 917  0383 1c            	dc.b	28
+ 918  0384 1d            	dc.b	29
+ 919  0385 1d            	dc.b	29
+ 920  0386 1d            	dc.b	29
+ 921  0387 1d            	dc.b	29
+ 922  0388 1d            	dc.b	29
+ 923  0389 1d            	dc.b	29
+ 924  038a 1d            	dc.b	29
+ 925  038b 1d            	dc.b	29
+ 926  038c 1d            	dc.b	29
+ 927  038d 1d            	dc.b	29
+ 928  038e 1d            	dc.b	29
+ 929  038f 1d            	dc.b	29
+ 930  0390 1d            	dc.b	29
+ 931  0391 1d            	dc.b	29
+ 932  0392 1e            	dc.b	30
+ 933  0393 1e            	dc.b	30
+ 934  0394 1e            	dc.b	30
+ 935  0395 1e            	dc.b	30
+ 936  0396 1e            	dc.b	30
+ 937  0397 1e            	dc.b	30
+ 938  0398 1e            	dc.b	30
+ 939  0399 1e            	dc.b	30
+ 940  039a 1e            	dc.b	30
+ 941  039b 1e            	dc.b	30
+ 942  039c 1e            	dc.b	30
+ 943  039d 1e            	dc.b	30
+ 944  039e 1e            	dc.b	30
+ 945  039f 1e            	dc.b	30
+ 946  03a0 1e            	dc.b	30
+ 947  03a1 1e            	dc.b	30
+ 948  03a2 1e            	dc.b	30
+ 949  03a3 1e            	dc.b	30
+ 950  03a4 1e            	dc.b	30
+ 951  03a5 1e            	dc.b	30
+ 952  03a6 1e            	dc.b	30
+ 953  03a7 1e            	dc.b	30
+ 954  03a8 1e            	dc.b	30
+ 955  03a9 1e            	dc.b	30
+ 956  03aa 1e            	dc.b	30
+ 957  03ab 1e            	dc.b	30
+ 958  03ac 1e            	dc.b	30
+ 959  03ad 1e            	dc.b	30
+ 960  03ae 1e            	dc.b	30
+ 961  03af 1e            	dc.b	30
+ 962  03b0 1e            	dc.b	30
+ 963  03b1 1e            	dc.b	30
+ 964  03b2 1e            	dc.b	30
+ 965  03b3 1e            	dc.b	30
+ 966  03b4 1e            	dc.b	30
+ 967  03b5 1e            	dc.b	30
+ 968  03b6 1e            	dc.b	30
+ 969  03b7 1e            	dc.b	30
+ 970  03b8 1e            	dc.b	30
+ 971  03b9 1e            	dc.b	30
+ 972  03ba 1e            	dc.b	30
+ 973  03bb 1e            	dc.b	30
+ 974  03bc 1e            	dc.b	30
+ 975  03bd 1e            	dc.b	30
+ 976  03be 1e            	dc.b	30
+ 977  03bf 1e            	dc.b	30
+ 978  03c0 1e            	dc.b	30
+ 979  03c1 1e            	dc.b	30
+ 980  03c2 1e            	dc.b	30
+ 981  03c3 1e            	dc.b	30
+ 982  03c4 1e            	dc.b	30
+ 983  03c5 1e            	dc.b	30
+ 984  03c6 1f            	dc.b	31
+ 985  03c7 1f            	dc.b	31
+ 986  03c8 1f            	dc.b	31
+ 987  03c9 20            	dc.b	32
+ 988  03ca 20            	dc.b	32
+ 989  03cb 21            	dc.b	33
+ 990  03cc 21            	dc.b	33
+ 991  03cd 22            	dc.b	34
+ 992  03ce 22            	dc.b	34
+ 993  03cf 23            	dc.b	35
+ 994  03d0 23            	dc.b	35
+ 995  03d1 23            	dc.b	35
+ 996  03d2 24            	dc.b	36
+ 997  03d3 24            	dc.b	36
+ 998  03d4 25            	dc.b	37
+ 999  03d5 25            	dc.b	37
+1000  03d6 26            	dc.b	38
+1001  03d7 26            	dc.b	38
+1002  03d8 27            	dc.b	39
+1003  03d9 27            	dc.b	39
+1004  03da 27            	dc.b	39
+1005  03db 28            	dc.b	40
+1006  03dc 28            	dc.b	40
+1007  03dd 28            	dc.b	40
+1008  03de 28            	dc.b	40
+1009  03df 28            	dc.b	40
+1010  03e0 28            	dc.b	40
+1011  03e1 28            	dc.b	40
+1012  03e2 28            	dc.b	40
+1013  03e3 28            	dc.b	40
+1014  03e4 28            	dc.b	40
+1015  03e5 27            	dc.b	39
+1016  03e6 27            	dc.b	39
+1017  03e7 27            	dc.b	39
+1018  03e8 27            	dc.b	39
+1019  03e9 27            	dc.b	39
+1020  03ea 26            	dc.b	38
+1021  03eb 26            	dc.b	38
+1022  03ec 26            	dc.b	38
+1023  03ed 25            	dc.b	37
+1024  03ee 25            	dc.b	37
+1025  03ef 24            	dc.b	36
+1026  03f0 24            	dc.b	36
+1027  03f1 24            	dc.b	36
+1028  03f2 23            	dc.b	35
+1029  03f3 23            	dc.b	35
+1030  03f4 22            	dc.b	34
+1031  03f5 22            	dc.b	34
+1032  03f6 21            	dc.b	33
+1033  03f7 21            	dc.b	33
+1034  03f8 20            	dc.b	32
+1035  03f9 20            	dc.b	32
+1036  03fa 1f            	dc.b	31
+1037  03fb 1f            	dc.b	31
+1038  03fc 1e            	dc.b	30
+1039  03fd 1e            	dc.b	30
+1040  03fe 1e            	dc.b	30
+1041  03ff 1d            	dc.b	29
+1042  0400 1d            	dc.b	29
+1043  0401 1c            	dc.b	28
+1044  0402 1c            	dc.b	28
+1045  0403 1b            	dc.b	27
+1046  0404 1b            	dc.b	27
+1047  0405 1a            	dc.b	26
+1048  0406 1a            	dc.b	26
+1049  0407 19            	dc.b	25
+1050  0408 19            	dc.b	25
+1051  0409 18            	dc.b	24
+1052  040a 18            	dc.b	24
+1053  040b 18            	dc.b	24
+1054  040c 17            	dc.b	23
+1055  040d 17            	dc.b	23
+1056  040e 16            	dc.b	22
+1057  040f 16            	dc.b	22
+1058  0410 16            	dc.b	22
+1059  0411 15            	dc.b	21
+1060  0412 15            	dc.b	21
+1061  0413 15            	dc.b	21
+1062  0414 15            	dc.b	21
+1063  0415 15            	dc.b	21
+1064  0416 14            	dc.b	20
+1065  0417 14            	dc.b	20
+1066  0418 14            	dc.b	20
+1067  0419 14            	dc.b	20
+1068  041a 14            	dc.b	20
+1069  041b 14            	dc.b	20
+1070  041c 14            	dc.b	20
+1071  041d 14            	dc.b	20
+1072  041e 14            	dc.b	20
+1073  041f 14            	dc.b	20
+1074  0420 15            	dc.b	21
+1075  0421 15            	dc.b	21
+1076  0422 15            	dc.b	21
+1077  0423 15            	dc.b	21
+1078  0424 16            	dc.b	22
+1079  0425 16            	dc.b	22
+1080  0426 17            	dc.b	23
+1081  0427 17            	dc.b	23
+1082  0428 17            	dc.b	23
+1083  0429 18            	dc.b	24
+1084  042a 18            	dc.b	24
+1085  042b 19            	dc.b	25
+1086  042c 19            	dc.b	25
+1087  042d 1a            	dc.b	26
+1088  042e 1a            	dc.b	26
+1089  042f 1b            	dc.b	27
+1090  0430 1b            	dc.b	27
+1091  0431 1c            	dc.b	28
+1092  0432 1c            	dc.b	28
+1093  0433 1c            	dc.b	28
+1094  0434 1d            	dc.b	29
+1095  0435 1d            	dc.b	29
+1096  0436 1d            	dc.b	29
+1097  0437 1e            	dc.b	30
+1098  0438 1e            	dc.b	30
+1099  0439 1e            	dc.b	30
+1100  043a 1e            	dc.b	30
+1101  043b 1e            	dc.b	30
+1102  043c 1f            	dc.b	31
+1103  043d 1f            	dc.b	31
+1104  043e 1f            	dc.b	31
+1105  043f 1f            	dc.b	31
+1106  0440 1f            	dc.b	31
+1107  0441 1f            	dc.b	31
+1108  0442 1f            	dc.b	31
+1109  0443 20            	dc.b	32
+1110  0444 20            	dc.b	32
+1111  0445 20            	dc.b	32
+1112  0446 20            	dc.b	32
+1113  0447 20            	dc.b	32
+1114  0448 20            	dc.b	32
+1115  0449 21            	dc.b	33
+1116  044a 21            	dc.b	33
+1117  044b 21            	dc.b	33
+1118  044c 21            	dc.b	33
+1119  044d 21            	dc.b	33
+1120  044e 21            	dc.b	33
+1121  044f 22            	dc.b	34
+1122  0450 22            	dc.b	34
+1123  0451 22            	dc.b	34
+1124  0452 22            	dc.b	34
+1125  0453 22            	dc.b	34
+1126  0454 22            	dc.b	34
+1127  0455 22            	dc.b	34
+1128  0456 23            	dc.b	35
+1129  0457 23            	dc.b	35
+1130  0458 23            	dc.b	35
+1131  0459 23            	dc.b	35
+1132  045a 23            	dc.b	35
+1133  045b 23            	dc.b	35
+1134  045c 23            	dc.b	35
+1135  045d 23            	dc.b	35
+1136  045e 24            	dc.b	36
+1137  045f 24            	dc.b	36
+1138  0460 24            	dc.b	36
+1139  0461 24            	dc.b	36
+1140  0462 24            	dc.b	36
+1141  0463 24            	dc.b	36
+1142  0464 24            	dc.b	36
+1143  0465 24            	dc.b	36
+1144  0466 25            	dc.b	37
+1145  0467 25            	dc.b	37
+1146  0468 25            	dc.b	37
+1147  0469 25            	dc.b	37
+1148  046a 25            	dc.b	37
+1149  046b 25            	dc.b	37
+1150  046c 25            	dc.b	37
+1151  046d 25            	dc.b	37
+1152  046e 25            	dc.b	37
+1153  046f 26            	dc.b	38
+1154  0470 26            	dc.b	38
+1155  0471 26            	dc.b	38
+1156  0472 26            	dc.b	38
+1157  0473 26            	dc.b	38
+1158  0474 26            	dc.b	38
+1159  0475 26            	dc.b	38
+1160  0476 26            	dc.b	38
+1161  0477 26            	dc.b	38
+1162  0478 26            	dc.b	38
+1163  0479 26            	dc.b	38
+1164  047a 27            	dc.b	39
+1165  047b 27            	dc.b	39
+1166  047c 27            	dc.b	39
+1167  047d 27            	dc.b	39
+1168  047e 27            	dc.b	39
+1169  047f 27            	dc.b	39
+1170  0480 27            	dc.b	39
+1171  0481 27            	dc.b	39
+1172  0482 27            	dc.b	39
+1173  0483 27            	dc.b	39
+1174  0484 27            	dc.b	39
+1175  0485 27            	dc.b	39
+1176  0486 27            	dc.b	39
+1177  0487 27            	dc.b	39
+1178  0488 27            	dc.b	39
+1179  0489 28            	dc.b	40
+1180  048a 28            	dc.b	40
+1181  048b 28            	dc.b	40
+1182  048c 28            	dc.b	40
+1183  048d 28            	dc.b	40
+1184  048e 28            	dc.b	40
+1185  048f 28            	dc.b	40
+1186  0490 28            	dc.b	40
+1187  0491 28            	dc.b	40
+1188  0492 28            	dc.b	40
+1189  0493 28            	dc.b	40
+1190  0494 28            	dc.b	40
+1191  0495 28            	dc.b	40
+1192  0496 28            	dc.b	40
+1193  0497 28            	dc.b	40
+1194  0498 28            	dc.b	40
+1195  0499 28            	dc.b	40
+1196  049a 28            	dc.b	40
+1197  049b 28            	dc.b	40
+1198  049c 28            	dc.b	40
+1199  049d 28            	dc.b	40
+1200  049e 28            	dc.b	40
+1201  049f 28            	dc.b	40
+1202  04a0 27            	dc.b	39
+1203  04a1 27            	dc.b	39
+1204  04a2 27            	dc.b	39
+1205  04a3 26            	dc.b	38
+1206  04a4 25            	dc.b	37
+1207  04a5 25            	dc.b	37
+1208  04a6 24            	dc.b	36
+1209  04a7 23            	dc.b	35
+1210  04a8 23            	dc.b	35
+1211  04a9 22            	dc.b	34
+1212  04aa 21            	dc.b	33
+1213  04ab 21            	dc.b	33
+1214  04ac 20            	dc.b	32
+1215  04ad 1f            	dc.b	31
+1216  04ae 1f            	dc.b	31
+1217  04af 1f            	dc.b	31
+1218  04b0 1e            	dc.b	30
+1219  04b1 1e            	dc.b	30
+1220  04b2 1e            	dc.b	30
+1221  04b3 1e            	dc.b	30
+1222  04b4 1e            	dc.b	30
+1223  04b5 1d            	dc.b	29
+1224  04b6 1d            	dc.b	29
+1225  04b7 1d            	dc.b	29
+1226  04b8 1d            	dc.b	29
+1227  04b9 1d            	dc.b	29
+1228  04ba 1d            	dc.b	29
+1229  04bb 1c            	dc.b	28
+1230  04bc 1c            	dc.b	28
+1231  04bd 1c            	dc.b	28
+1232  04be 1c            	dc.b	28
+1233  04bf 1c            	dc.b	28
+1234  04c0 1c            	dc.b	28
+1235  04c1 1c            	dc.b	28
+1236  04c2 1b            	dc.b	27
+1237  04c3 1b            	dc.b	27
+1238  04c4 1b            	dc.b	27
+1239  04c5 1b            	dc.b	27
+1240  04c6 1b            	dc.b	27
+1241  04c7 1b            	dc.b	27
+1242  04c8 1b            	dc.b	27
+1243  04c9 1b            	dc.b	27
+1244  04ca 1a            	dc.b	26
+1245  04cb 1a            	dc.b	26
+1246  04cc 1a            	dc.b	26
+1247  04cd 1a            	dc.b	26
+1248  04ce 1a            	dc.b	26
+1249  04cf 1a            	dc.b	26
+1250  04d0 1a            	dc.b	26
+1251  04d1 1a            	dc.b	26
+1252  04d2 19            	dc.b	25
+1253  04d3 19            	dc.b	25
+1254  04d4 19            	dc.b	25
+1255  04d5 19            	dc.b	25
+1256  04d6 19            	dc.b	25
+1257  04d7 19            	dc.b	25
+1258  04d8 19            	dc.b	25
+1259  04d9 19            	dc.b	25
+1260  04da 19            	dc.b	25
+1261  04db 18            	dc.b	24
+1262  04dc 18            	dc.b	24
+1263  04dd 18            	dc.b	24
+1264  04de 18            	dc.b	24
+1265  04df 18            	dc.b	24
+1266  04e0 18            	dc.b	24
+1267  04e1 18            	dc.b	24
+1268  04e2 18            	dc.b	24
+1269  04e3 18            	dc.b	24
+1270  04e4 18            	dc.b	24
+1271  04e5 17            	dc.b	23
+1272  04e6 17            	dc.b	23
+1273  04e7 17            	dc.b	23
+1274  04e8 17            	dc.b	23
+1275  04e9 17            	dc.b	23
+1276  04ea 17            	dc.b	23
+1277  04eb 17            	dc.b	23
+1278  04ec 17            	dc.b	23
+1279  04ed 17            	dc.b	23
+1280  04ee 17            	dc.b	23
+1281  04ef 17            	dc.b	23
+1282  04f0 17            	dc.b	23
+1283  04f1 16            	dc.b	22
+1284  04f2 16            	dc.b	22
+1285  04f3 16            	dc.b	22
+1286  04f4 16            	dc.b	22
+1287  04f5 16            	dc.b	22
+1288  04f6 16            	dc.b	22
+1289  04f7 16            	dc.b	22
+1290  04f8 16            	dc.b	22
+1291  04f9 16            	dc.b	22
+1292  04fa 16            	dc.b	22
+1293  04fb 16            	dc.b	22
+1294  04fc 16            	dc.b	22
+1295  04fd 16            	dc.b	22
+1296  04fe 16            	dc.b	22
+1297  04ff 15            	dc.b	21
+1298  0500 15            	dc.b	21
+1299  0501 15            	dc.b	21
+1300  0502 15            	dc.b	21
+1301  0503 15            	dc.b	21
+1302  0504 15            	dc.b	21
+1303  0505 15            	dc.b	21
+1304  0506 15            	dc.b	21
+1305  0507 15            	dc.b	21
+1306  0508 15            	dc.b	21
+1307  0509 15            	dc.b	21
+1308  050a 15            	dc.b	21
+1309  050b 15            	dc.b	21
+1310  050c 15            	dc.b	21
+1311  050d 15            	dc.b	21
+1312  050e 15            	dc.b	21
+1313  050f 15            	dc.b	21
+1314  0510 15            	dc.b	21
+1315  0511 15            	dc.b	21
+1316  0512 15            	dc.b	21
+1317  0513 15            	dc.b	21
+1318  0514 15            	dc.b	21
+1319  0515 14            	dc.b	20
+1320  0516 14            	dc.b	20
+1321  0517 14            	dc.b	20
+1322  0518 14            	dc.b	20
+1323  0519 14            	dc.b	20
+1324  051a 14            	dc.b	20
+1325  051b 14            	dc.b	20
+1326  051c 14            	dc.b	20
+1327  051d 14            	dc.b	20
+1328  051e 14            	dc.b	20
+1329  051f 14            	dc.b	20
+1330  0520 14            	dc.b	20
+1331  0521 14            	dc.b	20
+1332  0522 14            	dc.b	20
+1333  0523 14            	dc.b	20
+1334  0524 14            	dc.b	20
+1335  0525 14            	dc.b	20
+1336  0526 14            	dc.b	20
+1337  0527 14            	dc.b	20
+1338  0528 14            	dc.b	20
+1339  0529 14            	dc.b	20
+1340  052a 14            	dc.b	20
+1341  052b 14            	dc.b	20
+1342  052c 14            	dc.b	20
+1343  052d 14            	dc.b	20
+1344  052e 14            	dc.b	20
+1345  052f 14            	dc.b	20
+1346  0530 14            	dc.b	20
+1347  0531 14            	dc.b	20
+1348  0532 14            	dc.b	20
+1349  0533 14            	dc.b	20
+1350  0534 14            	dc.b	20
+1351  0535 14            	dc.b	20
+1352  0536 14            	dc.b	20
+1353  0537 14            	dc.b	20
+1354  0538 14            	dc.b	20
+1355  0539 14            	dc.b	20
+1356  053a 14            	dc.b	20
+1357  053b 15            	dc.b	21
+1358  053c 15            	dc.b	21
+1359  053d 15            	dc.b	21
+1360  053e 15            	dc.b	21
+1361  053f 15            	dc.b	21
+1362  0540 15            	dc.b	21
+1363  0541 16            	dc.b	22
+1364  0542 16            	dc.b	22
+1365  0543 16            	dc.b	22
+1366  0544 16            	dc.b	22
+1367  0545 17            	dc.b	23
+1368  0546 17            	dc.b	23
+1369  0547 17            	dc.b	23
+1370  0548 17            	dc.b	23
+1371  0549 18            	dc.b	24
+1372  054a 18            	dc.b	24
+1373  054b 18            	dc.b	24
+1374  054c 19            	dc.b	25
+1375  054d 19            	dc.b	25
+1376  054e 19            	dc.b	25
+1377  054f 1a            	dc.b	26
+1378  0550 1a            	dc.b	26
+1379  0551 1a            	dc.b	26
+1380  0552 1b            	dc.b	27
+1381  0553 1b            	dc.b	27
+1382  0554 1b            	dc.b	27
+1383  0555 1c            	dc.b	28
+1384  0556 1c            	dc.b	28
+1385  0557 1d            	dc.b	29
+1386  0558 1d            	dc.b	29
+1387  0559 1d            	dc.b	29
+1388  055a 1e            	dc.b	30
+1389  055b 1e            	dc.b	30
+1390  055c 1e            	dc.b	30
+1391  055d 1f            	dc.b	31
+1392  055e 1f            	dc.b	31
+1393  055f 1f            	dc.b	31
+1394  0560 20            	dc.b	32
+1395  0561 20            	dc.b	32
+1396  0562 21            	dc.b	33
+1397  0563 21            	dc.b	33
+1398  0564 21            	dc.b	33
+1399  0565 22            	dc.b	34
+1400  0566 22            	dc.b	34
+1401  0567 22            	dc.b	34
+1402  0568 23            	dc.b	35
+1403  0569 23            	dc.b	35
+1404  056a 23            	dc.b	35
+1405  056b 24            	dc.b	36
+1406  056c 24            	dc.b	36
+1407  056d 24            	dc.b	36
+1408  056e 25            	dc.b	37
+1409  056f 25            	dc.b	37
+1410  0570 25            	dc.b	37
+1411  0571 25            	dc.b	37
+1412  0572 26            	dc.b	38
+1413  0573 26            	dc.b	38
+1414  0574 26            	dc.b	38
+1415  0575 26            	dc.b	38
+1416  0576 27            	dc.b	39
+1417  0577 27            	dc.b	39
+1418  0578 27            	dc.b	39
+1419  0579 27            	dc.b	39
+1420  057a 27            	dc.b	39
+1421  057b 27            	dc.b	39
+1422  057c 28            	dc.b	40
+1423  057d 28            	dc.b	40
+1424  057e 28            	dc.b	40
+1425  057f 28            	dc.b	40
+1426  0580 28            	dc.b	40
+1427  0581 28            	dc.b	40
+1428  0582 28            	dc.b	40
+1429  0583 28            	dc.b	40
+1430  0584 28            	dc.b	40
+1431  0585 28            	dc.b	40
+1432  0586 28            	dc.b	40
+1433  0587 28            	dc.b	40
+1434  0588 28            	dc.b	40
+1435  0589 28            	dc.b	40
+1436  058a 28            	dc.b	40
+1437  058b 28            	dc.b	40
+1438  058c 28            	dc.b	40
+1439  058d 28            	dc.b	40
+1440  058e 28            	dc.b	40
+1441  058f 28            	dc.b	40
+1442  0590 28            	dc.b	40
+1443  0591 28            	dc.b	40
+1444  0592 28            	dc.b	40
+1445  0593 28            	dc.b	40
+1446  0594 28            	dc.b	40
+1447  0595 28            	dc.b	40
+1448  0596 28            	dc.b	40
+1449  0597 28            	dc.b	40
+1450  0598 28            	dc.b	40
+1451  0599 28            	dc.b	40
+1452  059a 28            	dc.b	40
+1453  059b 28            	dc.b	40
+1454  059c 28            	dc.b	40
+1455  059d 28            	dc.b	40
+1456  059e 28            	dc.b	40
+1457  059f 28            	dc.b	40
+1458  05a0 28            	dc.b	40
+1459  05a1 28            	dc.b	40
+1460  05a2 28            	dc.b	40
+1461  05a3 28            	dc.b	40
+1462  05a4 28            	dc.b	40
+1463  05a5 28            	dc.b	40
+1464  05a6 28            	dc.b	40
+1465  05a7 28            	dc.b	40
+1466  05a8 28            	dc.b	40
+1467  05a9 28            	dc.b	40
+1468  05aa 28            	dc.b	40
+1469  05ab 28            	dc.b	40
+1470  05ac 28            	dc.b	40
+1471  05ad 28            	dc.b	40
+1472  05ae 28            	dc.b	40
+1473  05af 28            	dc.b	40
+1474  05b0 28            	dc.b	40
+1475  05b1 28            	dc.b	40
+1476  05b2 28            	dc.b	40
+1477  05b3 28            	dc.b	40
+1478  05b4 28            	dc.b	40
+1479  05b5 28            	dc.b	40
+1480  05b6 28            	dc.b	40
+1481  05b7 28            	dc.b	40
+1482  05b8 27            	dc.b	39
+1483  05b9 27            	dc.b	39
+1484  05ba 27            	dc.b	39
+1485  05bb 27            	dc.b	39
+1486  05bc 27            	dc.b	39
+1487  05bd 27            	dc.b	39
+1488  05be 27            	dc.b	39
+1489  05bf 27            	dc.b	39
+1490  05c0 27            	dc.b	39
+1491  05c1 27            	dc.b	39
+1492  05c2 27            	dc.b	39
+1493  05c3 27            	dc.b	39
+1494  05c4 27            	dc.b	39
+1495  05c5 27            	dc.b	39
+1496  05c6 27            	dc.b	39
+1497  05c7 27            	dc.b	39
+1498  05c8 27            	dc.b	39
+1499  05c9 27            	dc.b	39
+1500  05ca 27            	dc.b	39
+1501  05cb 27            	dc.b	39
+1502  05cc 27            	dc.b	39
+1503  05cd 27            	dc.b	39
+1504  05ce 27            	dc.b	39
+1505  05cf 27            	dc.b	39
+1506  05d0 27            	dc.b	39
+1507  05d1 27            	dc.b	39
+1508  05d2 27            	dc.b	39
+1509  05d3 27            	dc.b	39
+1510  05d4 27            	dc.b	39
+1511  05d5 27            	dc.b	39
+1512  05d6 27            	dc.b	39
+1513  05d7 27            	dc.b	39
+1514  05d8 27            	dc.b	39
+1515  05d9 27            	dc.b	39
+1516  05da 27            	dc.b	39
+1517  05db 27            	dc.b	39
+1518  05dc 27            	dc.b	39
+1519  05dd 27            	dc.b	39
+1520  05de 27            	dc.b	39
+1521  05df 27            	dc.b	39
+1522  05e0 27            	dc.b	39
+1523  05e1 27            	dc.b	39
+1524  05e2 27            	dc.b	39
+1525  05e3 26            	dc.b	38
+1526  05e4 26            	dc.b	38
+1527  05e5 26            	dc.b	38
+1528  05e6 26            	dc.b	38
+1529  05e7 26            	dc.b	38
+1530  05e8 26            	dc.b	38
+1531  05e9 26            	dc.b	38
+1532  05ea 26            	dc.b	38
+1533  05eb 26            	dc.b	38
+1534  05ec 26            	dc.b	38
+1535  05ed 26            	dc.b	38
+1536  05ee 26            	dc.b	38
+1537  05ef 26            	dc.b	38
+1538  05f0 26            	dc.b	38
+1539  05f1 26            	dc.b	38
+1540  05f2 26            	dc.b	38
+1541  05f3 26            	dc.b	38
+1542  05f4 26            	dc.b	38
+1543  05f5 26            	dc.b	38
+1544  05f6 26            	dc.b	38
+1545  05f7 26            	dc.b	38
+1546  05f8 26            	dc.b	38
+1547  05f9 26            	dc.b	38
+1548  05fa 26            	dc.b	38
+1549  05fb 26            	dc.b	38
+1550  05fc 26            	dc.b	38
+1551  05fd 26            	dc.b	38
+1552  05fe 26            	dc.b	38
+1553  05ff 26            	dc.b	38
+1554  0600 26            	dc.b	38
+1555  0601 26            	dc.b	38
+1556  0602 26            	dc.b	38
+1557  0603 25            	dc.b	37
+1558  0604 25            	dc.b	37
+1559  0605 25            	dc.b	37
+1560  0606 25            	dc.b	37
+1561  0607 25            	dc.b	37
+1562  0608 25            	dc.b	37
+1563  0609 25            	dc.b	37
+1564  060a 25            	dc.b	37
+1565  060b 25            	dc.b	37
+1566  060c 25            	dc.b	37
+1567  060d 25            	dc.b	37
+1568  060e 25            	dc.b	37
+1569  060f 25            	dc.b	37
+1570  0610 25            	dc.b	37
+1571  0611 25            	dc.b	37
+1572  0612 25            	dc.b	37
+1573  0613 25            	dc.b	37
+1574  0614 25            	dc.b	37
+1575  0615 25            	dc.b	37
+1576  0616 25            	dc.b	37
+1577  0617 25            	dc.b	37
+1578  0618 25            	dc.b	37
+1579  0619 25            	dc.b	37
+1580  061a 25            	dc.b	37
+1581  061b 25            	dc.b	37
+1582  061c 25            	dc.b	37
+1583  061d 25            	dc.b	37
+1584  061e 25            	dc.b	37
+1585  061f 24            	dc.b	36
+1586  0620 24            	dc.b	36
+1587  0621 24            	dc.b	36
+1588  0622 24            	dc.b	36
+1589  0623 24            	dc.b	36
+1590  0624 24            	dc.b	36
+1591  0625 24            	dc.b	36
+1592  0626 24            	dc.b	36
+1593  0627 24            	dc.b	36
+1594  0628 24            	dc.b	36
+1595  0629 24            	dc.b	36
+1596  062a 24            	dc.b	36
+1597  062b 24            	dc.b	36
+1598  062c 24            	dc.b	36
+1599  062d 24            	dc.b	36
+1600  062e 24            	dc.b	36
+1601  062f 24            	dc.b	36
+1602  0630 24            	dc.b	36
+1603  0631 24            	dc.b	36
+1604  0632 24            	dc.b	36
+1605  0633 24            	dc.b	36
+1606  0634 24            	dc.b	36
+1607  0635 24            	dc.b	36
+1608  0636 24            	dc.b	36
+1609  0637 24            	dc.b	36
+1610  0638 24            	dc.b	36
+1611  0639 23            	dc.b	35
+1612  063a 23            	dc.b	35
+1613  063b 23            	dc.b	35
+1614  063c 23            	dc.b	35
+1615  063d 23            	dc.b	35
+1616  063e 23            	dc.b	35
+1617  063f 23            	dc.b	35
+1618  0640 23            	dc.b	35
+1619  0641 23            	dc.b	35
+1620  0642 23            	dc.b	35
+1621  0643 23            	dc.b	35
+1622  0644 23            	dc.b	35
+1623  0645 23            	dc.b	35
+1624  0646 23            	dc.b	35
+1625  0647 23            	dc.b	35
+1626  0648 23            	dc.b	35
+1627  0649 23            	dc.b	35
+1628  064a 23            	dc.b	35
+1629  064b 23            	dc.b	35
+1630  064c 23            	dc.b	35
+1631  064d 23            	dc.b	35
+1632  064e 23            	dc.b	35
+1633  064f 23            	dc.b	35
+1634  0650 23            	dc.b	35
+1635  0651 23            	dc.b	35
+1636  0652 23            	dc.b	35
+1637  0653 23            	dc.b	35
+1638  0654 22            	dc.b	34
+1639  0655 22            	dc.b	34
+1640  0656 22            	dc.b	34
+1641  0657 22            	dc.b	34
+1642  0658 22            	dc.b	34
+1643  0659 22            	dc.b	34
+1644  065a 22            	dc.b	34
+1645  065b 22            	dc.b	34
+1646  065c 22            	dc.b	34
+1647  065d 22            	dc.b	34
+1648  065e 22            	dc.b	34
+1649  065f 22            	dc.b	34
+1650  0660 22            	dc.b	34
+1651  0661 22            	dc.b	34
+1652  0662 22            	dc.b	34
+1653  0663 22            	dc.b	34
+1654  0664 22            	dc.b	34
+1655  0665 22            	dc.b	34
+1656  0666 22            	dc.b	34
+1657  0667 22            	dc.b	34
+1658  0668 22            	dc.b	34
+1659  0669 22            	dc.b	34
+1660  066a 22            	dc.b	34
+1661  066b 22            	dc.b	34
+1662  066c 22            	dc.b	34
+1663  066d 22            	dc.b	34
+1664  066e 21            	dc.b	33
+1665  066f 21            	dc.b	33
+1666  0670 21            	dc.b	33
+1667  0671 21            	dc.b	33
+1668  0672 21            	dc.b	33
+1669  0673 21            	dc.b	33
+1670  0674 21            	dc.b	33
+1671  0675 21            	dc.b	33
+1672  0676 21            	dc.b	33
+1673  0677 21            	dc.b	33
+1674  0678 21            	dc.b	33
+1675  0679 21            	dc.b	33
+1676  067a 21            	dc.b	33
+1677  067b 21            	dc.b	33
+1678  067c 21            	dc.b	33
+1679  067d 21            	dc.b	33
+1680  067e 21            	dc.b	33
+1681  067f 21            	dc.b	33
+1682  0680 21            	dc.b	33
+1683  0681 21            	dc.b	33
+1684  0682 21            	dc.b	33
+1685  0683 21            	dc.b	33
+1686  0684 21            	dc.b	33
+1687  0685 21            	dc.b	33
+1688  0686 21            	dc.b	33
+1689  0687 21            	dc.b	33
+1690  0688 21            	dc.b	33
+1691  0689 21            	dc.b	33
+1692  068a 20            	dc.b	32
+1693  068b 20            	dc.b	32
+1694  068c 20            	dc.b	32
+1695  068d 20            	dc.b	32
+1696  068e 20            	dc.b	32
+1697  068f 20            	dc.b	32
+1698  0690 20            	dc.b	32
+1699  0691 20            	dc.b	32
+1700  0692 20            	dc.b	32
+1701  0693 20            	dc.b	32
+1702  0694 20            	dc.b	32
+1703  0695 20            	dc.b	32
+1704  0696 20            	dc.b	32
+1705  0697 20            	dc.b	32
+1706  0698 20            	dc.b	32
+1707  0699 20            	dc.b	32
+1708  069a 20            	dc.b	32
+1709  069b 20            	dc.b	32
+1710  069c 20            	dc.b	32
+1711  069d 20            	dc.b	32
+1712  069e 20            	dc.b	32
+1713  069f 20            	dc.b	32
+1714  06a0 20            	dc.b	32
+1715  06a1 20            	dc.b	32
+1716  06a2 20            	dc.b	32
+1717  06a3 20            	dc.b	32
+1718  06a4 20            	dc.b	32
+1719  06a5 20            	dc.b	32
+1720  06a6 20            	dc.b	32
+1721  06a7 20            	dc.b	32
+1722  06a8 20            	dc.b	32
+1723  06a9 20            	dc.b	32
+1724  06aa 1f            	dc.b	31
+1725  06ab 1f            	dc.b	31
+1726  06ac 1f            	dc.b	31
+1727  06ad 1f            	dc.b	31
+1728  06ae 1f            	dc.b	31
+1729  06af 1f            	dc.b	31
+1730  06b0 1f            	dc.b	31
+1731  06b1 1f            	dc.b	31
+1732  06b2 1f            	dc.b	31
+1733  06b3 1f            	dc.b	31
+1734  06b4 1f            	dc.b	31
+1735  06b5 1f            	dc.b	31
+1736  06b6 1f            	dc.b	31
+1737  06b7 1f            	dc.b	31
+1738  06b8 1f            	dc.b	31
+1739  06b9 1f            	dc.b	31
+1740  06ba 1f            	dc.b	31
+1741  06bb 1f            	dc.b	31
+1742  06bc 1f            	dc.b	31
+1743  06bd 1f            	dc.b	31
+1744  06be 1f            	dc.b	31
+1745  06bf 1f            	dc.b	31
+1746  06c0 1f            	dc.b	31
+1747  06c1 1f            	dc.b	31
+1748  06c2 1f            	dc.b	31
+1749  06c3 1f            	dc.b	31
+1750  06c4 1f            	dc.b	31
+1751  06c5 1f            	dc.b	31
+1752  06c6 1f            	dc.b	31
+1753  06c7 1f            	dc.b	31
+1754  06c8 1f            	dc.b	31
+1755  06c9 1f            	dc.b	31
+1756  06ca 1f            	dc.b	31
+1757  06cb 1f            	dc.b	31
+1758  06cc 1f            	dc.b	31
+1759  06cd 1f            	dc.b	31
+1760  06ce 1f            	dc.b	31
+1761  06cf 1f            	dc.b	31
+1762  06d0 1f            	dc.b	31
+1763  06d1 1f            	dc.b	31
+1764  06d2 1f            	dc.b	31
+1765  06d3 1f            	dc.b	31
+1766  06d4 1f            	dc.b	31
+1767  06d5 1e            	dc.b	30
+1768  06d6 1e            	dc.b	30
+1769  06d7 1e            	dc.b	30
+1770  06d8 1e            	dc.b	30
+1771  06d9 1e            	dc.b	30
+1772  06da 1e            	dc.b	30
+1773  06db 1e            	dc.b	30
+1774  06dc 1e            	dc.b	30
+1775  06dd 1e            	dc.b	30
+1776  06de 1e            	dc.b	30
+1777  06df 1e            	dc.b	30
+1778  06e0 1e            	dc.b	30
+1779  06e1 1e            	dc.b	30
+1780  06e2 1e            	dc.b	30
+1781  06e3 1e            	dc.b	30
+1782  06e4 1e            	dc.b	30
+1783  06e5 1e            	dc.b	30
+1784  06e6 1e            	dc.b	30
+1785  06e7 1e            	dc.b	30
+1786  06e8 1e            	dc.b	30
+1787  06e9 1e            	dc.b	30
+1788  06ea 1e            	dc.b	30
+1789  06eb 1e            	dc.b	30
+1790  06ec 1e            	dc.b	30
+1791  06ed 1e            	dc.b	30
+1792  06ee 1e            	dc.b	30
+1793  06ef 1e            	dc.b	30
+1794  06f0 1e            	dc.b	30
+1795  06f1 1e            	dc.b	30
+1796  06f2 1e            	dc.b	30
+1797  06f3 1e            	dc.b	30
+1798  06f4 1e            	dc.b	30
+1799  06f5 1e            	dc.b	30
+1800  06f6 1e            	dc.b	30
+1801  06f7 1e            	dc.b	30
+1802  06f8 1e            	dc.b	30
+1803  06f9 1e            	dc.b	30
+1804  06fa 1e            	dc.b	30
+1805  06fb 1e            	dc.b	30
+1806  06fc 1e            	dc.b	30
+1807  06fd 1e            	dc.b	30
+1808  06fe 1e            	dc.b	30
+1809  06ff 1e            	dc.b	30
+1810  0700 1e            	dc.b	30
+1811  0701 1e            	dc.b	30
+1812  0702 1e            	dc.b	30
+1813  0703 1e            	dc.b	30
+1814  0704 1e            	dc.b	30
+1815  0705 1e            	dc.b	30
+1816  0706 1e            	dc.b	30
+1817  0707 1e            	dc.b	30
+1818  0708 1e            	dc.b	30
+1819  0709 1e            	dc.b	30
+1820  070a 1e            	dc.b	30
+1821  070b 1e            	dc.b	30
+1822  070c 1e            	dc.b	30
+1823  070d 1e            	dc.b	30
+1824  070e 1e            	dc.b	30
+1825  070f 1e            	dc.b	30
+1826  0710 1e            	dc.b	30
+1827  0711 1e            	dc.b	30
+1828  0712 1e            	dc.b	30
+1829  0713 1e            	dc.b	30
+1830  0714 1e            	dc.b	30
+1831  0715 1e            	dc.b	30
+1832  0716 1e            	dc.b	30
+1833  0717 1e            	dc.b	30
+1834  0718 1e            	dc.b	30
+1835  0719 1e            	dc.b	30
+1836  071a 1e            	dc.b	30
+1837  071b 1e            	dc.b	30
+1838  071c 1e            	dc.b	30
+1839  071d 1e            	dc.b	30
+1840  071e 1e            	dc.b	30
+1841  071f 1e            	dc.b	30
+1842  0720 1e            	dc.b	30
+1843  0721 1e            	dc.b	30
+1844  0722 1e            	dc.b	30
+1845  0723 1e            	dc.b	30
+1846  0724 1e            	dc.b	30
+1847  0725 1e            	dc.b	30
+1848  0726 1e            	dc.b	30
+1849  0727 1e            	dc.b	30
+1850  0728 1e            	dc.b	30
+1851  0729 1e            	dc.b	30
+1852  072a 1e            	dc.b	30
+1853  072b 1e            	dc.b	30
+1854  072c 1e            	dc.b	30
+1855  072d 1e            	dc.b	30
+1856  072e 1e            	dc.b	30
+1857  072f 1e            	dc.b	30
+1858  0730 1e            	dc.b	30
+1859  0731 1e            	dc.b	30
+1860  0732 1e            	dc.b	30
+1861  0733 1e            	dc.b	30
+1862  0734 1e            	dc.b	30
+1863  0735 1e            	dc.b	30
+1864  0736 1e            	dc.b	30
+1865  0737 1e            	dc.b	30
+1866  0738 1e            	dc.b	30
+1867  0739 1e            	dc.b	30
+1868  073a 1e            	dc.b	30
+1869  073b 1e            	dc.b	30
+1870  073c 1e            	dc.b	30
+1871  073d 1e            	dc.b	30
+1872  073e 1e            	dc.b	30
+1873  073f 1e            	dc.b	30
+1874  0740 1e            	dc.b	30
+1875  0741 1e            	dc.b	30
+1876  0742 1e            	dc.b	30
+1877  0743 1e            	dc.b	30
+1878  0744 1e            	dc.b	30
+1879  0745 1e            	dc.b	30
+1880  0746 1e            	dc.b	30
+1881  0747 1e            	dc.b	30
+1882  0748 1e            	dc.b	30
+1883  0749 1e            	dc.b	30
+1884  074a 1e            	dc.b	30
+1885  074b 1e            	dc.b	30
+1886  074c 1e            	dc.b	30
+1887  074d 1e            	dc.b	30
+1888  074e 1e            	dc.b	30
+1889  074f 1e            	dc.b	30
+1890  0750 1e            	dc.b	30
+1891  0751 1e            	dc.b	30
+1892  0752 1e            	dc.b	30
+1893  0753 1e            	dc.b	30
+1894  0754 1e            	dc.b	30
+1895  0755 1e            	dc.b	30
+1896  0756 1e            	dc.b	30
+1897  0757 1e            	dc.b	30
+1898  0758 1e            	dc.b	30
+1899  0759 1e            	dc.b	30
+1900  075a 1e            	dc.b	30
+1901  075b 1e            	dc.b	30
+1902  075c 1e            	dc.b	30
+1903  075d 1e            	dc.b	30
+1904  075e 1e            	dc.b	30
+1905  075f 1e            	dc.b	30
+1906  0760 1e            	dc.b	30
+1907  0761 1e            	dc.b	30
+1908  0762 1e            	dc.b	30
+1909  0763 1e            	dc.b	30
+1910  0764 1e            	dc.b	30
+1911  0765 1e            	dc.b	30
+1912  0766 1e            	dc.b	30
+1913  0767 1e            	dc.b	30
+1914  0768 1e            	dc.b	30
+1915  0769 1e            	dc.b	30
+1916  076a 1e            	dc.b	30
+1917  076b 1e            	dc.b	30
+1918  076c 1e            	dc.b	30
+1919  076d 1e            	dc.b	30
+1920  076e 1e            	dc.b	30
+1921  076f 1e            	dc.b	30
+1922  0770 1e            	dc.b	30
+1923  0771 1e            	dc.b	30
+1924  0772 1e            	dc.b	30
+1925  0773 1e            	dc.b	30
+1926  0774 1e            	dc.b	30
+1927  0775 1e            	dc.b	30
+1928  0776 1e            	dc.b	30
+1929  0777 1e            	dc.b	30
+1930  0778 1e            	dc.b	30
+1931  0779 1e            	dc.b	30
+1932  077a 1e            	dc.b	30
+1933  077b 1e            	dc.b	30
+1934  077c 1e            	dc.b	30
+1935  077d 1e            	dc.b	30
+1936  077e 1e            	dc.b	30
+1937  077f 1e            	dc.b	30
+1938  0780 1e            	dc.b	30
+1939  0781 1e            	dc.b	30
+1940  0782 1e            	dc.b	30
+1941  0783 1e            	dc.b	30
+1942  0784 1e            	dc.b	30
+1943  0785 1e            	dc.b	30
+1944  0786 1e            	dc.b	30
+1945  0787 1e            	dc.b	30
+1946  0788 1e            	dc.b	30
+1947  0789 1e            	dc.b	30
+1948  078a 1e            	dc.b	30
+1949  078b 1e            	dc.b	30
+1950  078c 1e            	dc.b	30
+1951  078d 1e            	dc.b	30
+1952  078e 1e            	dc.b	30
+1953  078f 1e            	dc.b	30
+1954  0790 1e            	dc.b	30
+1955  0791 1e            	dc.b	30
+1956  0792 1e            	dc.b	30
+1957  0793 1e            	dc.b	30
+1958  0794 1e            	dc.b	30
+1959  0795 1e            	dc.b	30
+1960  0796 1e            	dc.b	30
+1961  0797 1e            	dc.b	30
+1962  0798 1e            	dc.b	30
+1963  0799 1e            	dc.b	30
+1964  079a 1e            	dc.b	30
+1965  079b 1e            	dc.b	30
+1966  079c 1e            	dc.b	30
+1967  079d 1e            	dc.b	30
+1968  079e 1e            	dc.b	30
+1969  079f 1e            	dc.b	30
+1970  07a0 1e            	dc.b	30
+1971  07a1 1e            	dc.b	30
+1972  07a2 1e            	dc.b	30
+1973  07a3 1e            	dc.b	30
+1974  07a4 1e            	dc.b	30
+1975  07a5 1e            	dc.b	30
+1976  07a6 1e            	dc.b	30
+1977  07a7 1e            	dc.b	30
+1978  07a8 1e            	dc.b	30
+1979  07a9 1e            	dc.b	30
+1980  07aa 1e            	dc.b	30
+1981  07ab 1e            	dc.b	30
+1982  07ac 1e            	dc.b	30
+1983  07ad 1e            	dc.b	30
+1984  07ae 1e            	dc.b	30
+1985  07af 1e            	dc.b	30
+1986  07b0 1e            	dc.b	30
+1987  07b1 1e            	dc.b	30
+1988  07b2 1e            	dc.b	30
+1989  07b3 1e            	dc.b	30
+1990  07b4 1e            	dc.b	30
+1991  07b5 1e            	dc.b	30
+1992  07b6 1e            	dc.b	30
+1993  07b7 1e            	dc.b	30
+1994  07b8 1e            	dc.b	30
+1995  07b9 1e            	dc.b	30
+1996  07ba 1e            	dc.b	30
+1997  07bb 1e            	dc.b	30
+1998  07bc 1e            	dc.b	30
+1999  07bd 1e            	dc.b	30
+2000  07be 1e            	dc.b	30
+2001  07bf 1e            	dc.b	30
+2002  07c0 1e            	dc.b	30
+2003  07c1 1e            	dc.b	30
+2004  07c2 1e            	dc.b	30
+2005  07c3 1e            	dc.b	30
+2006  07c4 1e            	dc.b	30
+2007  07c5 1e            	dc.b	30
+2008  07c6 1e            	dc.b	30
+2009  07c7 1e            	dc.b	30
+2010  07c8 1e            	dc.b	30
+2011  07c9 1e            	dc.b	30
+2012  07ca 1e            	dc.b	30
+2013  07cb 1e            	dc.b	30
+2014  07cc 1e            	dc.b	30
+2015  07cd 1e            	dc.b	30
+2016  07ce 1e            	dc.b	30
+2017  07cf 1e            	dc.b	30
+2018  07d0 1e            	dc.b	30
+2019  07d1 1e            	dc.b	30
+2087                     ; 52 INTERRUPT_HANDLER(NonHandledInterrupt, 25)
+2087                     ; 53 {
+2088                     .text:	section	.text,new
+2089  0000               f_NonHandledInterrupt:
+2093                     ; 57 }
+2096  0000 80            	iret
+2118                     ; 65 INTERRUPT_HANDLER_TRAP(TRAP_IRQHandler)
+2118                     ; 66 {
+2119                     .text:	section	.text,new
+2120  0000               f_TRAP_IRQHandler:
+2124                     ; 70 }
+2127  0000 80            	iret
+2149                     ; 76 INTERRUPT_HANDLER(TLI_IRQHandler, 0)
+2149                     ; 77 {
+2150                     .text:	section	.text,new
+2151  0000               f_TLI_IRQHandler:
+2155                     ; 81 }
+2158  0000 80            	iret
+2180                     ; 88 INTERRUPT_HANDLER(AWU_IRQHandler, 1)
+2180                     ; 89 {
+2181                     .text:	section	.text,new
+2182  0000               f_AWU_IRQHandler:
+2186                     ; 93 }
+2189  0000 80            	iret
+2211                     ; 100 INTERRUPT_HANDLER(CLK_IRQHandler, 2)
+2211                     ; 101 {
+2212                     .text:	section	.text,new
+2213  0000               f_CLK_IRQHandler:
+2217                     ; 105 }
+2220  0000 80            	iret
+2243                     ; 112 INTERRUPT_HANDLER(EXTI_PORTA_IRQHandler, 3)
+2243                     ; 113 {
+2244                     .text:	section	.text,new
+2245  0000               f_EXTI_PORTA_IRQHandler:
+2249                     ; 117 }
+2252  0000 80            	iret
+2275                     ; 124 INTERRUPT_HANDLER(EXTI_PORTB_IRQHandler, 4)
+2275                     ; 125 {
+2276                     .text:	section	.text,new
+2277  0000               f_EXTI_PORTB_IRQHandler:
+2281                     ; 129 }
+2284  0000 80            	iret
+2320                     ; 136 INTERRUPT_HANDLER(EXTI_PORTC_IRQHandler, 5)
+2320                     ; 137 {
+2321                     .text:	section	.text,new
+2322  0000               f_EXTI_PORTC_IRQHandler:
+2324  0000 8a            	push	cc
+2325  0001 84            	pop	a
+2326  0002 a4bf          	and	a,#191
+2327  0004 88            	push	a
+2328  0005 86            	pop	cc
+2329       00000002      OFST:	set	2
+2330  0006 3b0002        	push	c_x+2
+2331  0009 be00          	ldw	x,c_x
+2332  000b 89            	pushw	x
+2333  000c 3b0002        	push	c_y+2
+2334  000f be00          	ldw	x,c_y
+2335  0011 89            	pushw	x
+2336  0012 89            	pushw	x
+2339                     ; 140     Jump_Function = (Function_Pointer) 0x9FFF;
+2341                     ; 141     Jump_Function();
+2343  0013 cd9fff        	call	40959
+2345                     ; 142 }
+2348  0016 5b02          	addw	sp,#2
+2349  0018 85            	popw	x
+2350  0019 bf00          	ldw	c_y,x
+2351  001b 320002        	pop	c_y+2
+2352  001e 85            	popw	x
+2353  001f bf00          	ldw	c_x,x
+2354  0021 320002        	pop	c_x+2
+2355  0024 80            	iret
+2378                     ; 149 INTERRUPT_HANDLER(EXTI_PORTD_IRQHandler, 6)
+2378                     ; 150 {
+2379                     .text:	section	.text,new
+2380  0000               f_EXTI_PORTD_IRQHandler:
+2384                     ; 154 }
+2387  0000 80            	iret
+2410                     ; 161 INTERRUPT_HANDLER(EXTI_PORTE_IRQHandler, 7)
+2410                     ; 162 {
+2411                     .text:	section	.text,new
+2412  0000               f_EXTI_PORTE_IRQHandler:
+2416                     ; 166 }
+2419  0000 80            	iret
+2441                     ; 212 INTERRUPT_HANDLER(SPI_IRQHandler, 10)
+2441                     ; 213 {
+2442                     .text:	section	.text,new
+2443  0000               f_SPI_IRQHandler:
+2447                     ; 217 }
+2450  0000 80            	iret
+2473                     ; 224 INTERRUPT_HANDLER(TIM1_UPD_OVF_TRG_BRK_IRQHandler, 11)
+2473                     ; 225 {
+2474                     .text:	section	.text,new
+2475  0000               f_TIM1_UPD_OVF_TRG_BRK_IRQHandler:
+2479                     ; 229 }
+2482  0000 80            	iret
+2505                     ; 236 INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
+2505                     ; 237 {
+2506                     .text:	section	.text,new
+2507  0000               f_TIM1_CAP_COM_IRQHandler:
+2511                     ; 241 }
+2514  0000 80            	iret
+2516                     	bsct
+2517  0000               L702_time:
+2518  0000 012c          	dc.w	300
+2555                     ; 273  INTERRUPT_HANDLER(TIM2_UPD_OVF_BRK_IRQHandler, 13)
+2555                     ; 274 {
+2556                     .text:	section	.text,new
+2557  0000               f_TIM2_UPD_OVF_BRK_IRQHandler:
+2559  0000 8a            	push	cc
+2560  0001 84            	pop	a
+2561  0002 a4bf          	and	a,#191
+2562  0004 88            	push	a
+2563  0005 86            	pop	cc
+2564  0006 3b0002        	push	c_x+2
+2565  0009 be00          	ldw	x,c_x
+2566  000b 89            	pushw	x
+2567  000c 3b0002        	push	c_y+2
+2568  000f be00          	ldw	x,c_y
+2569  0011 89            	pushw	x
+2572                     ; 279 	GPIO_WriteReverse(GPIOB,GPIO_PIN_5);
+2574  0012 4b20          	push	#32
+2575  0014 ae5005        	ldw	x,#20485
+2576  0017 cd0000        	call	_GPIO_WriteReverse
+2578  001a 84            	pop	a
+2579                     ; 280 	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);
+2581  001b a601          	ld	a,#1
+2582  001d cd0000        	call	_TIM2_ClearITPendingBit
+2584                     ; 281 	if(!time--) {
+2586  0020 be00          	ldw	x,L702_time
+2587  0022 1d0001        	subw	x,#1
+2588  0025 bf00          	ldw	L702_time,x
+2589  0027 1c0001        	addw	x,#1
+2590  002a a30000        	cpw	x,#0
+2591  002d 260a          	jrne	L722
+2592                     ; 282 		GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
+2594  002f 4b20          	push	#32
+2595  0031 ae5005        	ldw	x,#20485
+2596  0034 cd0000        	call	_GPIO_WriteHigh
+2598  0037 84            	pop	a
+2599                     ; 283 		halt();
+2602  0038 8e            halt
+2605  0039               L722:
+2606                     ; 286 	return;
+2609  0039 85            	popw	x
+2610  003a bf00          	ldw	c_y,x
+2611  003c 320002        	pop	c_y+2
+2612  003f 85            	popw	x
+2613  0040 bf00          	ldw	c_x,x
+2614  0042 320002        	pop	c_x+2
+2615  0045 80            	iret
+2638                     ; 294  INTERRUPT_HANDLER(TIM2_CAP_COM_IRQHandler, 14)
+2638                     ; 295 {
+2639                     .text:	section	.text,new
+2640  0000               f_TIM2_CAP_COM_IRQHandler:
+2644                     ; 299 }
+2647  0000 80            	iret
+2670                     ; 336  INTERRUPT_HANDLER(UART1_TX_IRQHandler, 17)
+2670                     ; 337 {
+2671                     .text:	section	.text,new
+2672  0000               f_UART1_TX_IRQHandler:
+2676                     ; 341 }
+2679  0000 80            	iret
+2702                     ; 348  INTERRUPT_HANDLER(UART1_RX_IRQHandler, 18)
+2702                     ; 349 {
+2703                     .text:	section	.text,new
+2704  0000               f_UART1_RX_IRQHandler:
+2708                     ; 353 }
+2711  0000 80            	iret
+2733                     ; 361 INTERRUPT_HANDLER(I2C_IRQHandler, 19)
+2733                     ; 362 {
+2734                     .text:	section	.text,new
+2735  0000               f_I2C_IRQHandler:
+2739                     ; 366 }
+2742  0000 80            	iret
+2764                     ; 439  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
+2764                     ; 440 {
+2765                     .text:	section	.text,new
+2766  0000               f_ADC1_IRQHandler:
+2770                     ; 445 }
+2773  0000 80            	iret
+2796                     ; 466  INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
+2796                     ; 467 {
+2797                     .text:	section	.text,new
+2798  0000               f_TIM4_UPD_OVF_IRQHandler:
+2802                     ; 471 }
+2805  0000 80            	iret
+2828                     ; 479 INTERRUPT_HANDLER(EEPROM_EEC_IRQHandler, 24)
+2828                     ; 480 {
+2829                     .text:	section	.text,new
+2830  0000               f_EEPROM_EEC_IRQHandler:
+2834                     ; 484 }
+2837  0000 80            	iret
+2849                     	xdef	_wave_side
+2850                     	xdef	_wave_side_size
+2851                     	xdef	f_EEPROM_EEC_IRQHandler
+2852                     	xdef	f_TIM4_UPD_OVF_IRQHandler
+2853                     	xdef	f_ADC1_IRQHandler
+2854                     	xdef	f_I2C_IRQHandler
+2855                     	xdef	f_UART1_RX_IRQHandler
+2856                     	xdef	f_UART1_TX_IRQHandler
+2857                     	xdef	f_TIM2_CAP_COM_IRQHandler
+2858                     	xdef	f_TIM2_UPD_OVF_BRK_IRQHandler
+2859                     	xdef	f_TIM1_UPD_OVF_TRG_BRK_IRQHandler
+2860                     	xdef	f_TIM1_CAP_COM_IRQHandler
+2861                     	xdef	f_SPI_IRQHandler
+2862                     	xdef	f_EXTI_PORTE_IRQHandler
+2863                     	xdef	f_EXTI_PORTD_IRQHandler
+2864                     	xdef	f_EXTI_PORTC_IRQHandler
+2865                     	xdef	f_EXTI_PORTB_IRQHandler
+2866                     	xdef	f_EXTI_PORTA_IRQHandler
+2867                     	xdef	f_CLK_IRQHandler
+2868                     	xdef	f_AWU_IRQHandler
+2869                     	xdef	f_TLI_IRQHandler
+2870                     	xdef	f_TRAP_IRQHandler
+2871                     	xdef	f_NonHandledInterrupt
+2872                     	xref	_TIM2_ClearITPendingBit
+2873                     	xref	_GPIO_WriteReverse
+2874                     	xref	_GPIO_WriteHigh
+2875                     	xref.b	c_x
+2876                     	xref.b	c_y
+2895                     	end

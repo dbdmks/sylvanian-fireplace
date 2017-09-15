@@ -4070,6 +4070,7 @@ u8	stm8s_stdperiph_driver\inc\stm8s.h	227;"	typedef
 uint16_t	stm8s_stdperiph_driver\inc\stm8s.h	216;"	typedef
 uint32_t	stm8s_stdperiph_driver\inc\stm8s.h	217;"	typedef
 uint8_t	stm8s_stdperiph_driver\inc\stm8s.h	215;"	typedef
+wave_side	pwm_waves.h	1;"	variable
 wfi	stm8s_stdperiph_driver\inc\stm8s.h	2721;"	macro
 wfi	stm8s_stdperiph_driver\inc\stm8s.h	2730;"	macro
 wfi	stm8s_stdperiph_driver\inc\stm8s.h	2740;"	macro

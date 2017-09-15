@@ -6,3 +6,7 @@ Keyword=ST7Workspace-V0.7
 [Project0]
 Filename=sfp.stp
 Dependencies=
+[Options]
+ActiveProject=sfp
+ActiveConfig=Debug
+AddSortedElements=1

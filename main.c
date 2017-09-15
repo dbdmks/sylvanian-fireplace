@@ -4,10 +4,11 @@
  */
 #include <stm8s.h>
 
+
 void Delay(uint16_t count);
 static void TIM1_pwm_setup(void);
 static void TIM2_wakeup_setup(void); //1032/2mhz/64psc = reload in ~33ms
-
+	
 void Sleep(void);
  
 main()

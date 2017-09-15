@@ -1,5 +1,5 @@
 
-Map of Debug\sfp.sm8 from link file Debug\sfp.lkf - Thu Sep 14 03:59:34 2017
+Map of Debug\sfp.sm8 from link file Debug\sfp.lkf - Sat Sep 16 01:54:40 2017
 
 
                                --------
@@ -17,7 +17,7 @@ start 00000008 end 00000008 length     0 segment .share
 start 00000100 end 00000100 length     0 segment .data
 start 00000100 end 00000100 length     0 segment .bss
 start 00000000 end 00000590 length  1424 segment .info.
-start 00000000 end 00008cf7 length 36087 segment .debug
+start 00000000 end 00008d78 length 36216 segment .debug
 start 00008000 end 00008080 length   128 segment .const
 start 0000812b end 00008133 length     8 segment .init
 
@@ -221,8 +221,9 @@ start 000089da end 000089dc length     2 section .text
 
 Debug\stm8s_it.o:
 start 00000000 end 00000002 length     2 section .bsct
-start 00008551 end 00008bd1 length  1664 section .debug
+start 00008551 end 00008c52 length  1793 section .debug
 start 000002ad end 0000032b length   126 section .info.
+start ******** end ******** length     0 section .const *** removed ***
 start 000089dc end 000089dd length     1 section .text
 start 000089dd end 000089de length     1 section .text
 start 000089de end 000089df length     1 section .text
@@ -282,7 +283,7 @@ start 00000005 end 00000008 length     3 section .ubsct
 start 000004a5 end 000004d4 length    47 section .info.
 
 Debug\stm8_interrupt_vector.o:
-start 00008bd1 end 00008cf7 length   294 section .debug
+start 00008c52 end 00008d78 length   294 section .debug
 start 000004d4 end 0000055f length   139 section .info.
 start 00008000 end 00008080 length   128 section .const
 
@@ -694,6 +695,8 @@ _assert_failed                      000089da   defined in Debug\main.o section .
 _exit                               00008183   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8 section .text
 _main                               00008934   defined in Debug\main.o section .text
                                                used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
+_wave_side                          ********   *** removed from Debug\stm8s_it.o ***
+_wave_side_size                     ********   *** removed from Debug\stm8s_it.o ***
 c_divsl                             ********   *** removed from (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o ***
 c_divul                             ********   *** removed from (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o ***
 c_lgneg                             ********   *** removed from (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgneg.o ***

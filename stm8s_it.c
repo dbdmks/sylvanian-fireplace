@@ -27,6 +27,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s_it.h"
+#include "pwm_waves.h"
 
 /* Private typedef -----------------------------------------------------------*/
 typedef  void (*Function_Pointer)(void);
@@ -274,10 +275,10 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
-	static uint16_t counter = 300;
+	static uint16_t time = 300;
 	GPIO_WriteReverse(GPIOB,GPIO_PIN_5);
 	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);
-	if(!counter--) {
+	if(!time--) {
 		GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
 		halt();
 	}
