@@ -335,7 +335,7 @@ PathName=stm8s_it.c
 [Root.Include Files]
 ElemType=Folder
 PathName=Include Files
-Child=Root.Include Files.stm8s_it.h
+Child=Root.Include Files.pwm_waves.h
 Config.0=Root.Include Files.Config.0
 Config.1=Root.Include Files.Config.1
 
@@ -404,6 +404,11 @@ String.3.0=
 String.4.0=
 String.5.0=
 String.6.0=2017,9,14,1,47,20
+
+[Root.Include Files.pwm_waves.h]
+ElemType=File
+PathName=pwm_waves.h
+Next=Root.Include Files.stm8s_it.h
 
 [Root.Include Files.stm8s_it.h]
 ElemType=File

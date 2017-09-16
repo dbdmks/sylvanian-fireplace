@@ -9,8 +9,6 @@ void Delay(uint16_t count);
 static void TIM1_pwm_setup(void);
 static void TIM2_wakeup_setup(void); //1032/2mhz/64psc = reload in ~33ms
 	
-void Sleep(void);
- 
 main()
 {
 	CLK_DeInit();
@@ -21,17 +19,8 @@ main()
 	TIM1_pwm_setup();
 	TIM2_wakeup_setup();
 	
-	while (1) {
-		
-		uint8_t i = 3;
-		
-		wfi();
-
-		while (i) {
-			i--;
-		}
-		
-		//Sleep();
+	while (1) {		
+		//wfi();
 		}
 }
 
@@ -45,11 +34,6 @@ static void TIM2_wakeup_setup(void) {
 	TIM2_Cmd(ENABLE);
 }
 
-void Sleep(void) {
-	TIM1_CtrlPWMOutputs(DISABLE);
-	TIM1_Cmd(DISABLE);		
-  halt();
-}
 
 static void TIM1_pwm_setup(void) {
 	TIM1_DeInit();
@@ -57,7 +41,7 @@ static void TIM1_pwm_setup(void) {
 	TIM1_OC1Init(TIM1_OCMODE_PWM2, 
 							 TIM1_OUTPUTSTATE_ENABLE, 
 							 TIM1_OUTPUTNSTATE_DISABLE,
-							 0,
+							 100,
 							 TIM1_OCPOLARITY_HIGH,
 							 TIM1_OCNPOLARITY_LOW,
 							 TIM1_OCIDLESTATE_RESET,
@@ -66,7 +50,7 @@ static void TIM1_pwm_setup(void) {
 	TIM1_OC2Init(TIM1_OCMODE_PWM2, 
 							 TIM1_OUTPUTSTATE_ENABLE, 
 							 TIM1_OUTPUTNSTATE_DISABLE,
-							 50,
+							 100,
 							 TIM1_OCPOLARITY_HIGH,
 							 TIM1_OCNPOLARITY_LOW,
 							 TIM1_OCIDLESTATE_RESET,

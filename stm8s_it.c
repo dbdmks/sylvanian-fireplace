@@ -36,7 +36,14 @@ typedef  void (*Function_Pointer)(void);
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
+void Sleep(void);
+
 /* Private functions ---------------------------------------------------------*/
+void Sleep(void) {
+	TIM1_CtrlPWMOutputs(DISABLE);
+	TIM1_Cmd(DISABLE);		
+  halt();
+}
 
 /* Public functions ----------------------------------------------------------*/
 
@@ -275,14 +282,26 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
-	static uint16_t time = 300;
-	GPIO_WriteReverse(GPIOB,GPIO_PIN_5);
-	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);
-	if(!time--) {
-		GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
-		halt();
-	}
+	static uint16_t rt_seconds = RUNTIME;
+	static uint8_t rt_steps = STEPS;
+	uint32_t total_steps = ((RUNTIME+1) * STEPS) - (rt_seconds * STEPS) - rt_steps;
+	uint16_t current_step = total_steps % WAVE_SIDE_SIZE;
+	uint8_t intencity = 0;
+	intencity = wave_side[current_step];
 	
+	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);	
+	GPIO_WriteReverse(GPIOB,GPIO_PIN_5);
+	TIM1_SetCompare1(100-intencity);
+	TIM1_SetCompare3(100-wave_top[current_step]);
+	if(!rt_steps) {
+		rt_seconds--;
+		rt_steps = STEPS;
+	} else {
+		rt_steps--;
+	}
+	if(!rt_seconds) { while(1);}
+	
+
 	return;
 }
 
