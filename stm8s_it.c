@@ -37,12 +37,27 @@ typedef  void (*Function_Pointer)(void);
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 void Sleep(void);
+uint8_t CalculateFadeout(uint8_t brightness, uint8_t fadeout);
+uint8_t CalculateFadeoutTop(uint8_t brightness, uint8_t fadeout);
 
 /* Private functions ---------------------------------------------------------*/
 void Sleep(void) {
+	TIM1_SetCompare3(100);
+	TIM1_SetCompare2(100);
+	TIM1_SetCompare1(100);
+	
 	TIM1_CtrlPWMOutputs(DISABLE);
-	TIM1_Cmd(DISABLE);		
+	TIM1_Cmd(DISABLE);	
   halt();
+}
+uint8_t CalculateFadeout(uint8_t brightness, uint8_t fadeout) {
+	brightness += fadeout;
+	return (brightness > 100) ? 95 : brightness;
+}
+
+uint8_t CalculateFadeoutTop(uint8_t brightness, uint8_t fadeout) {
+	brightness += fadeout;
+	return (brightness > 100) ? 100 : brightness;
 }
 
 /* Public functions ----------------------------------------------------------*/
@@ -284,22 +299,46 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
   */
 	static uint16_t rt_seconds = RUNTIME;
 	static uint8_t rt_steps = STEPS;
+	static uint8_t fadeout_top = 0;
+	static uint8_t fadeout_side = 0;
+	
 	uint32_t total_steps = ((RUNTIME+1) * STEPS) - (rt_seconds * STEPS) - rt_steps;
 	uint16_t current_step = total_steps % WAVE_SIDE_SIZE;
-	uint8_t intencity = 0;
-	intencity = wave_side[current_step];
+	
+	uint8_t left_brightness = 0, 
+					right_brightness = 0, 
+					top_brightness = 0;
 	
 	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);	
 	GPIO_WriteReverse(GPIOB,GPIO_PIN_5);
-	TIM1_SetCompare1(100-intencity);
-	TIM1_SetCompare3(100-wave_top[current_step]);
+	
+	if (rt_seconds <= (FADEOUT + FADEOUT_TOP)) {
+		//time to dim
+		if (rt_seconds > FADEOUT) {
+		//top led first
+		fadeout_top = (FADEOUT+FADEOUT_TOP - rt_seconds) > 100 ? 100 : (FADEOUT+FADEOUT_TOP - rt_seconds);
+		} else {
+		fadeout_top = 100;
+		fadeout_side = 100-rt_seconds*100/FADEOUT;
+		}		
+	}
+	
+	left_brightness = CalculateFadeout(wave_side[current_step], fadeout_side);
+	right_brightness = CalculateFadeout(wave_side[WAVE_SIDE_SIZE-current_step], fadeout_side);
+	top_brightness = CalculateFadeoutTop(wave_top[current_step], fadeout_top);
+		
+	TIM1_SetCompare3(left_brightness);
+	TIM1_SetCompare2(right_brightness);
+	TIM1_SetCompare1(top_brightness);
+	
 	if(!rt_steps) {
 		rt_seconds--;
 		rt_steps = STEPS;
 	} else {
 		rt_steps--;
 	}
-	if(!rt_seconds) { while(1);}
+	
+	if(!rt_seconds) { Sleep(); }
 	
 
 	return;

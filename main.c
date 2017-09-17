@@ -8,20 +8,27 @@
 void Delay(uint16_t count);
 static void TIM1_pwm_setup(void);
 static void TIM2_wakeup_setup(void); //1032/2mhz/64psc = reload in ~33ms
-	
+static void GoGreen(void);
+
 main()
-{
+{  
 	CLK_DeInit();
+	GoGreen();
   CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);	
 	
 	GPIO_Init(GPIOB,GPIO_PIN_5,GPIO_MODE_OUT_OD_HIZ_SLOW);	
 	
 	TIM1_pwm_setup();
 	TIM2_wakeup_setup();
-	
-	while (1) {		
-		//wfi();
-		}
+	CFG->GCR |= CFG_GCR_AL;
+while(1);
+	wfi();
+	halt();
+}
+
+static void GoGreen(void) {
+	CLK->PCKENR1 = (1<<CLK_PERIPHERAL_TIMER1) | (1<<CLK_PERIPHERAL_TIMER2);
+	CLK->PCKENR2 = 0;
 }
 
 static void TIM2_wakeup_setup(void) {

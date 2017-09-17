@@ -934,6 +934,10 @@ CSR	stm8s_stdperiph_driver\inc\stm8s.h	387;"	member	struct:ADC2_struct
 CSR	stm8s_stdperiph_driver\inc\stm8s.h	437;"	member	struct:AWU_struct
 CSR	stm8s_stdperiph_driver\inc\stm8s.h	477;"	member	struct:BEEP_struct
 CSSR	stm8s_stdperiph_driver\inc\stm8s.h	513;"	member	struct:CLK_struct
+CalculateFadeout	stm8s_it.c	40;"	prototype	file:	signature:(uint8_t brightness, uint8_t fadeout)
+CalculateFadeout	stm8s_it.c	53;"	function	signature:(uint8_t brightness, uint8_t fadeout)
+CalculateFadeoutTop	stm8s_it.c	41;"	prototype	file:	signature:(uint8_t brightness, uint8_t fadeout)
+CalculateFadeoutTop	stm8s_it.c	58;"	function	signature:(uint8_t brightness, uint8_t fadeout)
 ChgBit	stm8s_stdperiph_driver\inc\stm8s.h	2791;"	macro
 ClrBit	stm8s_stdperiph_driver\inc\stm8s.h	2789;"	macro
 Config	stm8s_stdperiph_driver\inc\stm8s.h	2301;"	member	union:__anon5::__anon6	typeref:struct:__anon5::__anon6::__anon12
@@ -974,7 +978,7 @@ DRL	stm8s_stdperiph_driver\inc\stm8s.h	321;"	member	struct:ADC1_struct
 DRL	stm8s_stdperiph_driver\inc\stm8s.h	392;"	member	struct:ADC2_struct
 DTR	stm8s_stdperiph_driver\inc\stm8s.h	639;"	member	struct:TIM1_struct
 DUKR	stm8s_stdperiph_driver\inc\stm8s.h	1521;"	member	struct:FLASH_struct
-Delay	main.c	82;"	function	signature:(uint16_t count)
+Delay	main.c	73;"	function	signature:(uint16_t count)
 Delay	main.c	8;"	prototype	file:	signature:(uint16_t count)
 ECKR	stm8s_stdperiph_driver\inc\stm8s.h	506;"	member	struct:CLK_struct
 EEPROM	stm8s_stdperiph_driver\inc\stm8s.h	124;"	macro
@@ -1078,6 +1082,8 @@ F5R5	stm8s_stdperiph_driver\inc\stm8s.h	2280;"	member	struct:__anon5::__anon6::_
 F5R6	stm8s_stdperiph_driver\inc\stm8s.h	2281;"	member	struct:__anon5::__anon6::__anon11
 F5R7	stm8s_stdperiph_driver\inc\stm8s.h	2282;"	member	struct:__anon5::__anon6::__anon11
 F5R8	stm8s_stdperiph_driver\inc\stm8s.h	2283;"	member	struct:__anon5::__anon6::__anon11
+FADEOUT	pwm_waves.h	2;"	macro
+FADEOUT_TOP	pwm_waves.h	3;"	macro
 FALSE	stm8s_stdperiph_driver\inc\stm8s.h	230;"	enumerator	enum:__anon1
 FAR	stm8s_stdperiph_driver\inc\stm8s.h	121;"	macro
 FAR	stm8s_stdperiph_driver\inc\stm8s.h	127;"	macro
@@ -1448,7 +1454,7 @@ INTERRUPT	stm8s_stdperiph_driver\inc\stm8s.h	2771;"	macro
 INTERRUPT_HANDLER	stm8s_stdperiph_driver\inc\stm8s.h	2747;"	macro
 INTERRUPT_HANDLER	stm8s_stdperiph_driver\inc\stm8s.h	2752;"	macro
 INTERRUPT_HANDLER	stm8s_stdperiph_driver\inc\stm8s.h	2759;"	macro
-INTERRUPT_HANDLER_TRAP	stm8s_it.c	65;"	function
+INTERRUPT_HANDLER_TRAP	stm8s_it.c	87;"	function
 INTERRUPT_HANDLER_TRAP	stm8s_stdperiph_driver\inc\stm8s.h	2748;"	macro
 INTERRUPT_HANDLER_TRAP	stm8s_stdperiph_driver\inc\stm8s.h	2753;"	macro
 INTERRUPT_HANDLER_TRAP	stm8s_stdperiph_driver\inc\stm8s.h	2762;"	macro
@@ -2115,13 +2121,15 @@ SR2	stm8s_stdperiph_driver\inc\stm8s.h	615;"	member	struct:TIM1_struct
 SR2	stm8s_stdperiph_driver\inc\stm8s.h	828;"	member	struct:TIM2_struct
 SR2	stm8s_stdperiph_driver\inc\stm8s.h	952;"	member	struct:TIM3_struct
 SR3	stm8s_stdperiph_driver\inc\stm8s.h	1334;"	member	struct:I2C_struct
-STEPS	pwm_waves.h	2;"	macro
+STEPS	pwm_waves.h	4;"	macro
 STRINGVECTOR	stm8s_stdperiph_driver\inc\stm8s.h	2757;"	macro
 SUCCESS	stm8s_stdperiph_driver\inc\stm8s.h	237;"	enumerator	enum:__anon4
 SWCR	stm8s_stdperiph_driver\inc\stm8s.h	510;"	member	struct:CLK_struct
 SWIMCCR	stm8s_stdperiph_driver\inc\stm8s.h	518;"	member	struct:CLK_struct
 SWR	stm8s_stdperiph_driver\inc\stm8s.h	509;"	member	struct:CLK_struct
 SetBit	stm8s_stdperiph_driver\inc\stm8s.h	2788;"	macro
+Sleep	stm8s_it.c	39;"	prototype	file:	signature:(void)
+Sleep	stm8s_it.c	44;"	function	signature:(void)
 TBR	stm8s_stdperiph_driver\inc\stm8s.h	439;"	member	struct:AWU_struct
 TDRH	stm8s_stdperiph_driver\inc\stm8s.h	322;"	member	struct:ADC1_struct
 TDRH	stm8s_stdperiph_driver\inc\stm8s.h	393;"	member	struct:ADC2_struct
@@ -2567,7 +2575,7 @@ TIM1_UpdateDisableConfig	stm8s_stdperiph_driver\src\stm8s_tim1.c	803;"	function	
 TIM1_UpdateRequestConfig	stm8s_stdperiph_driver\inc\stm8s_tim1.h	554;"	prototype	signature:(TIM1_UpdateSource_TypeDef TIM1_UpdateSource)
 TIM1_UpdateRequestConfig	stm8s_stdperiph_driver\src\stm8s_tim1.c	827;"	function	signature:(TIM1_UpdateSource_TypeDef TIM1_UpdateSource)
 TIM1_UpdateSource_TypeDef	stm8s_stdperiph_driver\inc\stm8s_tim1.h	402;"	typedef	typeref:enum:__anon125
-TIM1_pwm_setup	main.c	47;"	function	file:	signature:(void)
+TIM1_pwm_setup	main.c	38;"	function	file:	signature:(void)
 TIM1_pwm_setup	main.c	9;"	prototype	file:	signature:(void)
 TIM1_struct	stm8s_stdperiph_driver\inc\stm8s.h	607;"	struct
 TIM2	stm8s_stdperiph_driver\inc\stm8s.h	2680;"	macro
@@ -2804,7 +2812,7 @@ TIM2_UpdateRequestConfig	stm8s_stdperiph_driver\src\stm8s_tim2.c	416;"	function	
 TIM2_UpdateSource_TypeDef	stm8s_stdperiph_driver\inc\stm8s_tim2.h	246;"	typedef	typeref:enum:__anon143
 TIM2_struct	stm8s_stdperiph_driver\inc\stm8s.h	819;"	struct
 TIM2_wakeup_setup	main.c	10;"	prototype	file:	signature:(void)
-TIM2_wakeup_setup	main.c	36;"	function	file:	signature:(void)
+TIM2_wakeup_setup	main.c	27;"	function	file:	signature:(void)
 TIM3	stm8s_stdperiph_driver\inc\stm8s.h	2685;"	macro
 TIM3_ARRH_ARR	stm8s_stdperiph_driver\inc\stm8s.h	1036;"	macro
 TIM3_ARRH_RESET_VALUE	stm8s_stdperiph_driver\inc\stm8s.h	984;"	macro
@@ -3968,7 +3976,7 @@ USE_FULL_ASSERT	stm8s_stdperiph_driver\inc\stm8s_conf.h	90;"	macro
 USE_STDPERIPH_DRIVER	stm8s_stdperiph_driver\inc\stm8s.h	95;"	macro
 VECTOR_ID	stm8s_stdperiph_driver\inc\stm8s.h	2758;"	macro
 ValBit	stm8s_stdperiph_driver\inc\stm8s.h	2797;"	macro
-WAVE_SIDE_SIZE	pwm_waves.h	3;"	macro
+WAVE_SIDE_SIZE	pwm_waves.h	5;"	macro
 WR	stm8s_stdperiph_driver\inc\stm8s.h	1631;"	member	struct:WWDG_struct
 WWDG	stm8s_stdperiph_driver\inc\stm8s.h	2651;"	macro
 WWDG_BaseAddress	stm8s_stdperiph_driver\inc\stm8s.h	2569;"	macro
@@ -4028,7 +4036,7 @@ __STM8S_UART4_H	stm8s_stdperiph_driver\inc\stm8s_uart4.h	30;"	macro
 __STM8S_WWDG_H	stm8s_stdperiph_driver\inc\stm8s_wwdg.h	30;"	macro
 _stext	stm8s_it.h	40;"	prototype	signature:(void)
 _vectab	stm8_interrupt_vector.c	14;"	variable
-assert_failed	main.c	95;"	function	signature:(uint8_t* file, uint32_t line)
+assert_failed	main.c	86;"	function	signature:(uint8_t* file, uint32_t line)
 assert_failed	stm8s_stdperiph_driver\inc\stm8s_conf.h	105;"	prototype	signature:(uint8_t* file, uint32_t line)
 assert_param	stm8s_stdperiph_driver\inc\stm8s_conf.h	103;"	macro
 assert_param	stm8s_stdperiph_driver\inc\stm8s_conf.h	107;"	macro
@@ -4071,7 +4079,8 @@ u8	stm8s_stdperiph_driver\inc\stm8s.h	227;"	typedef
 uint16_t	stm8s_stdperiph_driver\inc\stm8s.h	216;"	typedef
 uint32_t	stm8s_stdperiph_driver\inc\stm8s.h	217;"	typedef
 uint8_t	stm8s_stdperiph_driver\inc\stm8s.h	215;"	typedef
-wave_side	pwm_waves.h	4;"	variable
+wave_side	pwm_waves.h	9;"	variable
+wave_top	pwm_waves.h	12;"	variable
 wfi	stm8s_stdperiph_driver\inc\stm8s.h	2721;"	macro
 wfi	stm8s_stdperiph_driver\inc\stm8s.h	2730;"	macro
 wfi	stm8s_stdperiph_driver\inc\stm8s.h	2740;"	macro
