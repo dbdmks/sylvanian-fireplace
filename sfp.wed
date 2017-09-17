@@ -1,6 +1,7 @@
 [WorkState_v1-Edit.Breakpoints]
 Break0=TypeFile, stm8s_it.c, 312, 0, 0, 1,
 Break1=TypeFile, stm8s_it.c, 322, 0, 0, 1,
+Break2=TypeFile, main.c, 21, 0, 0, 1,
 
 [WorkState_v1_2]
 ptn_Child1=DockState
@@ -47,7 +48,7 @@ ptn_Child33=Bar-32
 
 [WorkState_v1_2.DockState.Bar-0]
 BarID=59419
-Bars=23
+Bars=20
 Bar#0=0
 Bar#1=59647
 Bar#2=0
@@ -68,9 +69,6 @@ Bar#16=0
 Bar#17=32768
 Bar#18=0
 Bar#19=0
-Bar#20=0
-Bar#21=0
-Bar#22=0
 Style=0
 ExStyle=0
 PrevFloating=False
@@ -336,10 +334,10 @@ BarID=59647
 MRUWidth=293
 Docking=True
 MRUDockID=59419
-MRUDockLeftPos=8
-MRUDockTopPos=26
-MRUDockRightPos=1288
-MRUDockBottomPos=55
+MRUDockLeftPos=-1
+MRUDockTopPos=-1
+MRUDockRightPos=1279
+MRUDockBottomPos=28
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
 MRUFloatYPos=0

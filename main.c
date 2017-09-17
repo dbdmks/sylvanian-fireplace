@@ -14,10 +14,11 @@ main()
 {  
 	CLK_DeInit();
 	GoGreen();
-  CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);	
+  CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
+	
 	GPIO_Init(GPIOA,GPIO_PIN_ALL,GPIO_MODE_IN_PU_NO_IT);
 	GPIO_Init(GPIOB,GPIO_PIN_ALL,GPIO_MODE_IN_PU_NO_IT);
-	GPIO_Init(GPIOC,GPIO_PIN_ALL,GPIO_MODE_IN_PU_NO_IT);
+	GPIO_Init(GPIOC,GPIO_PIN_ALL&~(GPIO_PIN_3|GPIO_PIN_6|GPIO_PIN_7),GPIO_MODE_IN_PU_NO_IT);
 	GPIO_Init(GPIOD,GPIO_PIN_ALL,GPIO_MODE_IN_PU_NO_IT);
 	
 	//GPIO_Init(GPIOB,GPIO_PIN_5,GPIO_MODE_OUT_OD_HIZ_SLOW); //onboard LED
@@ -25,7 +26,7 @@ main()
 	TIM1_pwm_setup();
 	TIM2_wakeup_setup();
 	CFG->GCR |= CFG_GCR_AL;
-while(1);
+  //while(1);
 	wfi();
 	halt();
 }

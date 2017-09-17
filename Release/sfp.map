@@ -1,5 +1,5 @@
 
-Map of Release\sfp.sm8 from link file Release\sfp.lkf - Sun Sep 17 19:17:48 2017
+Map of Release\sfp.sm8 from link file Release\sfp.lkf - Sun Sep 17 20:57:10 2017
 
 
                                --------
@@ -7,7 +7,7 @@ Map of Release\sfp.sm8 from link file Release\sfp.lkf - Sun Sep 17 19:17:48 2017
                                --------
 
 start 00008080 end 000090cf length  4175 segment .const
-start 000090dc end 00009b53 length  2679 segment .text
+start 000090dc end 00009b58 length  2684 segment .text
 start 00004000 end 00004000 length     0 segment .eeprom
 start 00000000 end 00000005 length     5 segment .bsct, initialized
 start 000090d7 end 000090dc length     5 segment .bsct, from
@@ -206,44 +206,44 @@ start 00008103 end 0000812b length    40 section .const
 
 Release\main.o:
 start 000002cb end 0000036b length   160 section .info.
-start 00009770 end 000097c6 length    86 section .text
-start 000097c6 end 000097cf length     9 section .text
-start 000097cf end 000097f4 length    37 section .text
-start 000097f4 end 00009861 length   109 section .text
+start 00009770 end 000097c7 length    87 section .text
+start 000097c7 end 000097d0 length     9 section .text
+start 000097d0 end 000097f5 length    37 section .text
+start 000097f5 end 00009862 length   109 section .text
 start ******** end ******** length     0 section .text *** removed ***
-start 00009861 end 00009863 length     2 section .text
+start 00009862 end 00009864 length     2 section .text
 
 Release\stm8s_it.o:
 start 00000000 end 00000005 length     5 section .bsct
 start 0000036b end 0000040f length   164 section .info.
 start 0000812b end 000090cf length  4004 section .const
-start 00009863 end 0000987f length    28 section .text
-start 0000987f end 0000988c length    13 section .text
-start 0000988c end 00009899 length    13 section .text
-start 00009899 end 0000989a length     1 section .text
-start 0000989a end 0000989b length     1 section .text
-start 0000989b end 0000989c length     1 section .text
-start 0000989c end 0000989d length     1 section .text
-start 0000989d end 0000989e length     1 section .text
+start 00009864 end 00009884 length    32 section .text
+start 00009884 end 00009891 length    13 section .text
+start 00009891 end 0000989e length    13 section .text
 start 0000989e end 0000989f length     1 section .text
 start 0000989f end 000098a0 length     1 section .text
-start 000098a0 end 000098c5 length    37 section .text
-start 000098c5 end 000098c6 length     1 section .text
-start 000098c6 end 000098c7 length     1 section .text
-start 000098c7 end 000098c8 length     1 section .text
-start 000098c8 end 000098c9 length     1 section .text
-start 000098c9 end 000098ca length     1 section .text
-start 000098ca end 000099cf length   261 section .text
-start 000099cf end 000099d0 length     1 section .text
-start 000099d0 end 000099d1 length     1 section .text
-start 000099d1 end 000099d2 length     1 section .text
-start 000099d2 end 000099d3 length     1 section .text
-start 000099d3 end 000099d4 length     1 section .text
+start 000098a0 end 000098a1 length     1 section .text
+start 000098a1 end 000098a2 length     1 section .text
+start 000098a2 end 000098a3 length     1 section .text
+start 000098a3 end 000098a4 length     1 section .text
+start 000098a4 end 000098a5 length     1 section .text
+start 000098a5 end 000098ca length    37 section .text
+start 000098ca end 000098cb length     1 section .text
+start 000098cb end 000098cc length     1 section .text
+start 000098cc end 000098cd length     1 section .text
+start 000098cd end 000098ce length     1 section .text
+start 000098ce end 000098cf length     1 section .text
+start 000098cf end 000099d4 length   261 section .text
 start 000099d4 end 000099d5 length     1 section .text
 start 000099d5 end 000099d6 length     1 section .text
+start 000099d6 end 000099d7 length     1 section .text
+start 000099d7 end 000099d8 length     1 section .text
+start 000099d8 end 000099d9 length     1 section .text
+start 000099d9 end 000099da length     1 section .text
+start 000099da end 000099db length     1 section .text
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)imul.o:
-start 000099d6 end 000099f7 length    33 section .text
+start 000099db end 000099fc length    33 section .text
 start 0000040f end 0000043e length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lreg.o:
@@ -251,7 +251,7 @@ start 00000005 end 00000009 length     4 section .ubsct
 start 0000043e end 0000046d length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ltor.o:
-start 000099f7 end 00009a09 length    18 section .text
+start 000099fc end 00009a0e length    18 section .text
 start 0000046d end 0000049c length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ludiv.o:
@@ -259,27 +259,27 @@ start ******** end ******** length     0 section .text *** removed ***
 start 0000049c end 000004cc length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o:
-start 00009a09 end 00009af4 length   235 section .text
+start 00009a0e end 00009af9 length   235 section .text
 start 000004cc end 000004fb length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgneg.o:
-start 00009af4 end 00009b07 length    19 section .text
+start 00009af9 end 00009b0c length    19 section .text
 start 000004fb end 0000052b length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lneg.o:
-start 00009b07 end 00009b1c length    21 section .text
+start 00009b0c end 00009b21 length    21 section .text
 start 0000052b end 0000055a length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lumod.o:
-start 00009b1c end 00009b36 length    26 section .text
+start 00009b21 end 00009b3b length    26 section .text
 start 0000055a end 0000058a length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)rtol.o:
-start 00009b36 end 00009b48 length    18 section .text
+start 00009b3b end 00009b4d length    18 section .text
 start 0000058a end 000005b9 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)utol.o:
-start 00009b48 end 00009b53 length    11 section .text
+start 00009b4d end 00009b58 length    11 section .text
 start 000005b9 end 000005e8 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)xreg.o:
@@ -454,77 +454,78 @@ Stack size: 72
   55      |    + _TIM1_SetCompare1: (2)
   56      |    + _TIM1_SetCompare2: (2)
   57      |    + _TIM1_SetCompare3: (2)
+  58      |    + _TIM2_Cmd --> 18
           | 
-  58      + _TIM1_SetCompare1 --> 55
-  59      + _TIM1_SetCompare2 --> 56
-  60      + _TIM1_SetCompare3 --> 57
-  61      + _TIM2_ClearITPendingBit: (4)
-  62      |    + _assert_failed --> 5
+  59      + _TIM1_SetCompare1 --> 55
+  60      + _TIM1_SetCompare2 --> 56
+  61      + _TIM1_SetCompare3 --> 57
+  62      + _TIM2_ClearITPendingBit: (4)
+  63      |    + _assert_failed --> 5
           | 
        
-  63 > f_TIM4_UPD_OVF_IRQHandler: (6)
+  64 > f_TIM4_UPD_OVF_IRQHandler: (6)
 
-  64 > f_TLI_IRQHandler: (6)
+  65 > f_TLI_IRQHandler: (6)
 
-  65 > f_TRAP_IRQHandler: (6)
+  66 > f_TRAP_IRQHandler: (6)
 
-  66 > f_UART1_RX_IRQHandler: (6)
+  67 > f_UART1_RX_IRQHandler: (6)
 
-  67 > f_UART1_TX_IRQHandler: (6)
+  68 > f_UART1_TX_IRQHandler: (6)
 
-  68   L3_TIM1_pwm_setup --> 3
+  69   L3_TIM1_pwm_setup --> 3
 
-  69   L5_TIM2_wakeup_setup --> 17
+  70   L5_TIM2_wakeup_setup --> 17
 
-  70   L7_GoGreen --> 28
+  71   L7_GoGreen --> 28
 
-  71   _CLK_DeInit --> 29
+  72   _CLK_DeInit --> 29
 
-  72   _CLK_HSIPrescalerConfig --> 30
+  73   _CLK_HSIPrescalerConfig --> 30
 
-  73   _CalculateFadeout --> 50
+  74   _CalculateFadeout --> 50
 
-  74   _CalculateFadeoutTop --> 51
+  75   _CalculateFadeoutTop --> 51
 
-  75   _GPIO_Init --> 32
+  76   _GPIO_Init --> 32
 
-  76   _Sleep --> 52
+  77   _Sleep --> 52
 
-  77   _TIM1_Cmd --> 4
+  78   _TIM1_Cmd --> 4
 
-  78   _TIM1_CtrlPWMOutputs --> 6
+  79   _TIM1_CtrlPWMOutputs --> 6
 
-  79   _TIM1_DeInit --> 8
+  80   _TIM1_DeInit --> 8
 
-  80   _TIM1_OC1Init --> 9
+  81   _TIM1_OC1Init --> 9
 
-  81   _TIM1_OC2Init --> 11
+  82   _TIM1_OC2Init --> 11
 
-  82   _TIM1_OC3Init --> 13
+  83   _TIM1_OC3Init --> 13
 
-  83   _TIM1_SetCompare1 --> 55
+  84   _TIM1_SetCompare1 --> 55
 
-  84   _TIM1_SetCompare2 --> 56
+  85   _TIM1_SetCompare2 --> 56
 
-  85   _TIM1_SetCompare3 --> 57
+  86   _TIM1_SetCompare3 --> 57
 
-  86   _TIM1_TimeBaseInit --> 15
+  87   _TIM1_TimeBaseInit --> 15
 
-  87   _TIM2_ClearITPendingBit --> 61
+  88   _TIM2_ClearITPendingBit --> 62
 
-  88   _TIM2_Cmd --> 18
+  89   _TIM2_Cmd --> 18
 
-  89   _TIM2_DeInit --> 20
+  90   _TIM2_DeInit --> 20
 
-  90   _TIM2_ITConfig --> 21
+  91   _TIM2_ITConfig --> 21
 
-  91   _TIM2_TimeBaseInit --> 23
+  92   _TIM2_TimeBaseInit --> 23
 
-  92   _TIM2_UpdateDisableConfig --> 24
+  93   _TIM2_UpdateDisableConfig --> 24
 
-  93   _TIM2_UpdateRequestConfig --> 26
+  94   _TIM2_UpdateRequestConfig --> 26
 
-  94   _assert_failed --> 5
+  95   _assert_failed --> 5
 
 
 
@@ -559,8 +560,8 @@ _CLK_SWIMConfig                     ********   *** removed from Release\stm8s_cl
 _CLK_SYSCLKConfig                   ********   *** removed from Release\stm8s_clk.o ***
 _CLK_SYSCLKEmergencyClear           ********   *** removed from Release\stm8s_clk.o ***
 _CLK_SlowActiveHaltWakeUpCmd        ********   *** removed from Release\stm8s_clk.o ***
-_CalculateFadeout                   0000987f   defined in Release\stm8s_it.o section .text
-_CalculateFadeoutTop                0000988c   defined in Release\stm8s_it.o section .text
+_CalculateFadeout                   00009884   defined in Release\stm8s_it.o section .text
+_CalculateFadeoutTop                00009891   defined in Release\stm8s_it.o section .text
 _Delay                              ********   *** removed from Release\main.o ***
 _GPIO_DeInit                        ********   *** removed from Release\stm8s_gpio.o ***
 _GPIO_ExternalPullUpConfig          ********   *** removed from Release\stm8s_gpio.o ***
@@ -574,7 +575,7 @@ _GPIO_WriteHigh                     ********   *** removed from Release\stm8s_gp
 _GPIO_WriteLow                      ********   *** removed from Release\stm8s_gpio.o ***
 _GPIO_WriteReverse                  ********   *** removed from Release\stm8s_gpio.o ***
 _HSIDivFactor                       00008080   defined in Release\stm8s_clk.o section .const
-_Sleep                              00009863   defined in Release\stm8s_it.o section .text
+_Sleep                              00009864   defined in Release\stm8s_it.o section .text
 _TIM1_ARRPreloadConfig              ********   *** removed from Release\stm8s_tim1.o ***
 _TIM1_BDTRConfig                    ********   *** removed from Release\stm8s_tim1.o ***
 _TIM1_CCPreloadControl              ********   *** removed from Release\stm8s_tim1.o ***
@@ -668,6 +669,7 @@ _TIM2_ClearITPendingBit             00009751   defined in Release\stm8s_tim2.o s
                                                used in Release\stm8s_it.o
 _TIM2_Cmd                           000096a6   defined in Release\stm8s_tim2.o section .text
                                                used in Release\main.o
+                                                       Release\stm8s_it.o
 _TIM2_DeInit                        0000963e   defined in Release\stm8s_tim2.o section .text
                                                used in Release\main.o
 _TIM2_ForcedOC1Config               ********   *** removed from Release\stm8s_tim2.o ***
@@ -727,7 +729,7 @@ __stext                             000090dc   defined in C:\Program Files (x86)
                                                used in Release\stm8_interrupt_vector.o
 __vectab                            00008000   defined in Release\stm8_interrupt_vector.o section .const
                                                *** not used ***
-_assert_failed                      00009861   defined in Release\main.o section .text
+_assert_failed                      00009862   defined in Release\main.o section .text
                                                used in Release\stm8s_clk.o
                                                        Release\stm8s_gpio.o
                                                        Release\stm8s_tim1.o
@@ -737,16 +739,16 @@ _main                               00009770   defined in Release\main.o section
                                                used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
 _wave_side                          0000812b   defined in Release\stm8s_it.o section .const
 _wave_top                           000088fb   defined in Release\stm8s_it.o section .const
-c_divsl                             00009a09   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
+c_divsl                             00009a0e   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
                                                *** not used ***
-c_divul                             00009a20   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
+c_divul                             00009a25   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
                                                used in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ludiv.o
                                                        (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lumod.o
-c_imul                              000099d6   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)imul.o section .text
+c_imul                              000099db   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)imul.o section .text
                                                used in Release\stm8s_it.o
-c_lgneg                             00009af4   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgneg.o section .text
+c_lgneg                             00009af9   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgneg.o section .text
                                                used in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o
-c_lneg                              00009b07   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lneg.o section .text
+c_lneg                              00009b0c   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lneg.o section .text
                                                used in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o
 c_lreg                              00000005   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lreg.o section .ubsct
                                                used in Release\stm8s_clk.o
@@ -757,16 +759,16 @@ c_lreg                              00000005   defined in (C:\Program Files (x86
                                                        (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lumod.o
                                                        (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)rtol.o
                                                        (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)utol.o
-c_ltor                              000099f7   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ltor.o section .text
+c_ltor                              000099fc   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ltor.o section .text
                                                used in Release\stm8s_clk.o
                                                        Release\stm8s_it.o
 c_ludv                              ********   *** removed from (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ludiv.o ***
-c_lumd                              00009b1c   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lumod.o section .text
+c_lumd                              00009b21   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lumod.o section .text
                                                used in Release\stm8s_it.o
-c_rtol                              00009b36   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)rtol.o section .text
+c_rtol                              00009b3b   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)rtol.o section .text
                                                used in Release\stm8s_clk.o
                                                        Release\stm8s_it.o
-c_uitol                             00009b48   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)utol.o section .text
+c_uitol                             00009b4d   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)utol.o section .text
                                                used in Release\stm8s_it.o
 c_x                                 00000009   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)xreg.o section .ubsct
                                                used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
@@ -776,45 +778,45 @@ c_x                                 00000009   defined in (C:\Program Files (x86
 c_y                                 0000000c   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)yreg.o section .ubsct
                                                used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
                                                        Release\stm8s_it.o
-f_ADC1_IRQHandler                   000099d3   defined in Release\stm8s_it.o section .text
+f_ADC1_IRQHandler                   000099d8   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_AWU_IRQHandler                    0000989c   defined in Release\stm8s_it.o section .text
+f_AWU_IRQHandler                    000098a1   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_CLK_IRQHandler                    0000989d   defined in Release\stm8s_it.o section .text
+f_CLK_IRQHandler                    000098a2   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_EEPROM_EEC_IRQHandler             000099d5   defined in Release\stm8s_it.o section .text
+f_EEPROM_EEC_IRQHandler             000099da   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_EXTI_PORTA_IRQHandler             0000989e   defined in Release\stm8s_it.o section .text
+f_EXTI_PORTA_IRQHandler             000098a3   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_EXTI_PORTB_IRQHandler             0000989f   defined in Release\stm8s_it.o section .text
+f_EXTI_PORTB_IRQHandler             000098a4   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_EXTI_PORTC_IRQHandler             000098a0   defined in Release\stm8s_it.o section .text
+f_EXTI_PORTC_IRQHandler             000098a5   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_EXTI_PORTD_IRQHandler             000098c5   defined in Release\stm8s_it.o section .text
+f_EXTI_PORTD_IRQHandler             000098ca   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_EXTI_PORTE_IRQHandler             000098c6   defined in Release\stm8s_it.o section .text
+f_EXTI_PORTE_IRQHandler             000098cb   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_I2C_IRQHandler                    000099d2   defined in Release\stm8s_it.o section .text
+f_I2C_IRQHandler                    000099d7   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_NonHandledInterrupt               00009899   defined in Release\stm8s_it.o section .text
+f_NonHandledInterrupt               0000989e   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_SPI_IRQHandler                    000098c7   defined in Release\stm8s_it.o section .text
+f_SPI_IRQHandler                    000098cc   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_TIM1_CAP_COM_IRQHandler           000098c9   defined in Release\stm8s_it.o section .text
+f_TIM1_CAP_COM_IRQHandler           000098ce   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_TIM1_UPD_OVF_TRG_BRK_IRQHandler   000098c8   defined in Release\stm8s_it.o section .text
+f_TIM1_UPD_OVF_TRG_BRK_IRQHandler   000098cd   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_TIM2_CAP_COM_IRQHandler           000099cf   defined in Release\stm8s_it.o section .text
+f_TIM2_CAP_COM_IRQHandler           000099d4   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_TIM2_UPD_OVF_BRK_IRQHandler       000098ca   defined in Release\stm8s_it.o section .text
+f_TIM2_UPD_OVF_BRK_IRQHandler       000098cf   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_TIM4_UPD_OVF_IRQHandler           000099d4   defined in Release\stm8s_it.o section .text
+f_TIM4_UPD_OVF_IRQHandler           000099d9   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_TLI_IRQHandler                    0000989b   defined in Release\stm8s_it.o section .text
+f_TLI_IRQHandler                    000098a0   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_TRAP_IRQHandler                   0000989a   defined in Release\stm8s_it.o section .text
+f_TRAP_IRQHandler                   0000989f   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_UART1_RX_IRQHandler               000099d1   defined in Release\stm8s_it.o section .text
+f_UART1_RX_IRQHandler               000099d6   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o
-f_UART1_TX_IRQHandler               000099d0   defined in Release\stm8s_it.o section .text
+f_UART1_TX_IRQHandler               000099d5   defined in Release\stm8s_it.o section .text
                                                used in Release\stm8_interrupt_vector.o

@@ -4004,421 +4004,425 @@
 4016  0f9d 35            	dc.b	53
 4017  0f9e 42            	dc.b	66
 4018  0f9f 28            	dc.b	40
-4092                     ; 44 void Sleep(void) {
-4094                     .text:	section	.text,new
-4095  0000               _Sleep:
-4099                     ; 45 	TIM1_SetCompare3(100);
-4101  0000 ae0064        	ldw	x,#100
-4102  0003 cd0000        	call	_TIM1_SetCompare3
-4104                     ; 46 	TIM1_SetCompare2(100);
-4106  0006 ae0064        	ldw	x,#100
-4107  0009 cd0000        	call	_TIM1_SetCompare2
-4109                     ; 47 	TIM1_SetCompare1(100);
-4111  000c ae0064        	ldw	x,#100
-4112  000f cd0000        	call	_TIM1_SetCompare1
-4114                     ; 49 	TIM1_CtrlPWMOutputs(DISABLE);
-4116  0012 4f            	clr	a
-4117  0013 cd0000        	call	_TIM1_CtrlPWMOutputs
-4119                     ; 50 	TIM1_Cmd(DISABLE);	
-4121  0016 4f            	clr	a
-4122  0017 cd0000        	call	_TIM1_Cmd
-4124                     ; 51   halt();
-4127  001a 8e            halt
-4129                     ; 52 }
-4133  001b 81            	ret
-4176                     ; 53 uint8_t CalculateFadeout(uint8_t brightness, uint8_t fadeout) {
-4177                     .text:	section	.text,new
-4178  0000               _CalculateFadeout:
-4180  0000 89            	pushw	x
-4181       00000000      OFST:	set	0
-4184                     ; 54 	brightness += fadeout;
-4186  0001 7b01          	ld	a,(OFST+1,sp)
-4187  0003 1b02          	add	a,(OFST+2,sp)
-4188  0005 6b01          	ld	(OFST+1,sp),a
-4189                     ; 55 	return (brightness > 100) ? 95 : brightness;
-4191  0007 7b01          	ld	a,(OFST+1,sp)
-4192  0009 a165          	cp	a,#101
-4193  000b 2504          	jrult	L01
-4194  000d a65f          	ld	a,#95
-4195  000f 2002          	jra	L21
-4196  0011               L01:
-4197  0011 7b01          	ld	a,(OFST+1,sp)
-4198  0013               L21:
-4201  0013 85            	popw	x
-4202  0014 81            	ret
-4246                     ; 58 uint8_t CalculateFadeoutTop(uint8_t brightness, uint8_t fadeout) {
-4247                     .text:	section	.text,new
-4248  0000               _CalculateFadeoutTop:
-4250  0000 89            	pushw	x
-4251       00000000      OFST:	set	0
-4254                     ; 59 	brightness += fadeout;
-4256  0001 7b01          	ld	a,(OFST+1,sp)
-4257  0003 1b02          	add	a,(OFST+2,sp)
-4258  0005 6b01          	ld	(OFST+1,sp),a
-4259                     ; 60 	return (brightness > 100) ? 100 : brightness;
-4261  0007 7b01          	ld	a,(OFST+1,sp)
-4262  0009 a165          	cp	a,#101
-4263  000b 2504          	jrult	L61
-4264  000d a664          	ld	a,#100
-4265  000f 2002          	jra	L02
-4266  0011               L61:
-4267  0011 7b01          	ld	a,(OFST+1,sp)
-4268  0013               L02:
-4271  0013 85            	popw	x
-4272  0014 81            	ret
-4296                     ; 74 INTERRUPT_HANDLER(NonHandledInterrupt, 25)
-4296                     ; 75 {
-4298                     .text:	section	.text,new
-4299  0000               f_NonHandledInterrupt:
-4303                     ; 79 }
-4306  0000 80            	iret
-4328                     ; 87 INTERRUPT_HANDLER_TRAP(TRAP_IRQHandler)
-4328                     ; 88 {
-4329                     .text:	section	.text,new
-4330  0000               f_TRAP_IRQHandler:
-4334                     ; 92 }
-4337  0000 80            	iret
-4359                     ; 98 INTERRUPT_HANDLER(TLI_IRQHandler, 0)
-4359                     ; 99 {
-4360                     .text:	section	.text,new
-4361  0000               f_TLI_IRQHandler:
-4365                     ; 103 }
-4368  0000 80            	iret
-4390                     ; 110 INTERRUPT_HANDLER(AWU_IRQHandler, 1)
-4390                     ; 111 {
-4391                     .text:	section	.text,new
-4392  0000               f_AWU_IRQHandler:
-4396                     ; 115 }
-4399  0000 80            	iret
-4421                     ; 122 INTERRUPT_HANDLER(CLK_IRQHandler, 2)
-4421                     ; 123 {
-4422                     .text:	section	.text,new
-4423  0000               f_CLK_IRQHandler:
-4427                     ; 127 }
-4430  0000 80            	iret
-4453                     ; 134 INTERRUPT_HANDLER(EXTI_PORTA_IRQHandler, 3)
-4453                     ; 135 {
-4454                     .text:	section	.text,new
-4455  0000               f_EXTI_PORTA_IRQHandler:
-4459                     ; 139 }
-4462  0000 80            	iret
-4485                     ; 146 INTERRUPT_HANDLER(EXTI_PORTB_IRQHandler, 4)
-4485                     ; 147 {
-4486                     .text:	section	.text,new
-4487  0000               f_EXTI_PORTB_IRQHandler:
-4491                     ; 151 }
-4494  0000 80            	iret
-4530                     ; 158 INTERRUPT_HANDLER(EXTI_PORTC_IRQHandler, 5)
-4530                     ; 159 {
-4531                     .text:	section	.text,new
-4532  0000               f_EXTI_PORTC_IRQHandler:
-4534  0000 8a            	push	cc
-4535  0001 84            	pop	a
-4536  0002 a4bf          	and	a,#191
-4537  0004 88            	push	a
-4538  0005 86            	pop	cc
-4539       00000002      OFST:	set	2
-4540  0006 3b0002        	push	c_x+2
-4541  0009 be00          	ldw	x,c_x
-4542  000b 89            	pushw	x
-4543  000c 3b0002        	push	c_y+2
-4544  000f be00          	ldw	x,c_y
-4545  0011 89            	pushw	x
-4546  0012 89            	pushw	x
-4549                     ; 162     Jump_Function = (Function_Pointer) 0x9FFF;
-4551                     ; 163     Jump_Function();
-4553  0013 cd9fff        	call	40959
-4555                     ; 164 }
-4558  0016 5b02          	addw	sp,#2
-4559  0018 85            	popw	x
-4560  0019 bf00          	ldw	c_y,x
-4561  001b 320002        	pop	c_y+2
-4562  001e 85            	popw	x
-4563  001f bf00          	ldw	c_x,x
-4564  0021 320002        	pop	c_x+2
-4565  0024 80            	iret
-4588                     ; 171 INTERRUPT_HANDLER(EXTI_PORTD_IRQHandler, 6)
-4588                     ; 172 {
-4589                     .text:	section	.text,new
-4590  0000               f_EXTI_PORTD_IRQHandler:
-4594                     ; 176 }
-4597  0000 80            	iret
-4620                     ; 183 INTERRUPT_HANDLER(EXTI_PORTE_IRQHandler, 7)
-4620                     ; 184 {
-4621                     .text:	section	.text,new
-4622  0000               f_EXTI_PORTE_IRQHandler:
-4626                     ; 188 }
-4629  0000 80            	iret
-4651                     ; 234 INTERRUPT_HANDLER(SPI_IRQHandler, 10)
-4651                     ; 235 {
-4652                     .text:	section	.text,new
-4653  0000               f_SPI_IRQHandler:
-4657                     ; 239 }
-4660  0000 80            	iret
-4683                     ; 246 INTERRUPT_HANDLER(TIM1_UPD_OVF_TRG_BRK_IRQHandler, 11)
-4683                     ; 247 {
-4684                     .text:	section	.text,new
-4685  0000               f_TIM1_UPD_OVF_TRG_BRK_IRQHandler:
-4689                     ; 251 }
-4692  0000 80            	iret
-4715                     ; 258 INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
-4715                     ; 259 {
-4716                     .text:	section	.text,new
-4717  0000               f_TIM1_CAP_COM_IRQHandler:
-4721                     ; 263 }
-4724  0000 80            	iret
-4726                     	bsct
-4727  0000               L362_rt_seconds:
-4728  0000 0a8c          	dc.w	2700
-4729  0002               L562_rt_steps:
-4730  0002 1e            	dc.b	30
-4731  0003               L762_fadeout_top:
-4732  0003 00            	dc.b	0
-4733  0004               L172_fadeout_side:
-4734  0004 00            	dc.b	0
-4848                     	switch	.const
-4849  0fa0               L06:
-4850  0fa0 000007d0      	dc.l	2000
-4851                     ; 295  INTERRUPT_HANDLER(TIM2_UPD_OVF_BRK_IRQHandler, 13)
-4851                     ; 296 {
-4852                     .text:	section	.text,new
-4853  0000               f_TIM2_UPD_OVF_BRK_IRQHandler:
-4855  0000 8a            	push	cc
-4856  0001 84            	pop	a
-4857  0002 a4bf          	and	a,#191
-4858  0004 88            	push	a
-4859  0005 86            	pop	cc
-4860       0000000b      OFST:	set	11
-4861  0006 3b0002        	push	c_x+2
-4862  0009 be00          	ldw	x,c_x
-4863  000b 89            	pushw	x
-4864  000c 3b0002        	push	c_y+2
-4865  000f be00          	ldw	x,c_y
-4866  0011 89            	pushw	x
-4867  0012 be02          	ldw	x,c_lreg+2
-4868  0014 89            	pushw	x
-4869  0015 be00          	ldw	x,c_lreg
-4870  0017 89            	pushw	x
-4871  0018 520b          	subw	sp,#11
-4874                     ; 305 	uint32_t total_steps = ((RUNTIME+1) * STEPS) - (rt_seconds * STEPS) - rt_steps;
-4876  001a be00          	ldw	x,L362_rt_seconds
-4877  001c 90ae001e      	ldw	y,#30
-4878  0020 cd0000        	call	c_imul
-4880  0023 1f01          	ldw	(OFST-10,sp),x
-4882  0025 ae3c86        	ldw	x,#15494
-4883  0028 72f001        	subw	x,(OFST-10,sp)
-4884  002b 01            	rrwa	x,a
-4885  002c b002          	sub	a,L562_rt_steps
-4886  002e 2401          	jrnc	L65
-4887  0030 5a            	decw	x
-4888  0031               L65:
-4889  0031 cd0000        	call	c_uitol
-4891  0034 96            	ldw	x,sp
-4892  0035 1c0003        	addw	x,#OFST-8
-4893  0038 cd0000        	call	c_rtol
-4896                     ; 306 	uint16_t current_step = total_steps % WAVE_SIDE_SIZE;
-4898  003b 96            	ldw	x,sp
-4899  003c 1c0003        	addw	x,#OFST-8
-4900  003f cd0000        	call	c_ltor
-4902  0042 ae0fa0        	ldw	x,#L06
-4903  0045 cd0000        	call	c_lumd
-4905  0048 be02          	ldw	x,c_lreg+2
-4906  004a 1f0a          	ldw	(OFST-1,sp),x
-4908                     ; 308 	uint8_t left_brightness = 0, 
-4910                     ; 309 					right_brightness = 0, 
-4912                     ; 310 					top_brightness = 0;
-4914                     ; 312 	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);	
-4916  004c a601          	ld	a,#1
-4917  004e cd0000        	call	_TIM2_ClearITPendingBit
-4919                     ; 315 	if (rt_seconds <= (FADEOUT + FADEOUT_TOP)) {
-4921  0051 be00          	ldw	x,L362_rt_seconds
-4922  0053 a302bd        	cpw	x,#701
-4923  0056 243d          	jruge	L153
-4924                     ; 317 		if (rt_seconds > FADEOUT) {
-4926  0058 be00          	ldw	x,L362_rt_seconds
-4927  005a a30259        	cpw	x,#601
-4928  005d 2518          	jrult	L353
-4929                     ; 319 		fadeout_top = (FADEOUT+FADEOUT_TOP - rt_seconds) > 100 ? 100 : (FADEOUT+FADEOUT_TOP - rt_seconds);
-4931  005f ae02bc        	ldw	x,#700
-4932  0062 72b00000      	subw	x,L362_rt_seconds
-4933  0066 a30065        	cpw	x,#101
-4934  0069 2504          	jrult	L26
-4935  006b a664          	ld	a,#100
-4936  006d 2004          	jra	L46
-4937  006f               L26:
-4938  006f a6bc          	ld	a,#188
-4939  0071 b001          	sub	a,L362_rt_seconds+1
-4940  0073               L46:
-4941  0073 b703          	ld	L762_fadeout_top,a
-4943  0075 201e          	jra	L153
-4944  0077               L353:
-4945                     ; 321 		fadeout_top = 100;
-4947  0077 35640003      	mov	L762_fadeout_top,#100
-4948                     ; 322 		fadeout_side = 100-rt_seconds*100/FADEOUT;
-4950  007b be00          	ldw	x,L362_rt_seconds
-4951  007d 90ae0064      	ldw	y,#100
-4952  0081 cd0000        	call	c_imul
-4954  0084 90ae0258      	ldw	y,#600
-4955  0088 65            	divw	x,y
-4956  0089 1f01          	ldw	(OFST-10,sp),x
-4958  008b ae0064        	ldw	x,#100
-4959  008e 72f001        	subw	x,(OFST-10,sp)
-4960  0091 01            	rrwa	x,a
-4961  0092 b704          	ld	L172_fadeout_side,a
-4962  0094 02            	rlwa	x,a
-4963  0095               L153:
-4964                     ; 326 	left_brightness = CalculateFadeout(wave_side[current_step], fadeout_side);
-4966  0095 b604          	ld	a,L172_fadeout_side
-4967  0097 97            	ld	xl,a
-4968  0098 160a          	ldw	y,(OFST-1,sp)
-4969  009a 90d60000      	ld	a,(_wave_side,y)
-4970  009e 95            	ld	xh,a
-4971  009f cd0000        	call	_CalculateFadeout
-4973  00a2 6b07          	ld	(OFST-4,sp),a
-4975                     ; 327 	right_brightness = CalculateFadeout(wave_side[WAVE_SIDE_SIZE-current_step], fadeout_side);
-4977  00a4 b604          	ld	a,L172_fadeout_side
-4978  00a6 97            	ld	xl,a
-4979  00a7 90ae07d0      	ldw	y,#2000
-4980  00ab 72f20a        	subw	y,(OFST-1,sp)
-4981  00ae 90d60000      	ld	a,(_wave_side,y)
-4982  00b2 95            	ld	xh,a
-4983  00b3 cd0000        	call	_CalculateFadeout
-4985  00b6 6b08          	ld	(OFST-3,sp),a
-4987                     ; 328 	top_brightness = CalculateFadeoutTop(wave_top[current_step], fadeout_top);
-4989  00b8 b603          	ld	a,L762_fadeout_top
-4990  00ba 97            	ld	xl,a
-4991  00bb 160a          	ldw	y,(OFST-1,sp)
-4992  00bd 90d607d0      	ld	a,(_wave_top,y)
-4993  00c1 95            	ld	xh,a
-4994  00c2 cd0000        	call	_CalculateFadeoutTop
-4996  00c5 6b09          	ld	(OFST-2,sp),a
-4998                     ; 330 	TIM1_SetCompare3(left_brightness);
-5000  00c7 7b07          	ld	a,(OFST-4,sp)
-5001  00c9 5f            	clrw	x
-5002  00ca 97            	ld	xl,a
-5003  00cb cd0000        	call	_TIM1_SetCompare3
-5005                     ; 331 	TIM1_SetCompare2(right_brightness);
-5007  00ce 7b08          	ld	a,(OFST-3,sp)
-5008  00d0 5f            	clrw	x
-5009  00d1 97            	ld	xl,a
-5010  00d2 cd0000        	call	_TIM1_SetCompare2
-5012                     ; 332 	TIM1_SetCompare1(top_brightness);
-5014  00d5 7b09          	ld	a,(OFST-2,sp)
-5015  00d7 5f            	clrw	x
-5016  00d8 97            	ld	xl,a
-5017  00d9 cd0000        	call	_TIM1_SetCompare1
-5019                     ; 334 	if(!rt_steps) {
-5021  00dc 3d02          	tnz	L562_rt_steps
-5022  00de 260d          	jrne	L753
-5023                     ; 335 		rt_seconds--;
-5025  00e0 be00          	ldw	x,L362_rt_seconds
-5026  00e2 1d0001        	subw	x,#1
-5027  00e5 bf00          	ldw	L362_rt_seconds,x
-5028                     ; 336 		rt_steps = STEPS;
-5030  00e7 351e0002      	mov	L562_rt_steps,#30
-5032  00eb 2002          	jra	L163
-5033  00ed               L753:
-5034                     ; 338 		rt_steps--;
-5036  00ed 3a02          	dec	L562_rt_steps
-5037  00ef               L163:
-5038                     ; 341 	if(!rt_seconds) { Sleep(); }
-5040  00ef be00          	ldw	x,L362_rt_seconds
-5041  00f1 2603          	jrne	L363
-5044  00f3 cd0000        	call	_Sleep
-5046  00f6               L363:
-5047                     ; 344 	return;
-5050  00f6 5b0b          	addw	sp,#11
-5051  00f8 85            	popw	x
-5052  00f9 bf00          	ldw	c_lreg,x
-5053  00fb 85            	popw	x
-5054  00fc bf02          	ldw	c_lreg+2,x
-5055  00fe 85            	popw	x
-5056  00ff bf00          	ldw	c_y,x
-5057  0101 320002        	pop	c_y+2
-5058  0104 85            	popw	x
-5059  0105 bf00          	ldw	c_x,x
-5060  0107 320002        	pop	c_x+2
-5061  010a 80            	iret
-5084                     ; 352  INTERRUPT_HANDLER(TIM2_CAP_COM_IRQHandler, 14)
-5084                     ; 353 {
-5085                     .text:	section	.text,new
-5086  0000               f_TIM2_CAP_COM_IRQHandler:
-5090                     ; 357 }
-5093  0000 80            	iret
-5116                     ; 394  INTERRUPT_HANDLER(UART1_TX_IRQHandler, 17)
-5116                     ; 395 {
-5117                     .text:	section	.text,new
-5118  0000               f_UART1_TX_IRQHandler:
-5122                     ; 399 }
-5125  0000 80            	iret
-5148                     ; 406  INTERRUPT_HANDLER(UART1_RX_IRQHandler, 18)
-5148                     ; 407 {
-5149                     .text:	section	.text,new
-5150  0000               f_UART1_RX_IRQHandler:
-5154                     ; 411 }
-5157  0000 80            	iret
-5179                     ; 419 INTERRUPT_HANDLER(I2C_IRQHandler, 19)
-5179                     ; 420 {
-5180                     .text:	section	.text,new
-5181  0000               f_I2C_IRQHandler:
-5185                     ; 424 }
-5188  0000 80            	iret
-5210                     ; 497  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
-5210                     ; 498 {
-5211                     .text:	section	.text,new
-5212  0000               f_ADC1_IRQHandler:
-5216                     ; 503 }
-5219  0000 80            	iret
-5242                     ; 524  INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
-5242                     ; 525 {
-5243                     .text:	section	.text,new
-5244  0000               f_TIM4_UPD_OVF_IRQHandler:
-5248                     ; 529 }
-5251  0000 80            	iret
-5274                     ; 537 INTERRUPT_HANDLER(EEPROM_EEC_IRQHandler, 24)
-5274                     ; 538 {
-5275                     .text:	section	.text,new
-5276  0000               f_EEPROM_EEC_IRQHandler:
-5280                     ; 542 }
-5283  0000 80            	iret
-5295                     	xdef	_CalculateFadeoutTop
-5296                     	xdef	_CalculateFadeout
-5297                     	xdef	_Sleep
-5298                     	xdef	_wave_top
-5299                     	xdef	_wave_side
-5300                     	xdef	f_EEPROM_EEC_IRQHandler
-5301                     	xdef	f_TIM4_UPD_OVF_IRQHandler
-5302                     	xdef	f_ADC1_IRQHandler
-5303                     	xdef	f_I2C_IRQHandler
-5304                     	xdef	f_UART1_RX_IRQHandler
-5305                     	xdef	f_UART1_TX_IRQHandler
-5306                     	xdef	f_TIM2_CAP_COM_IRQHandler
-5307                     	xdef	f_TIM2_UPD_OVF_BRK_IRQHandler
-5308                     	xdef	f_TIM1_UPD_OVF_TRG_BRK_IRQHandler
-5309                     	xdef	f_TIM1_CAP_COM_IRQHandler
-5310                     	xdef	f_SPI_IRQHandler
-5311                     	xdef	f_EXTI_PORTE_IRQHandler
-5312                     	xdef	f_EXTI_PORTD_IRQHandler
-5313                     	xdef	f_EXTI_PORTC_IRQHandler
-5314                     	xdef	f_EXTI_PORTB_IRQHandler
-5315                     	xdef	f_EXTI_PORTA_IRQHandler
-5316                     	xdef	f_CLK_IRQHandler
-5317                     	xdef	f_AWU_IRQHandler
-5318                     	xdef	f_TLI_IRQHandler
-5319                     	xdef	f_TRAP_IRQHandler
-5320                     	xdef	f_NonHandledInterrupt
-5321                     	xref	_TIM2_ClearITPendingBit
-5322                     	xref	_TIM1_SetCompare3
-5323                     	xref	_TIM1_SetCompare2
-5324                     	xref	_TIM1_SetCompare1
-5325                     	xref	_TIM1_CtrlPWMOutputs
-5326                     	xref	_TIM1_Cmd
-5327                     	xref.b	c_lreg
-5328                     	xref.b	c_x
-5329                     	xref.b	c_y
-5348                     	xref	c_lumd
-5349                     	xref	c_ltor
-5350                     	xref	c_rtol
-5351                     	xref	c_uitol
-5352                     	xref	c_imul
-5353                     	end
+4093                     ; 44 void Sleep(void) {
+4095                     .text:	section	.text,new
+4096  0000               _Sleep:
+4100                     ; 45 	TIM1_SetCompare3(100);
+4102  0000 ae0064        	ldw	x,#100
+4103  0003 cd0000        	call	_TIM1_SetCompare3
+4105                     ; 46 	TIM1_SetCompare2(100);
+4107  0006 ae0064        	ldw	x,#100
+4108  0009 cd0000        	call	_TIM1_SetCompare2
+4110                     ; 47 	TIM1_SetCompare1(100);	
+4112  000c ae0064        	ldw	x,#100
+4113  000f cd0000        	call	_TIM1_SetCompare1
+4115                     ; 48 	TIM1_CtrlPWMOutputs(DISABLE);
+4117  0012 4f            	clr	a
+4118  0013 cd0000        	call	_TIM1_CtrlPWMOutputs
+4120                     ; 49 	TIM1_Cmd(DISABLE);
+4122  0016 4f            	clr	a
+4123  0017 cd0000        	call	_TIM1_Cmd
+4125                     ; 50 	TIM2_Cmd(DISABLE);
+4127  001a 4f            	clr	a
+4128  001b cd0000        	call	_TIM2_Cmd
+4130                     ; 51   halt();
+4133  001e 8e            halt
+4135                     ; 52 }
+4139  001f 81            	ret
+4182                     ; 53 uint8_t CalculateFadeout(uint8_t brightness, uint8_t fadeout) {
+4183                     .text:	section	.text,new
+4184  0000               _CalculateFadeout:
+4186  0000 89            	pushw	x
+4187       00000000      OFST:	set	0
+4190                     ; 54 	brightness += fadeout;
+4192  0001 7b01          	ld	a,(OFST+1,sp)
+4193  0003 1b02          	add	a,(OFST+2,sp)
+4194  0005 6b01          	ld	(OFST+1,sp),a
+4195                     ; 55 	return (brightness > 100) ? 95 : brightness;
+4197  0007 7b01          	ld	a,(OFST+1,sp)
+4198  0009 a165          	cp	a,#101
+4199  000b 2504          	jrult	L01
+4200  000d a65f          	ld	a,#95
+4201  000f 2002          	jra	L21
+4202  0011               L01:
+4203  0011 7b01          	ld	a,(OFST+1,sp)
+4204  0013               L21:
+4207  0013 85            	popw	x
+4208  0014 81            	ret
+4252                     ; 58 uint8_t CalculateFadeoutTop(uint8_t brightness, uint8_t fadeout) {
+4253                     .text:	section	.text,new
+4254  0000               _CalculateFadeoutTop:
+4256  0000 89            	pushw	x
+4257       00000000      OFST:	set	0
+4260                     ; 59 	brightness += fadeout;
+4262  0001 7b01          	ld	a,(OFST+1,sp)
+4263  0003 1b02          	add	a,(OFST+2,sp)
+4264  0005 6b01          	ld	(OFST+1,sp),a
+4265                     ; 60 	return (brightness > 100) ? 100 : brightness;
+4267  0007 7b01          	ld	a,(OFST+1,sp)
+4268  0009 a165          	cp	a,#101
+4269  000b 2504          	jrult	L61
+4270  000d a664          	ld	a,#100
+4271  000f 2002          	jra	L02
+4272  0011               L61:
+4273  0011 7b01          	ld	a,(OFST+1,sp)
+4274  0013               L02:
+4277  0013 85            	popw	x
+4278  0014 81            	ret
+4302                     ; 74 INTERRUPT_HANDLER(NonHandledInterrupt, 25)
+4302                     ; 75 {
+4304                     .text:	section	.text,new
+4305  0000               f_NonHandledInterrupt:
+4309                     ; 79 }
+4312  0000 80            	iret
+4334                     ; 87 INTERRUPT_HANDLER_TRAP(TRAP_IRQHandler)
+4334                     ; 88 {
+4335                     .text:	section	.text,new
+4336  0000               f_TRAP_IRQHandler:
+4340                     ; 92 }
+4343  0000 80            	iret
+4365                     ; 98 INTERRUPT_HANDLER(TLI_IRQHandler, 0)
+4365                     ; 99 {
+4366                     .text:	section	.text,new
+4367  0000               f_TLI_IRQHandler:
+4371                     ; 103 }
+4374  0000 80            	iret
+4396                     ; 110 INTERRUPT_HANDLER(AWU_IRQHandler, 1)
+4396                     ; 111 {
+4397                     .text:	section	.text,new
+4398  0000               f_AWU_IRQHandler:
+4402                     ; 115 }
+4405  0000 80            	iret
+4427                     ; 122 INTERRUPT_HANDLER(CLK_IRQHandler, 2)
+4427                     ; 123 {
+4428                     .text:	section	.text,new
+4429  0000               f_CLK_IRQHandler:
+4433                     ; 127 }
+4436  0000 80            	iret
+4459                     ; 134 INTERRUPT_HANDLER(EXTI_PORTA_IRQHandler, 3)
+4459                     ; 135 {
+4460                     .text:	section	.text,new
+4461  0000               f_EXTI_PORTA_IRQHandler:
+4465                     ; 139 }
+4468  0000 80            	iret
+4491                     ; 146 INTERRUPT_HANDLER(EXTI_PORTB_IRQHandler, 4)
+4491                     ; 147 {
+4492                     .text:	section	.text,new
+4493  0000               f_EXTI_PORTB_IRQHandler:
+4497                     ; 151 }
+4500  0000 80            	iret
+4536                     ; 158 INTERRUPT_HANDLER(EXTI_PORTC_IRQHandler, 5)
+4536                     ; 159 {
+4537                     .text:	section	.text,new
+4538  0000               f_EXTI_PORTC_IRQHandler:
+4540  0000 8a            	push	cc
+4541  0001 84            	pop	a
+4542  0002 a4bf          	and	a,#191
+4543  0004 88            	push	a
+4544  0005 86            	pop	cc
+4545       00000002      OFST:	set	2
+4546  0006 3b0002        	push	c_x+2
+4547  0009 be00          	ldw	x,c_x
+4548  000b 89            	pushw	x
+4549  000c 3b0002        	push	c_y+2
+4550  000f be00          	ldw	x,c_y
+4551  0011 89            	pushw	x
+4552  0012 89            	pushw	x
+4555                     ; 162     Jump_Function = (Function_Pointer) 0x9FFF;
+4557                     ; 163     Jump_Function();
+4559  0013 cd9fff        	call	40959
+4561                     ; 164 }
+4564  0016 5b02          	addw	sp,#2
+4565  0018 85            	popw	x
+4566  0019 bf00          	ldw	c_y,x
+4567  001b 320002        	pop	c_y+2
+4568  001e 85            	popw	x
+4569  001f bf00          	ldw	c_x,x
+4570  0021 320002        	pop	c_x+2
+4571  0024 80            	iret
+4594                     ; 171 INTERRUPT_HANDLER(EXTI_PORTD_IRQHandler, 6)
+4594                     ; 172 {
+4595                     .text:	section	.text,new
+4596  0000               f_EXTI_PORTD_IRQHandler:
+4600                     ; 176 }
+4603  0000 80            	iret
+4626                     ; 183 INTERRUPT_HANDLER(EXTI_PORTE_IRQHandler, 7)
+4626                     ; 184 {
+4627                     .text:	section	.text,new
+4628  0000               f_EXTI_PORTE_IRQHandler:
+4632                     ; 188 }
+4635  0000 80            	iret
+4657                     ; 234 INTERRUPT_HANDLER(SPI_IRQHandler, 10)
+4657                     ; 235 {
+4658                     .text:	section	.text,new
+4659  0000               f_SPI_IRQHandler:
+4663                     ; 239 }
+4666  0000 80            	iret
+4689                     ; 246 INTERRUPT_HANDLER(TIM1_UPD_OVF_TRG_BRK_IRQHandler, 11)
+4689                     ; 247 {
+4690                     .text:	section	.text,new
+4691  0000               f_TIM1_UPD_OVF_TRG_BRK_IRQHandler:
+4695                     ; 251 }
+4698  0000 80            	iret
+4721                     ; 258 INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
+4721                     ; 259 {
+4722                     .text:	section	.text,new
+4723  0000               f_TIM1_CAP_COM_IRQHandler:
+4727                     ; 263 }
+4730  0000 80            	iret
+4732                     	bsct
+4733  0000               L362_rt_seconds:
+4734  0000 0a8c          	dc.w	2700
+4735  0002               L562_rt_steps:
+4736  0002 1e            	dc.b	30
+4737  0003               L762_fadeout_top:
+4738  0003 00            	dc.b	0
+4739  0004               L172_fadeout_side:
+4740  0004 00            	dc.b	0
+4854                     	switch	.const
+4855  0fa0               L06:
+4856  0fa0 000007d0      	dc.l	2000
+4857                     ; 295  INTERRUPT_HANDLER(TIM2_UPD_OVF_BRK_IRQHandler, 13)
+4857                     ; 296 {
+4858                     .text:	section	.text,new
+4859  0000               f_TIM2_UPD_OVF_BRK_IRQHandler:
+4861  0000 8a            	push	cc
+4862  0001 84            	pop	a
+4863  0002 a4bf          	and	a,#191
+4864  0004 88            	push	a
+4865  0005 86            	pop	cc
+4866       0000000b      OFST:	set	11
+4867  0006 3b0002        	push	c_x+2
+4868  0009 be00          	ldw	x,c_x
+4869  000b 89            	pushw	x
+4870  000c 3b0002        	push	c_y+2
+4871  000f be00          	ldw	x,c_y
+4872  0011 89            	pushw	x
+4873  0012 be02          	ldw	x,c_lreg+2
+4874  0014 89            	pushw	x
+4875  0015 be00          	ldw	x,c_lreg
+4876  0017 89            	pushw	x
+4877  0018 520b          	subw	sp,#11
+4880                     ; 305 	uint32_t total_steps = ((RUNTIME+1) * STEPS) - (rt_seconds * STEPS) - rt_steps;
+4882  001a be00          	ldw	x,L362_rt_seconds
+4883  001c 90ae001e      	ldw	y,#30
+4884  0020 cd0000        	call	c_imul
+4886  0023 1f01          	ldw	(OFST-10,sp),x
+4888  0025 ae3c86        	ldw	x,#15494
+4889  0028 72f001        	subw	x,(OFST-10,sp)
+4890  002b 01            	rrwa	x,a
+4891  002c b002          	sub	a,L562_rt_steps
+4892  002e 2401          	jrnc	L65
+4893  0030 5a            	decw	x
+4894  0031               L65:
+4895  0031 cd0000        	call	c_uitol
+4897  0034 96            	ldw	x,sp
+4898  0035 1c0003        	addw	x,#OFST-8
+4899  0038 cd0000        	call	c_rtol
+4902                     ; 306 	uint16_t current_step = total_steps % WAVE_SIDE_SIZE;
+4904  003b 96            	ldw	x,sp
+4905  003c 1c0003        	addw	x,#OFST-8
+4906  003f cd0000        	call	c_ltor
+4908  0042 ae0fa0        	ldw	x,#L06
+4909  0045 cd0000        	call	c_lumd
+4911  0048 be02          	ldw	x,c_lreg+2
+4912  004a 1f0a          	ldw	(OFST-1,sp),x
+4914                     ; 308 	uint8_t left_brightness = 0, 
+4916                     ; 309 					right_brightness = 0, 
+4918                     ; 310 					top_brightness = 0;
+4920                     ; 312 	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);	
+4922  004c a601          	ld	a,#1
+4923  004e cd0000        	call	_TIM2_ClearITPendingBit
+4925                     ; 315 	if (rt_seconds <= (FADEOUT + FADEOUT_TOP)) {
+4927  0051 be00          	ldw	x,L362_rt_seconds
+4928  0053 a302bd        	cpw	x,#701
+4929  0056 243d          	jruge	L153
+4930                     ; 317 		if (rt_seconds > FADEOUT) {
+4932  0058 be00          	ldw	x,L362_rt_seconds
+4933  005a a30259        	cpw	x,#601
+4934  005d 2518          	jrult	L353
+4935                     ; 319 		fadeout_top = (FADEOUT+FADEOUT_TOP - rt_seconds) > 100 ? 100 : (FADEOUT+FADEOUT_TOP - rt_seconds);
+4937  005f ae02bc        	ldw	x,#700
+4938  0062 72b00000      	subw	x,L362_rt_seconds
+4939  0066 a30065        	cpw	x,#101
+4940  0069 2504          	jrult	L26
+4941  006b a664          	ld	a,#100
+4942  006d 2004          	jra	L46
+4943  006f               L26:
+4944  006f a6bc          	ld	a,#188
+4945  0071 b001          	sub	a,L362_rt_seconds+1
+4946  0073               L46:
+4947  0073 b703          	ld	L762_fadeout_top,a
+4949  0075 201e          	jra	L153
+4950  0077               L353:
+4951                     ; 321 		fadeout_top = 100;
+4953  0077 35640003      	mov	L762_fadeout_top,#100
+4954                     ; 322 		fadeout_side = 100-rt_seconds*100/FADEOUT;
+4956  007b be00          	ldw	x,L362_rt_seconds
+4957  007d 90ae0064      	ldw	y,#100
+4958  0081 cd0000        	call	c_imul
+4960  0084 90ae0258      	ldw	y,#600
+4961  0088 65            	divw	x,y
+4962  0089 1f01          	ldw	(OFST-10,sp),x
+4964  008b ae0064        	ldw	x,#100
+4965  008e 72f001        	subw	x,(OFST-10,sp)
+4966  0091 01            	rrwa	x,a
+4967  0092 b704          	ld	L172_fadeout_side,a
+4968  0094 02            	rlwa	x,a
+4969  0095               L153:
+4970                     ; 326 	left_brightness = CalculateFadeout(wave_side[current_step], fadeout_side);
+4972  0095 b604          	ld	a,L172_fadeout_side
+4973  0097 97            	ld	xl,a
+4974  0098 160a          	ldw	y,(OFST-1,sp)
+4975  009a 90d60000      	ld	a,(_wave_side,y)
+4976  009e 95            	ld	xh,a
+4977  009f cd0000        	call	_CalculateFadeout
+4979  00a2 6b07          	ld	(OFST-4,sp),a
+4981                     ; 327 	right_brightness = CalculateFadeout(wave_side[WAVE_SIDE_SIZE-current_step], fadeout_side);
+4983  00a4 b604          	ld	a,L172_fadeout_side
+4984  00a6 97            	ld	xl,a
+4985  00a7 90ae07d0      	ldw	y,#2000
+4986  00ab 72f20a        	subw	y,(OFST-1,sp)
+4987  00ae 90d60000      	ld	a,(_wave_side,y)
+4988  00b2 95            	ld	xh,a
+4989  00b3 cd0000        	call	_CalculateFadeout
+4991  00b6 6b08          	ld	(OFST-3,sp),a
+4993                     ; 328 	top_brightness = CalculateFadeoutTop(wave_top[current_step], fadeout_top);
+4995  00b8 b603          	ld	a,L762_fadeout_top
+4996  00ba 97            	ld	xl,a
+4997  00bb 160a          	ldw	y,(OFST-1,sp)
+4998  00bd 90d607d0      	ld	a,(_wave_top,y)
+4999  00c1 95            	ld	xh,a
+5000  00c2 cd0000        	call	_CalculateFadeoutTop
+5002  00c5 6b09          	ld	(OFST-2,sp),a
+5004                     ; 330 	TIM1_SetCompare3(left_brightness);
+5006  00c7 7b07          	ld	a,(OFST-4,sp)
+5007  00c9 5f            	clrw	x
+5008  00ca 97            	ld	xl,a
+5009  00cb cd0000        	call	_TIM1_SetCompare3
+5011                     ; 331 	TIM1_SetCompare2(right_brightness);
+5013  00ce 7b08          	ld	a,(OFST-3,sp)
+5014  00d0 5f            	clrw	x
+5015  00d1 97            	ld	xl,a
+5016  00d2 cd0000        	call	_TIM1_SetCompare2
+5018                     ; 332 	TIM1_SetCompare1(top_brightness);
+5020  00d5 7b09          	ld	a,(OFST-2,sp)
+5021  00d7 5f            	clrw	x
+5022  00d8 97            	ld	xl,a
+5023  00d9 cd0000        	call	_TIM1_SetCompare1
+5025                     ; 334 	if(!rt_steps) {
+5027  00dc 3d02          	tnz	L562_rt_steps
+5028  00de 260d          	jrne	L753
+5029                     ; 335 		rt_seconds--;
+5031  00e0 be00          	ldw	x,L362_rt_seconds
+5032  00e2 1d0001        	subw	x,#1
+5033  00e5 bf00          	ldw	L362_rt_seconds,x
+5034                     ; 336 		rt_steps = STEPS;
+5036  00e7 351e0002      	mov	L562_rt_steps,#30
+5038  00eb 2002          	jra	L163
+5039  00ed               L753:
+5040                     ; 338 		rt_steps--;
+5042  00ed 3a02          	dec	L562_rt_steps
+5043  00ef               L163:
+5044                     ; 341 	if(!rt_seconds) { Sleep(); }
+5046  00ef be00          	ldw	x,L362_rt_seconds
+5047  00f1 2603          	jrne	L363
+5050  00f3 cd0000        	call	_Sleep
+5052  00f6               L363:
+5053                     ; 344 	return;
+5056  00f6 5b0b          	addw	sp,#11
+5057  00f8 85            	popw	x
+5058  00f9 bf00          	ldw	c_lreg,x
+5059  00fb 85            	popw	x
+5060  00fc bf02          	ldw	c_lreg+2,x
+5061  00fe 85            	popw	x
+5062  00ff bf00          	ldw	c_y,x
+5063  0101 320002        	pop	c_y+2
+5064  0104 85            	popw	x
+5065  0105 bf00          	ldw	c_x,x
+5066  0107 320002        	pop	c_x+2
+5067  010a 80            	iret
+5090                     ; 352  INTERRUPT_HANDLER(TIM2_CAP_COM_IRQHandler, 14)
+5090                     ; 353 {
+5091                     .text:	section	.text,new
+5092  0000               f_TIM2_CAP_COM_IRQHandler:
+5096                     ; 357 }
+5099  0000 80            	iret
+5122                     ; 394  INTERRUPT_HANDLER(UART1_TX_IRQHandler, 17)
+5122                     ; 395 {
+5123                     .text:	section	.text,new
+5124  0000               f_UART1_TX_IRQHandler:
+5128                     ; 399 }
+5131  0000 80            	iret
+5154                     ; 406  INTERRUPT_HANDLER(UART1_RX_IRQHandler, 18)
+5154                     ; 407 {
+5155                     .text:	section	.text,new
+5156  0000               f_UART1_RX_IRQHandler:
+5160                     ; 411 }
+5163  0000 80            	iret
+5185                     ; 419 INTERRUPT_HANDLER(I2C_IRQHandler, 19)
+5185                     ; 420 {
+5186                     .text:	section	.text,new
+5187  0000               f_I2C_IRQHandler:
+5191                     ; 424 }
+5194  0000 80            	iret
+5216                     ; 497  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
+5216                     ; 498 {
+5217                     .text:	section	.text,new
+5218  0000               f_ADC1_IRQHandler:
+5222                     ; 503 }
+5225  0000 80            	iret
+5248                     ; 524  INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
+5248                     ; 525 {
+5249                     .text:	section	.text,new
+5250  0000               f_TIM4_UPD_OVF_IRQHandler:
+5254                     ; 529 }
+5257  0000 80            	iret
+5280                     ; 537 INTERRUPT_HANDLER(EEPROM_EEC_IRQHandler, 24)
+5280                     ; 538 {
+5281                     .text:	section	.text,new
+5282  0000               f_EEPROM_EEC_IRQHandler:
+5286                     ; 542 }
+5289  0000 80            	iret
+5301                     	xdef	_CalculateFadeoutTop
+5302                     	xdef	_CalculateFadeout
+5303                     	xdef	_Sleep
+5304                     	xdef	_wave_top
+5305                     	xdef	_wave_side
+5306                     	xdef	f_EEPROM_EEC_IRQHandler
+5307                     	xdef	f_TIM4_UPD_OVF_IRQHandler
+5308                     	xdef	f_ADC1_IRQHandler
+5309                     	xdef	f_I2C_IRQHandler
+5310                     	xdef	f_UART1_RX_IRQHandler
+5311                     	xdef	f_UART1_TX_IRQHandler
+5312                     	xdef	f_TIM2_CAP_COM_IRQHandler
+5313                     	xdef	f_TIM2_UPD_OVF_BRK_IRQHandler
+5314                     	xdef	f_TIM1_UPD_OVF_TRG_BRK_IRQHandler
+5315                     	xdef	f_TIM1_CAP_COM_IRQHandler
+5316                     	xdef	f_SPI_IRQHandler
+5317                     	xdef	f_EXTI_PORTE_IRQHandler
+5318                     	xdef	f_EXTI_PORTD_IRQHandler
+5319                     	xdef	f_EXTI_PORTC_IRQHandler
+5320                     	xdef	f_EXTI_PORTB_IRQHandler
+5321                     	xdef	f_EXTI_PORTA_IRQHandler
+5322                     	xdef	f_CLK_IRQHandler
+5323                     	xdef	f_AWU_IRQHandler
+5324                     	xdef	f_TLI_IRQHandler
+5325                     	xdef	f_TRAP_IRQHandler
+5326                     	xdef	f_NonHandledInterrupt
+5327                     	xref	_TIM2_ClearITPendingBit
+5328                     	xref	_TIM2_Cmd
+5329                     	xref	_TIM1_SetCompare3
+5330                     	xref	_TIM1_SetCompare2
+5331                     	xref	_TIM1_SetCompare1
+5332                     	xref	_TIM1_CtrlPWMOutputs
+5333                     	xref	_TIM1_Cmd
+5334                     	xref.b	c_lreg
+5335                     	xref.b	c_x
+5336                     	xref.b	c_y
+5355                     	xref	c_lumd
+5356                     	xref	c_ltor
+5357                     	xref	c_rtol
+5358                     	xref	c_uitol
+5359                     	xref	c_imul
+5360                     	end

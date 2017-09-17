@@ -44,10 +44,10 @@ uint8_t CalculateFadeoutTop(uint8_t brightness, uint8_t fadeout);
 void Sleep(void) {
 	TIM1_SetCompare3(100);
 	TIM1_SetCompare2(100);
-	TIM1_SetCompare1(100);
-	
+	TIM1_SetCompare1(100);	
 	TIM1_CtrlPWMOutputs(DISABLE);
-	TIM1_Cmd(DISABLE);	
+	TIM1_Cmd(DISABLE);
+	TIM2_Cmd(DISABLE);
   halt();
 }
 uint8_t CalculateFadeout(uint8_t brightness, uint8_t fadeout) {
