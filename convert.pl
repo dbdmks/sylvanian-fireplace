@@ -6,7 +6,9 @@ use 5.010;
 my $infile_name = 'out_candle.dat';
 my $outfile_name = 'pwm_waves.h';
 my $outfile_header = <<'EOD';
-#define RUNTIME 1000 //seconds
+#define RUNTIME 2700 // 2700 seconds = 45 min
+#define FADEOUT 600 //gradually dim sides 600 seconds = 10 min before turnoff
+#define FADEOUT_TOP 100 // gradually dim top 100 seconds before dimming sides
 #define STEPS 30 //interrupts per second
 #define WAVE_SIDE_SIZE 2000
 

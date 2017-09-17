@@ -4169,7 +4169,7 @@
 4724  0000 80            	iret
 4726                     	bsct
 4727  0000               L362_rt_seconds:
-4728  0000 0078          	dc.w	120
+4728  0000 0a8c          	dc.w	2700
 4729  0002               L562_rt_steps:
 4730  0002 1e            	dc.b	30
 4731  0003               L762_fadeout_top:
@@ -4205,7 +4205,7 @@
 4878  001c 90ae001e      	ldw	y,#30
 4879  0020 cd0000        	call	c_imul
 4881  0023 1f01          	ldw	(OFST-10,sp),x
-4883  0025 ae0e2e        	ldw	x,#3630
+4883  0025 ae3c86        	ldw	x,#15494
 4884  0028 72f001        	subw	x,(OFST-10,sp)
 4885  002b 01            	rrwa	x,a
 4886  002c b002          	sub	a,L562_rt_steps
@@ -4237,25 +4237,25 @@
 4926  0059 84            	pop	a
 4927                     ; 315 	if (rt_seconds <= (FADEOUT + FADEOUT_TOP)) {
 4929  005a be00          	ldw	x,L362_rt_seconds
-4930  005c a300a1        	cpw	x,#161
-4931  005f 243b          	jruge	L153
+4930  005c a302bd        	cpw	x,#701
+4931  005f 243d          	jruge	L153
 4932                     ; 317 		if (rt_seconds > FADEOUT) {
 4934  0061 be00          	ldw	x,L362_rt_seconds
-4935  0063 a3003d        	cpw	x,#61
+4935  0063 a30259        	cpw	x,#601
 4936  0066 2518          	jrult	L353
 4937                     ; 319 		fadeout_top = (FADEOUT+FADEOUT_TOP - rt_seconds) > 100 ? 100 : (FADEOUT+FADEOUT_TOP - rt_seconds);
-4939  0068 ae00a0        	ldw	x,#160
+4939  0068 ae02bc        	ldw	x,#700
 4940  006b 72b00000      	subw	x,L362_rt_seconds
 4941  006f a30065        	cpw	x,#101
 4942  0072 2504          	jrult	L26
 4943  0074 a664          	ld	a,#100
 4944  0076 2004          	jra	L46
 4945  0078               L26:
-4946  0078 a6a0          	ld	a,#160
+4946  0078 a6bc          	ld	a,#188
 4947  007a b001          	sub	a,L362_rt_seconds+1
 4948  007c               L46:
 4949  007c b703          	ld	L762_fadeout_top,a
-4951  007e 201c          	jra	L153
+4951  007e 201e          	jra	L153
 4952  0080               L353:
 4953                     ; 321 		fadeout_top = 100;
 4955  0080 35640003      	mov	L762_fadeout_top,#100
@@ -4263,87 +4263,87 @@
 4958  0084 be00          	ldw	x,L362_rt_seconds
 4959  0086 90ae0064      	ldw	y,#100
 4960  008a cd0000        	call	c_imul
-4962  008d a63c          	ld	a,#60
-4963  008f 62            	div	x,a
-4964  0090 1f01          	ldw	(OFST-10,sp),x
-4966  0092 ae0064        	ldw	x,#100
-4967  0095 72f001        	subw	x,(OFST-10,sp)
-4968  0098 01            	rrwa	x,a
-4969  0099 b704          	ld	L172_fadeout_side,a
-4970  009b 02            	rlwa	x,a
-4971  009c               L153:
+4962  008d 90ae0258      	ldw	y,#600
+4963  0091 65            	divw	x,y
+4964  0092 1f01          	ldw	(OFST-10,sp),x
+4966  0094 ae0064        	ldw	x,#100
+4967  0097 72f001        	subw	x,(OFST-10,sp)
+4968  009a 01            	rrwa	x,a
+4969  009b b704          	ld	L172_fadeout_side,a
+4970  009d 02            	rlwa	x,a
+4971  009e               L153:
 4972                     ; 326 	left_brightness = CalculateFadeout(wave_side[current_step], fadeout_side);
-4974  009c b604          	ld	a,L172_fadeout_side
-4975  009e 97            	ld	xl,a
-4976  009f 160a          	ldw	y,(OFST-1,sp)
-4977  00a1 90d60000      	ld	a,(_wave_side,y)
-4978  00a5 95            	ld	xh,a
-4979  00a6 cd0000        	call	_CalculateFadeout
-4981  00a9 6b07          	ld	(OFST-4,sp),a
+4974  009e b604          	ld	a,L172_fadeout_side
+4975  00a0 97            	ld	xl,a
+4976  00a1 160a          	ldw	y,(OFST-1,sp)
+4977  00a3 90d60000      	ld	a,(_wave_side,y)
+4978  00a7 95            	ld	xh,a
+4979  00a8 cd0000        	call	_CalculateFadeout
+4981  00ab 6b07          	ld	(OFST-4,sp),a
 4983                     ; 327 	right_brightness = CalculateFadeout(wave_side[WAVE_SIDE_SIZE-current_step], fadeout_side);
-4985  00ab b604          	ld	a,L172_fadeout_side
-4986  00ad 97            	ld	xl,a
-4987  00ae 90ae07d0      	ldw	y,#2000
-4988  00b2 72f20a        	subw	y,(OFST-1,sp)
-4989  00b5 90d60000      	ld	a,(_wave_side,y)
-4990  00b9 95            	ld	xh,a
-4991  00ba cd0000        	call	_CalculateFadeout
-4993  00bd 6b08          	ld	(OFST-3,sp),a
+4985  00ad b604          	ld	a,L172_fadeout_side
+4986  00af 97            	ld	xl,a
+4987  00b0 90ae07d0      	ldw	y,#2000
+4988  00b4 72f20a        	subw	y,(OFST-1,sp)
+4989  00b7 90d60000      	ld	a,(_wave_side,y)
+4990  00bb 95            	ld	xh,a
+4991  00bc cd0000        	call	_CalculateFadeout
+4993  00bf 6b08          	ld	(OFST-3,sp),a
 4995                     ; 328 	top_brightness = CalculateFadeoutTop(wave_top[current_step], fadeout_top);
-4997  00bf b603          	ld	a,L762_fadeout_top
-4998  00c1 97            	ld	xl,a
-4999  00c2 160a          	ldw	y,(OFST-1,sp)
-5000  00c4 90d607d0      	ld	a,(_wave_top,y)
-5001  00c8 95            	ld	xh,a
-5002  00c9 cd0000        	call	_CalculateFadeoutTop
-5004  00cc 6b09          	ld	(OFST-2,sp),a
+4997  00c1 b603          	ld	a,L762_fadeout_top
+4998  00c3 97            	ld	xl,a
+4999  00c4 160a          	ldw	y,(OFST-1,sp)
+5000  00c6 90d607d0      	ld	a,(_wave_top,y)
+5001  00ca 95            	ld	xh,a
+5002  00cb cd0000        	call	_CalculateFadeoutTop
+5004  00ce 6b09          	ld	(OFST-2,sp),a
 5006                     ; 330 	TIM1_SetCompare3(left_brightness);
-5008  00ce 7b07          	ld	a,(OFST-4,sp)
-5009  00d0 5f            	clrw	x
-5010  00d1 97            	ld	xl,a
-5011  00d2 cd0000        	call	_TIM1_SetCompare3
+5008  00d0 7b07          	ld	a,(OFST-4,sp)
+5009  00d2 5f            	clrw	x
+5010  00d3 97            	ld	xl,a
+5011  00d4 cd0000        	call	_TIM1_SetCompare3
 5013                     ; 331 	TIM1_SetCompare2(right_brightness);
-5015  00d5 7b08          	ld	a,(OFST-3,sp)
-5016  00d7 5f            	clrw	x
-5017  00d8 97            	ld	xl,a
-5018  00d9 cd0000        	call	_TIM1_SetCompare2
+5015  00d7 7b08          	ld	a,(OFST-3,sp)
+5016  00d9 5f            	clrw	x
+5017  00da 97            	ld	xl,a
+5018  00db cd0000        	call	_TIM1_SetCompare2
 5020                     ; 332 	TIM1_SetCompare1(top_brightness);
-5022  00dc 7b09          	ld	a,(OFST-2,sp)
-5023  00de 5f            	clrw	x
-5024  00df 97            	ld	xl,a
-5025  00e0 cd0000        	call	_TIM1_SetCompare1
+5022  00de 7b09          	ld	a,(OFST-2,sp)
+5023  00e0 5f            	clrw	x
+5024  00e1 97            	ld	xl,a
+5025  00e2 cd0000        	call	_TIM1_SetCompare1
 5027                     ; 334 	if(!rt_steps) {
-5029  00e3 3d02          	tnz	L562_rt_steps
-5030  00e5 260d          	jrne	L753
+5029  00e5 3d02          	tnz	L562_rt_steps
+5030  00e7 260d          	jrne	L753
 5031                     ; 335 		rt_seconds--;
-5033  00e7 be00          	ldw	x,L362_rt_seconds
-5034  00e9 1d0001        	subw	x,#1
-5035  00ec bf00          	ldw	L362_rt_seconds,x
+5033  00e9 be00          	ldw	x,L362_rt_seconds
+5034  00eb 1d0001        	subw	x,#1
+5035  00ee bf00          	ldw	L362_rt_seconds,x
 5036                     ; 336 		rt_steps = STEPS;
-5038  00ee 351e0002      	mov	L562_rt_steps,#30
-5040  00f2 2002          	jra	L163
-5041  00f4               L753:
+5038  00f0 351e0002      	mov	L562_rt_steps,#30
+5040  00f4 2002          	jra	L163
+5041  00f6               L753:
 5042                     ; 338 		rt_steps--;
-5044  00f4 3a02          	dec	L562_rt_steps
-5045  00f6               L163:
+5044  00f6 3a02          	dec	L562_rt_steps
+5045  00f8               L163:
 5046                     ; 341 	if(!rt_seconds) { Sleep(); }
-5048  00f6 be00          	ldw	x,L362_rt_seconds
-5049  00f8 2603          	jrne	L363
-5052  00fa cd0000        	call	_Sleep
-5054  00fd               L363:
+5048  00f8 be00          	ldw	x,L362_rt_seconds
+5049  00fa 2603          	jrne	L363
+5052  00fc cd0000        	call	_Sleep
+5054  00ff               L363:
 5055                     ; 344 	return;
-5058  00fd 5b0b          	addw	sp,#11
-5059  00ff 85            	popw	x
-5060  0100 bf00          	ldw	c_lreg,x
-5061  0102 85            	popw	x
-5062  0103 bf02          	ldw	c_lreg+2,x
-5063  0105 85            	popw	x
-5064  0106 bf00          	ldw	c_y,x
-5065  0108 320002        	pop	c_y+2
-5066  010b 85            	popw	x
-5067  010c bf00          	ldw	c_x,x
-5068  010e 320002        	pop	c_x+2
-5069  0111 80            	iret
+5058  00ff 5b0b          	addw	sp,#11
+5059  0101 85            	popw	x
+5060  0102 bf00          	ldw	c_lreg,x
+5061  0104 85            	popw	x
+5062  0105 bf02          	ldw	c_lreg+2,x
+5063  0107 85            	popw	x
+5064  0108 bf00          	ldw	c_y,x
+5065  010a 320002        	pop	c_y+2
+5066  010d 85            	popw	x
+5067  010e bf00          	ldw	c_x,x
+5068  0110 320002        	pop	c_x+2
+5069  0113 80            	iret
 5092                     ; 352  INTERRUPT_HANDLER(TIM2_CAP_COM_IRQHandler, 14)
 5092                     ; 353 {
 5093                     .text:	section	.text,new

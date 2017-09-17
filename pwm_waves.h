@@ -1,5 +1,5 @@
-#define RUNTIME 120 // 2700 seconds = 45 min
-#define FADEOUT 60 //gradually dim sides 600 seconds = 10 min before turnoff
+#define RUNTIME 2700 // 2700 seconds = 45 min
+#define FADEOUT 600 //gradually dim sides 600 seconds = 10 min before turnoff
 #define FADEOUT_TOP 100 // gradually dim top 40 seconds before dimming sides
 #define STEPS 30 //interrupts per second
 #define WAVE_SIDE_SIZE 2000
