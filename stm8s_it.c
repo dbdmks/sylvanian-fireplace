@@ -310,7 +310,7 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
 					top_brightness = 0;
 	
 	TIM2_ClearITPendingBit(TIM2_IT_UPDATE);	
-	GPIO_WriteReverse(GPIOB,GPIO_PIN_5);
+	//GPIO_WriteReverse(GPIOB,GPIO_PIN_5); //blink onboard LED every interrupt
 	
 	if (rt_seconds <= (FADEOUT + FADEOUT_TOP)) {
 		//time to dim

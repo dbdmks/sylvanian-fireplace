@@ -978,7 +978,7 @@ DRL	stm8s_stdperiph_driver\inc\stm8s.h	321;"	member	struct:ADC1_struct
 DRL	stm8s_stdperiph_driver\inc\stm8s.h	392;"	member	struct:ADC2_struct
 DTR	stm8s_stdperiph_driver\inc\stm8s.h	639;"	member	struct:TIM1_struct
 DUKR	stm8s_stdperiph_driver\inc\stm8s.h	1521;"	member	struct:FLASH_struct
-Delay	main.c	73;"	function	signature:(uint16_t count)
+Delay	main.c	84;"	function	signature:(uint16_t count)
 Delay	main.c	8;"	prototype	file:	signature:(uint16_t count)
 ECKR	stm8s_stdperiph_driver\inc\stm8s.h	506;"	member	struct:CLK_struct
 EEPROM	stm8s_stdperiph_driver\inc\stm8s.h	124;"	macro
@@ -1287,6 +1287,8 @@ GPIO_struct	stm8s_stdperiph_driver\inc\stm8s.h	264;"	struct
 GTR	stm8s_stdperiph_driver\inc\stm8s.h	1773;"	member	struct:UART1_struct
 GTR	stm8s_stdperiph_driver\inc\stm8s.h	1872;"	member	struct:UART2_struct
 GTR	stm8s_stdperiph_driver\inc\stm8s.h	2071;"	member	struct:UART4_struct
+GoGreen	main.c	11;"	prototype	file:	signature:(void)
+GoGreen	main.c	33;"	function	file:	signature:(void)
 HSE_VALUE	stm8s_stdperiph_driver\inc\stm8s.h	108;"	macro
 HSE_VALUE	stm8s_stdperiph_driver\inc\stm8s.h	110;"	macro
 HSIDivFactor	stm8s_stdperiph_driver\src\stm8s_clk.c	48;"	variable
@@ -2575,7 +2577,7 @@ TIM1_UpdateDisableConfig	stm8s_stdperiph_driver\src\stm8s_tim1.c	803;"	function	
 TIM1_UpdateRequestConfig	stm8s_stdperiph_driver\inc\stm8s_tim1.h	554;"	prototype	signature:(TIM1_UpdateSource_TypeDef TIM1_UpdateSource)
 TIM1_UpdateRequestConfig	stm8s_stdperiph_driver\src\stm8s_tim1.c	827;"	function	signature:(TIM1_UpdateSource_TypeDef TIM1_UpdateSource)
 TIM1_UpdateSource_TypeDef	stm8s_stdperiph_driver\inc\stm8s_tim1.h	402;"	typedef	typeref:enum:__anon125
-TIM1_pwm_setup	main.c	38;"	function	file:	signature:(void)
+TIM1_pwm_setup	main.c	49;"	function	file:	signature:(void)
 TIM1_pwm_setup	main.c	9;"	prototype	file:	signature:(void)
 TIM1_struct	stm8s_stdperiph_driver\inc\stm8s.h	607;"	struct
 TIM2	stm8s_stdperiph_driver\inc\stm8s.h	2680;"	macro
@@ -2812,7 +2814,7 @@ TIM2_UpdateRequestConfig	stm8s_stdperiph_driver\src\stm8s_tim2.c	416;"	function	
 TIM2_UpdateSource_TypeDef	stm8s_stdperiph_driver\inc\stm8s_tim2.h	246;"	typedef	typeref:enum:__anon143
 TIM2_struct	stm8s_stdperiph_driver\inc\stm8s.h	819;"	struct
 TIM2_wakeup_setup	main.c	10;"	prototype	file:	signature:(void)
-TIM2_wakeup_setup	main.c	27;"	function	file:	signature:(void)
+TIM2_wakeup_setup	main.c	38;"	function	file:	signature:(void)
 TIM3	stm8s_stdperiph_driver\inc\stm8s.h	2685;"	macro
 TIM3_ARRH_ARR	stm8s_stdperiph_driver\inc\stm8s.h	1036;"	macro
 TIM3_ARRH_RESET_VALUE	stm8s_stdperiph_driver\inc\stm8s.h	984;"	macro
@@ -4036,7 +4038,7 @@ __STM8S_UART4_H	stm8s_stdperiph_driver\inc\stm8s_uart4.h	30;"	macro
 __STM8S_WWDG_H	stm8s_stdperiph_driver\inc\stm8s_wwdg.h	30;"	macro
 _stext	stm8s_it.h	40;"	prototype	signature:(void)
 _vectab	stm8_interrupt_vector.c	14;"	variable
-assert_failed	main.c	86;"	function	signature:(uint8_t* file, uint32_t line)
+assert_failed	main.c	97;"	function	signature:(uint8_t* file, uint32_t line)
 assert_failed	stm8s_stdperiph_driver\inc\stm8s_conf.h	105;"	prototype	signature:(uint8_t* file, uint32_t line)
 assert_param	stm8s_stdperiph_driver\inc\stm8s_conf.h	103;"	macro
 assert_param	stm8s_stdperiph_driver\inc\stm8s_conf.h	107;"	macro
@@ -4057,7 +4059,7 @@ interrupt_handler	stm8_interrupt_vector.c	11;"	member	struct:interrupt_vector	fi
 interrupt_handler_t	stm8_interrupt_vector.c	7;"	typedef	file:
 interrupt_instruction	stm8_interrupt_vector.c	10;"	member	struct:interrupt_vector	file:
 interrupt_vector	stm8_interrupt_vector.c	9;"	struct	file:
-main	main.c	12;"	function
+main	main.c	13;"	function
 nop	stm8s_stdperiph_driver\inc\stm8s.h	2719;"	macro
 nop	stm8s_stdperiph_driver\inc\stm8s.h	2728;"	macro
 nop	stm8s_stdperiph_driver\inc\stm8s.h	2738;"	macro
