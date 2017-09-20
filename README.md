@@ -16,7 +16,7 @@ After this top LED light is [dimmed][3] for 1.5 minutes until off.
 Then both bottom LEDs are dimmed for 15 minutes to constant [weak glow][4], 
 which will then be [disabled completely][5] and uC put into halt mode consuming less than 1mA.
 
-There are binary `sfp.s19` and `option_bytes.hex` files in the release directory, you also can use `sft_programmer.stp` file to just flash the firmware.
+There are binary `sfp.s19` and `option_bytes.hex` files in the `Release` directory, you also can use `sft_programmer.stp` file to just flash the firmware.
 
 If you wish to generate your own brightness curves - use the Gnuplot: `gnuplot -c plot.gp` which will create `out_candle.dat`, then run `convert.pl` perl script to convert this into `pwm_waves.h` header file.
 
