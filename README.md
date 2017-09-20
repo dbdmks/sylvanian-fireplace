@@ -22,6 +22,8 @@ There are binary `sfp.s19` and `option_bytes.hex` files in the `Release` directo
 
 If you wish to generate your own brightness curves - use the Gnuplot: `gnuplot -c plot.gp` which will create `out_candle.dat`, then run `convert.pl` perl script to convert this into `pwm_waves.h` header file.
 
+There's also `candle.gp` gnuplot file which can be used to generate smooth splines through points from `manual.dat`. But it's either too slow to look like a fire or too many points should be added to the file manually.
+
 [1]:http://sylvanianfamilies.net/uk/catalog/item_detail.php?product_id=572
 [2]:images/3led1.6v.jpg
 [3]:images/2leds1.6v.jpg
