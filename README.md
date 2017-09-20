@@ -11,6 +11,8 @@ I have changed this small incandecent to 3 ultrabright warm white LEDs and added
 - 3pcs 100ohm resistors
 - peice of bluetack to get rid of white light coming out between the fire and bottom of the fireplace
 
+[Here][6] is the layout of components inside the fireplace.
+
 The device runs at [high brightness][2] flickering and emulating burning fire for 30 minutes.
 After this top LED light is [dimmed][3] for 1.5 minutes until off.
 Then both bottom LEDs are dimmed for 15 minutes to constant [weak glow][4], 
@@ -25,3 +27,4 @@ If you wish to generate your own brightness curves - use the Gnuplot: `gnuplot -
 [3]:images/2leds1.6v.jpg
 [4]:images/2leds_glow1.6v.jpg 
 [5]:images/sleeping.jpg
+[6]:images/layout.jpg
